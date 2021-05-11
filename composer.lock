@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "591257eec20b735d1a494145e5fb3385",
+    "content-hash": "9ad79bd2bcf90187556ae2ef1a40e4e5",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3845,6 +3845,54 @@
             "time": "2020-07-13T06:12:54+00:00"
         },
         {
+            "name": "useredit/laravelui",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/honpoio/useredit-laravelui.git",
+                "reference": "e94f34f4afbb2be7eb671d0dd6ba83c3d3140b9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/honpoio/useredit-laravelui/zipball/e94f34f4afbb2be7eb671d0dd6ba83c3d3140b9d",
+                "reference": "e94f34f4afbb2be7eb671d0dd6ba83c3d3140b9d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "useredit\\laravelui\\UserEditServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "useredit\\laravelui\\": "src"
+                },
+                "classmap": [
+                    "src/UserEdit_Operation_DB.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Tony lea",
+                    "email": "tony@devdojo.com"
+                }
+            ],
+            "description": "sample",
+            "support": {
+                "issues": "https://github.com/honpoio/useredit-laravelui/issues",
+                "source": "https://github.com/honpoio/useredit-laravelui/tree/master"
+            },
+            "time": "2021-01-12T05:50:49+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v3.6.8",
             "source": {
@@ -6074,7 +6122,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "useredit/laravelui": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
