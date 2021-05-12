@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth']], function() {
     
     Route::get('/user', 'UserEditController@UserEditForm')->name('user');
     Route::post('/user/edit/email','UserEditController@EmailUpdate')->name('edit.email');
-    Route::post('/user/edit/password','UserEditController@PasswordChange')->name('edit.password');
+    Route::post('/user/edit/password','UserEditController@PasswordChange')->name('');
 
 });
 

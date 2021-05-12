@@ -25,7 +25,7 @@ class UserEditController extends Controller
         //ユーザー編集画面を表示させるメソッド
     $auth = auth::user();
     $this->checkLogin();
-    return view('auth.UserEdit',['auth'=>$auth]);
+    return view('user.UserEdit',['auth'=>$auth]);
     }
     
     public function EmailUpdate(UpdateEmailRequest $request){

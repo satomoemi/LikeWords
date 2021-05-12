@@ -16,7 +16,7 @@
                     <div class="card-header"><h3>ユーザー情報・設定</h3></div>
                     <div class="card-body">
 
-                        <form method="POST" action="/user/edit/email">
+                        <form method="POST" action="{{ route('edit.email') }}">
                         @csrf  
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">email変更</label>
@@ -34,12 +34,12 @@
 
                         </form>
 
-                        <form method="POST" action="/user/edit/password">
+                        <form method="POST" action="{{ route('edit.password) }}">
                         @csrf
                             <div class="form-group row">
                                 <label for="password"  class="col-md-4 col-form-label text-md-right">現在のパスワードを入力</label>
                                 <div class="col-md-6">
-                                    <input  type="password"　id="password"  name="CurrentPassword" class="form-control @error('CurrentPassword') is-invalid @enderror">
+                                    <input  type="password" id="password"  name="CurrentPassword" class="form-control @error('CurrentPassword') is-invalid @enderror">
                                     @error('CurrentPassword')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
