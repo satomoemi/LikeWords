@@ -76,7 +76,7 @@
 
                                     <input id="gender1" type="radio" name="gender" class="btn-check @error('gender') is-invalid @enderror" value="女" {{ $auth["gender"] =='女'? "checked" : "" }} >女
 
-                                    <input id="gender2" type="radio" name="gender" class="btn-check @error('gender') is-invalid @enderror"  value="答えたくない" {{ $auth["gender"] == '答えたくない'? "checked" : "" }}>
+                                    <input id="gender2" type="radio" name="gender" class="btn-check @error('gender') is-invalid @enderror"  value="答えたくない"{{ $auth["gender"] == '答えたくない'? "checked" : "" }}">
                                     答えたくない
 
 

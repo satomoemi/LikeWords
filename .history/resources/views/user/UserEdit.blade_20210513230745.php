@@ -72,14 +72,7 @@
                             <div class="form-group row">
                                 <label for="gender" class="col-md-4 col-form-label text-md-right">性別変更</label>
                                 <div class="col-md-6">
-                                    <input  id="gender" type="radio" name="gender" class="btn-check @error('gender') is-invalid @enderror"  value="男" {{ $auth["gender"] =='男'? "checked" : "" }} >男
-
-                                    <input id="gender1" type="radio" name="gender" class="btn-check @error('gender') is-invalid @enderror" value="女" {{ $auth["gender"] =='女'? "checked" : "" }} >女
-
-                                    <input id="gender2" type="radio" name="gender" class="btn-check @error('gender') is-invalid @enderror"  value="答えたくない" {{ $auth["gender"] == '答えたくない'? "checked" : "" }}>
-                                    答えたくない
-
-
+                                    <input id="gender" name="gender" type="radio" value="{{$auth["gender"]}}" class="form-control @error('') is-invalid @enderror">
                                     @error('gender')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

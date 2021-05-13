@@ -64,7 +64,7 @@ class HomeController extends Controller
         ]);
         
         //退会処理を追加するメソッド
-        //UserEdit_Operation_DBっていうのがvenderディレクトリーにあるuseしてるから繋がってる
+        //UserEdit_Operation_DBっていうのがvenderぢ
         $id = Auth::id();
         $UserEdit_Operation_DB = new UserEdit_Operation_DB();
         return $UserEdit_Operation_DB->Withdrawal($request,$id);

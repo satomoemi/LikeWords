@@ -71,12 +71,12 @@
                         @csrf  
                             <div class="form-group row">
                                 <label for="gender" class="col-md-4 col-form-label text-md-right">性別変更</label>
+                                    <input  id="gender" type="radio" class="btn-check @error('gender') is-invalid @enderror" name="gender" value="{{ $auth["gender"]=='男'? "checked" : "" }}">男
                                 <div class="col-md-6">
-                                    <input  id="gender" type="radio" name="gender" class="btn-check @error('gender') is-invalid @enderror"  value="男" {{ $auth["gender"] =='男'? "checked" : "" }} >男
 
-                                    <input id="gender1" type="radio" name="gender" class="btn-check @error('gender') is-invalid @enderror" value="女" {{ $auth["gender"] =='女'? "checked" : "" }} >女
+                                    <input id="gender1" type="radio" name="gender"  value="{{ $auth["gender"]=='女'? "checked" : "" }}" class="btn-check @error('gender') is-invalid @enderror">女
 
-                                    <input id="gender2" type="radio" name="gender" class="btn-check @error('gender') is-invalid @enderror"  value="答えたくない" {{ $auth["gender"] == '答えたくない'? "checked" : "" }}>
+                                    <input id="gender2" type="radio" class="btn-check @error('gender') is-invalid @enderror" name="gender" value="{{ $auth["gender"]=='答えたくない'? "checked" : "" }}">
                                     答えたくない
 
 
