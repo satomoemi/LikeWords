@@ -21,14 +21,14 @@
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">ユーザー名変更</label>
                                 <div class="col-md-6">
-                                    <input id="name" name="name" value="{{$auth["name"]}}" class="form-control @error('name') is-invalid @enderror">
+                                    <input id="name" name="ame" value="{{$auth["name"]}}" class="form-control @error('name') is-invalid @enderror">
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
-                                <input type="hidden" name="UserId" value={{$auth["id"]}}><!--画面には表示しなくていいけど送りたい値があるとき-->
+                                <input type="hidden" name="UserId" value={{$auth["id"]}}>
                                 <button dusk="view-button" class="btn btn-primary">更新</button>
                             </div>
 
@@ -38,7 +38,7 @@
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">メール変更</label>
                                 <div class="col-md-6">
-                                    <input id="email" name="email" value="{{$auth["email"]}}" class="form-control @error('email') is-invalid @enderror">
+                                    <input id="email" name="Email" value="{{$auth["email"]}}" class="form-control @error('email') is-invalid @enderror">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

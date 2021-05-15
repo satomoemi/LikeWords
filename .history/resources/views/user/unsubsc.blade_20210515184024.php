@@ -25,18 +25,18 @@
             <label for="password"  class="col-md-4 col-form-label text-md-right">現在のパスワードを入力</label>
             <div class="col-md-6">
                 <input type="password"  name="CurrentPassword" class="form-control @error('CurrentPassword') is-invalid @enderror">
+
                 @error('CurrentPassword')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
+             退会</button>
             </div>
-        </div>
             
-            <button class="btn btn-danger">退会</button>
-          
-            <!-- <input type="hidden" name="UserId" value={{$auth["id"]}}> controllerでidを受け取ってるから入力しなくて大丈夫 -->
             
+            <!-- <input type="hidden" name="UserId" value={{$auth["id"]}}> controllerでidを受け取ってるから入力しなくて大丈夫-->
+            <br>
             
           
         </div>

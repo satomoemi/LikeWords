@@ -44,8 +44,8 @@ class HomeController extends Controller
     }
 
     public function delete(Request $request)
+    $this->validate($request, Unsubscribe::$rules);
     {
-        $this->validate($request, Unsubscribe::$rules);
         //現在のパスワードと新しいパスワードが合わなければエラーを出力
         $validate = $request->validate([
             'CurrentPassword'    => ['required',
