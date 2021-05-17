@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\WithdrawalRequest;
 use Illuminate\Support\Facades\Validator;
 use App\Unsubscribe;
-use App\Folder;
+use App\F
 use Hash;
 use UserEdit_Operation_DB;
 
@@ -31,11 +31,6 @@ class HomeController extends Controller
     public function home()
     {
         return view('user.home');
-    }
-
-    public function folder()
-    {
-        
     }
 
     public function push()

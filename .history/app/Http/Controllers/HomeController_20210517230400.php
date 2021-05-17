@@ -33,11 +33,6 @@ class HomeController extends Controller
         return view('user.home');
     }
 
-    public function folder()
-    {
-        
-    }
-
     public function push()
     {
         return view('user.push');

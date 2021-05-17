@@ -34,9 +34,7 @@ class HomeController extends Controller
     }
 
     public function folder()
-    {
-        
-    }
+    
 
     public function push()
     {
