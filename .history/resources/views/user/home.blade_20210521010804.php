@@ -22,17 +22,16 @@
                 Folder
                 </div>
 
-                <div class="card-body">
-                    <div class="list-group">
+                <div class="card-body list-group  d-flex justify-content-between align-items-center">
 
                     @foreach($folders as $folder)
                         <a href="{{ route('home') }}" class="list-group-item">
                         {{ $folder->title }}    
                         </a>
-                        <a class="btn btn-primary" href="#">編集</a>
+                        <a class="btn btn-primary ml-auto mr-1" href="#">編集</a>
                         <a class="btn btn-danger" href="#">削除</a>
                     @endforeach   
-                    </div>
+                    
                 </div>
             </div>
         </div>

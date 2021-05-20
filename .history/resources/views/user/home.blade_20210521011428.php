@@ -23,6 +23,7 @@
                 </div>
 
                 <div class="card-body">
+                </div>
                     <div class="list-group">
 
                     @foreach($folders as $folder)
@@ -33,7 +34,6 @@
                         <a class="btn btn-danger" href="#">削除</a>
                     @endforeach   
                     </div>
-                </div>
             </div>
         </div>
         <div class="column col-md-6">

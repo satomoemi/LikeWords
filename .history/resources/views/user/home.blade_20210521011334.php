@@ -22,7 +22,7 @@
                 Folder
                 </div>
 
-                <div class="card-body">
+                <div class="card-body list-group">
                     <div class="list-group">
 
                     @foreach($folders as $folder)

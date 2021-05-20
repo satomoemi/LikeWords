@@ -33,8 +33,7 @@ class HomeController extends Controller
     public function home()
     {
         $folders = Folder::all();
-
-        return view('user.home',['folders' => $folders]);
+        return view('user.home');
     }
 
     //フォルダ作成画面

@@ -34,7 +34,7 @@ class HomeController extends Controller
     {
         $folders = Folder::all();
 
-        return view('user.home',['folders' => $folders]);
+        return view('user.home',['posts' => $posts);
     }
 
     //フォルダ作成画面

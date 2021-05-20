@@ -10,7 +10,7 @@ class Folder extends Model
 
     public static $rules = array(
         'title' =>  'required',
-        // 'pushes_id' =>  'required',
+        'pushes_id' =>  'required',
     );
     
     

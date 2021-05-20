@@ -32,9 +32,7 @@ class HomeController extends Controller
     //フォルダ一覧画面
     public function home()
     {
-        $folders = Folder::all();
-
-        return view('user.home',['folders' => $folders]);
+        return view('user.home');
     }
 
     //フォルダ作成画面

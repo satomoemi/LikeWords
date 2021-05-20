@@ -22,7 +22,7 @@
                 Folder
                 </div>
 
-                <div class="card-body">
+                <div class="card-body list-group">
                     <div class="list-group">
 
                     @foreach($folders as $folder)
@@ -32,7 +32,7 @@
                         <a class="btn btn-primary" href="#">編集</a>
                         <a class="btn btn-danger" href="#">削除</a>
                     @endforeach   
-                    </div>
+                    
                 </div>
             </div>
         </div>

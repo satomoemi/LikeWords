@@ -22,8 +22,7 @@
                 Folder
                 </div>
 
-                <div class="card-body">
-                    <div class="list-group">
+                <div class="card-body list-group">
 
                     @foreach($folders as $folder)
                         <a href="{{ route('home') }}" class="list-group-item">
@@ -32,7 +31,7 @@
                         <a class="btn btn-primary" href="#">編集</a>
                         <a class="btn btn-danger" href="#">削除</a>
                     @endforeach   
-                    </div>
+                    
                 </div>
             </div>
         </div>
