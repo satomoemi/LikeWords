@@ -74,8 +74,8 @@
                             <a class="btn btn-primary" href="{{ route('create.word', ['id' => $current_folder->id]) }}">Word作成</a>
                         </th>
                     </tr>
+                    @endif
                 </thead>
-                @endif
                 
                 <tbody>
                     @foreach($words as $word)

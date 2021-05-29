@@ -75,7 +75,6 @@
                         </th>
                     </tr>
                 </thead>
-                @endif
                 
                 <tbody>
                     @foreach($words as $word)
@@ -94,6 +93,7 @@
                     @endforeach 
                 </tbody>
             </table>
+            @endif
         </div>
     </div>
 </div>

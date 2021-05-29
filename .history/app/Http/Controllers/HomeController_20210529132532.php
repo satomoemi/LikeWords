@@ -33,8 +33,9 @@ class HomeController extends Controller
     public function home(Request $request)
     {
         $folders = Folder::all();
+
         //検索
-        $cond_word = $request->cond_word;
+         $cond_word = $request->cond_word;
         
             
         $current_folder = NULL;
@@ -44,20 +45,33 @@ class HomeController extends Controller
             
             //Folderテーブルのwords()を取得 $current_folderで一致するFolderのレコードを出してる、そのFolderのidと一致するwordのレコードを＄wordsに代入
             $words = $current_folder->words; 
-
         }elseif($cond_word != ''){
-            //Wordテーブルの中のwordカラムで$cond_wordと部分一致したレコードを取得する
+            //Wordテーブルの中のwordカラムで$cond_wordと一致したレコードを取得する
             $words = Word::where('word','like','%'.$cond_word.'%')->get();
         }else{
-            //collectの中は空
-            $words = collect();
-        }
+            $words = NULL;
+            
 
         
     
             
         return view('user.home',['folders' => $folders, 'current_folder' => $current_folder, 'words' => $words, 'cond_word' => $cond_word]);
         
+    }
+
+    //検索
+    public function SearchWord(Request $request)
+    {
+         //word検索
+         $cond_word = $request->cond_word;
+        if($cond_word != ''){
+            //Wordテーブルの中のwordカラムで$cond_wordと一致したレコードを取得する
+            $posts = Word::where('word','like','%'.$cond_word.'%')->get();
+        }else {
+            $posts = Word::all();
+        }
+
+        return redirect ( route('home',['posts' => $posts->folder_id]));
     }
 
 

@@ -44,12 +44,11 @@ class HomeController extends Controller
             
             //Folderテーブルのwords()を取得 $current_folderで一致するFolderのレコードを出してる、そのFolderのidと一致するwordのレコードを＄wordsに代入
             $words = $current_folder->words; 
-
         }elseif($cond_word != ''){
-            //Wordテーブルの中のwordカラムで$cond_wordと部分一致したレコードを取得する
+            //Wordテーブルの中のwordカラムで$cond_wordと一致したレコードを取得する
             $words = Word::where('word','like','%'.$cond_word.'%')->get();
+            // dd($words);
         }else{
-            //collectの中は空
             $words = collect();
         }
 

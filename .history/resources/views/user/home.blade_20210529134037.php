@@ -67,15 +67,14 @@
 
         <div class="col col-md-7">
             <table class="table table-white">
-                @if($current_folder != NULL)
                 <thead class="thead thead-dark">
                     <tr>
+                        @if($current_folder != NULL)
                         <th>
                             <a class="btn btn-primary" href="{{ route('create.word', ['id' => $current_folder->id]) }}">Word作成</a>
                         </th>
                     </tr>
                 </thead>
-                @endif
                 
                 <tbody>
                     @foreach($words as $word)
@@ -94,6 +93,7 @@
                     @endforeach 
                 </tbody>
             </table>
+            @endif
         </div>
     </div>
 </div>

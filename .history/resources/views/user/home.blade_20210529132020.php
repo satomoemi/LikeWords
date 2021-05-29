@@ -66,8 +66,8 @@
         </div>
 
         <div class="col col-md-7">
+            @if($current_folder != NULL)
             <table class="table table-white">
-                @if($current_folder != NULL)
                 <thead class="thead thead-dark">
                     <tr>
                         <th>
@@ -75,7 +75,6 @@
                         </th>
                     </tr>
                 </thead>
-                @endif
                 
                 <tbody>
                     @foreach($words as $word)
@@ -94,6 +93,7 @@
                     @endforeach 
                 </tbody>
             </table>
+            @endif
         </div>
     </div>
 </div>

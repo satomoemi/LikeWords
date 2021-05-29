@@ -49,7 +49,7 @@ class HomeController extends Controller
             //Wordテーブルの中のwordカラムで$cond_wordと部分一致したレコードを取得する
             $words = Word::where('word','like','%'.$cond_word.'%')->get();
         }else{
-            //collectの中は空
+            //collectの中はから
             $words = collect();
         }
 
