@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropColumnFoldersTable extends Migration
+class CreatePushesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class DropColumnFoldersTable extends Migration
      */
     public function up()
     {
-        Schema::table('folders', function (Blueprint $table) {
-            $table->dropColumn('users_id');
-            $table->dropColumn('words_id');
+        Schema::create('pushes', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->datetime()
+            $table->timestamps();
         });
     }
 
@@ -26,8 +27,6 @@ class DropColumnFoldersTable extends Migration
      */
     public function down()
     {
-        Schema::table('folders', function (Blueprint $table) {
-            
-        });
+        Schema::dropIfExists('pushes');
     }
 }
