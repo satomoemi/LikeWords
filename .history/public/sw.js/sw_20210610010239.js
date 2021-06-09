@@ -4,6 +4,9 @@ self.LikeWordsPushListener('push', e => {    // プッシュ通知された時
   const title = json.title;
   const options = {
       body: json.body,
+      data: {
+          url: json.data.url,
+      }
   };
   e.waitUntil(
       self.registration.showNotification(title, options)

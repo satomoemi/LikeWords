@@ -1,10 +1,11 @@
-<html>
-<body>
+@extends('layouts.app')
+
+@section('content')
     <div id="app">
         <div v-if="processing">処理中...</div>
         <div v-else>
-            <button type="button" @click="subscribe" v-if="!isSubscribed">Wordプッシュ通知を登録する</button>
-            <button type="button" @click="unsubscribe" v-else>Wordプッシュ通知を解除する</button>
+            <button type="button" @click="subscribe" v-if="!isSubscribed">イベントのプッシュ通知を登録する</button>
+            <button type="button" @click="unsubscribe" v-else>イベントのプッシュ通知を解除する</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
@@ -32,7 +33,7 @@
                         .then(subscription => {
 
                             // Laravel側へデータを送信
-                            fetch('/web_push/', {
+                            fetch('/web_push', {
                                 method: 'POST',
                                 body: JSON.stringify(subscription),
                                 headers: {

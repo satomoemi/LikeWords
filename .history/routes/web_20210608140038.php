@@ -48,15 +48,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 //通知画面
 Route::group(['middleware' => 'auth'], function() {
-Route::get('/push', 'WebPushController@push')->name('push');
-});
-Route::get('web_push/create', 'WebPushController@create');
-Route::post('web_push', 'WebPushController@store');
-Route::get('web_push_test', function(){
-
-    $users = \App\User::all();
-    \Notification::send($users, new \App\Notifications\LikeWordsPush());
-
+Route::get('/push', 'PushController@push')->name('push');
+Route::post('/push/subscription', 'WebPushController@subscription')->name('subscription');
 });
 
 //退会

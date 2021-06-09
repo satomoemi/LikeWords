@@ -4,13 +4,16 @@ self.LikeWordsPushListener('push', e => {    // プッシュ通知された時
   const title = json.title;
   const options = {
       body: json.body,
+      data: {
+          url: json.data.url,
+      }
   };
   e.waitUntil(
       self.registration.showNotification(title, options)
   );
 
 });
-self.LikeWordsPushListener('notificationclick', e => {   // 通知がクリックされた時
+self.addEventListener('notificationclick', e => {   // 通知がクリックされた時
 
   const data = e.notification.data;
   e.waitUntil(

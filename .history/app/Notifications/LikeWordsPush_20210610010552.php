@@ -2,13 +2,16 @@
 
 namespace App\Notifications;
 
+use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use NotificationChannels\WebPush\WebPushChannel;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
+
 use NotificationChannels\WebPush\WebPushMessage;
+use NotificationChannels\WebPush\WebPushChannel;
 
 class LikeWordsPush extends Notification
 {
-
     public function via($notifiable)
     {
         return [WebPushChannel::class];

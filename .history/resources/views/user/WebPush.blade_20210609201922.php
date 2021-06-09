@@ -1,5 +1,6 @@
-<html>
-<body>
+@extends('layouts.app')
+
+@section('content')
     <div id="app">
         <div v-if="processing">処理中...</div>
         <div v-else>
@@ -32,7 +33,7 @@
                         .then(subscription => {
 
                             // Laravel側へデータを送信
-                            fetch('/web_push/', {
+                            fetch('/web_push', {
                                 method: 'POST',
                                 body: JSON.stringify(subscription),
                                 headers: {
@@ -134,5 +135,4 @@
         });
 
     </script>
-</body>
-</html>
+@endsection

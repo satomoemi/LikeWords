@@ -32,7 +32,7 @@
                         .then(subscription => {
 
                             // Laravel側へデータを送信
-                            fetch('/web_push/', {
+                            fetch('/web_push', {
                                 method: 'POST',
                                 body: JSON.stringify(subscription),
                                 headers: {
@@ -134,5 +134,4 @@
         });
 
     </script>
-</body>
-</html>
+@endsection

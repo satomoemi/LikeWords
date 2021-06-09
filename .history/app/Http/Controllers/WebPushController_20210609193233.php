@@ -19,7 +19,7 @@ class WebPushController extends Controller
 
     public function create() {
 
-        return view('user.WebPush');
+        return view('web_push.create');
 
     }
 
@@ -40,7 +40,6 @@ class WebPushController extends Controller
         return response()->json([
             'success' => true
         ], 200);
-
     }
 
 

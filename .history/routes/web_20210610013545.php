@@ -49,9 +49,9 @@ Route::group(['middleware' => 'auth'], function() {
 //通知画面
 Route::group(['middleware' => 'auth'], function() {
 Route::get('/push', 'WebPushController@push')->name('push');
-});
 Route::get('web_push/create', 'WebPushController@create');
-Route::post('web_push', 'WebPushController@store');
+Route::post('web_push/create', 'WebPushController@store');
+});
 Route::get('web_push_test', function(){
 
     $users = \App\User::all();

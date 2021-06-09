@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class WebPushController extends Controller
 {
-    public function push()
-    {
-        return view('user.push');
-    }
+    // public function push()
+    // {
+    //     return view('user.push');
+    // }
 
     public function __construct() {
 
@@ -19,7 +19,7 @@ class WebPushController extends Controller
 
     public function create() {
 
-        return view('user.WebPush');
+        return view('user.');
 
     }
 

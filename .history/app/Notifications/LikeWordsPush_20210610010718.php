@@ -3,7 +3,9 @@
 namespace App\Notifications;
 
 use Illuminate\Notifications\Notification;
-use NotificationChannels\WebPush\WebPushChannel;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+
 use NotificationChannels\WebPush\WebPushMessage;
 
 class LikeWordsPush extends Notification

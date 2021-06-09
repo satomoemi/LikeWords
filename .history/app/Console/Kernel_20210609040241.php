@@ -24,10 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // クロージャでタスクの登録(直接ここに処理も記述)
-        $schedule->call(function () {
-            \Log::info('毎分ログ出力テスト - closure');
-        })->everyMinute();
+        
     }
 
     /**
