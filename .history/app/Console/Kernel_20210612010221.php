@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     //コマンドの登録
     protected $commands = [
-        Commands\WordPush::Class,
+        Commands\CronTestCommand::Class,
     ];
 
     /**

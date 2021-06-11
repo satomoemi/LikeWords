@@ -1,5 +1,5 @@
 <?php
-//タスクスケジューラ
+//タスクスケジュール
 //どんなタスクをどれくらいのスケジュールで実行するの？って言うのを定義
 namespace App\Console;
 
@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     //コマンドの登録
     protected $commands = [
-        Commands\WordPush::Class,
+        Commands\
     ];
 
     /**
@@ -24,10 +24,12 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
-    //タスクをスケジュールする
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('WordPush')->everyMinute();
+        // クロージャでタスクの登録(直接ここに処理も記述)
+        $schedule->call(function () {
+            \Log::info('毎分ログ出力テスト - closure');
+        })->everyMinute();
     }
 
     /**

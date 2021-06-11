@@ -11,7 +11,8 @@ class CronTestCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'display:cron-test';
+    //コマンドの名前
+    protected $signature = 'CronTestCommand';
     
 
     /**
@@ -19,7 +20,8 @@ class CronTestCommand extends Command
      *
      * @var string
      */
-    protected $description = 'cron動作確認用のテストコマンドです。';
+    //コマンドの説明
+    protected $description = 'cronテストコマンド';
 
     /**
      * Create a new command instance.
@@ -36,9 +38,10 @@ class CronTestCommand extends Command
      *
      * @return mixed
      */
+    //処理内容を記述
     public function handle()
     {
         //ここに書いた処理が実際に定期実行される処理！！！
-        \Log::info('ログ出力テスト - command');
+        logger(');
     }
 }
