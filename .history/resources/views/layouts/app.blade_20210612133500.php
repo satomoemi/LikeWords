@@ -20,7 +20,7 @@
             appId: "8f2d0d35-3d44-4f4d-ab3b-33d3a1f6f6a7",
             });
         });
-    </script>
+        </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

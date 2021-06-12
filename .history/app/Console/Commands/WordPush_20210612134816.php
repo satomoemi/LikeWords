@@ -46,20 +46,19 @@ class WordPush extends Command
     {
         //ここに書いた処理が実際に定期実行される処理！！！
         $fields = array(
-            'app_id' => env('ONESINGAL_APP_ID'),//環境変数
-            // 'include_external_user_ids' => [$user_id],
-            'included_segments' => ['All'],
+            'app_id' => "8f2d0d35-3d44-4f4d-ab3b-33d3a1f6f6a7",
+            'include_external_user_ids' => [$user_id],
             'url' => "http://localhost/",
             'headings' => array('en' => 'test'),
-            'contents' => array('en' => 'testbody')
+            'contents' => array('en' => test)
         );
-        //この下からonesignalと繋がっている
+
         $fields = json_encode($fields);
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
         curl_setopt($ch, CURLOPT_HTTPHEADER,
-                    array('Content-Type: application/json; charset=utf-8', 'Authorization: Basic '.env('ONESINGAL_REST_API_KEY')));//環境変数
+                    array('Content-Type: application/json; charset=utf-8', 'Authorization: Basic '.'NmEwYzE5NzQtZGE3Mi00N2M5LTk5YzYtYjgxN2JkZTY3NmM0'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_POST, true);
@@ -67,7 +66,6 @@ class WordPush extends Command
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         $response = curl_exec($ch);
-        logger($response);
         curl_close($ch);
 
         

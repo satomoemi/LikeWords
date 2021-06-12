@@ -46,7 +46,7 @@ class WordPush extends Command
     {
         //ここに書いた処理が実際に定期実行される処理！！！
         $fields = array(
-            'app_id' => env('ONESINGAL_APP_ID'),//環境変数
+            'app_id' => 'env.ONESINGAL_APP_ID',//環境変数
             // 'include_external_user_ids' => [$user_id],
             'included_segments' => ['All'],
             'url' => "http://localhost/",
@@ -59,7 +59,7 @@ class WordPush extends Command
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
         curl_setopt($ch, CURLOPT_HTTPHEADER,
-                    array('Content-Type: application/json; charset=utf-8', 'Authorization: Basic '.env('ONESINGAL_REST_API_KEY')));//環境変数
+                    array('Content-Type: application/json; charset=utf-8', 'Authorization: Basic '.'${process.env.ONESINGAL_REST_API_KEY}'));//環境変数
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_POST, true);

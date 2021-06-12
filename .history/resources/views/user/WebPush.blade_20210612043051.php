@@ -7,7 +7,7 @@
             <button type="button" @click="unsubscribe" v-else>Wordプッシュ通知を解除する</button>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
 
         new Vue({

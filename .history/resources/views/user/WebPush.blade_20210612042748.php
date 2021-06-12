@@ -7,7 +7,7 @@
             <button type="button" @click="unsubscribe" v-else>Wordプッシュ通知を解除する</button>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></
     <script>
 
         new Vue({
@@ -96,7 +96,7 @@
                     const binaryLength = binary.length;
                     let uint8Array = new Uint8Array(binaryLength);
 
-                    for(let i = 0; i <script binaryLength; i++) {
+                    for(let i = 0; i < binaryLength; i++) {
 
                         uint8Array[i] = binary.charCodeAt(i);
 

@@ -1,3 +1,4 @@
+
 <html>
 <body>
     <div id="app">
@@ -96,7 +97,7 @@
                     const binaryLength = binary.length;
                     let uint8Array = new Uint8Array(binaryLength);
 
-                    for(let i = 0; i <script binaryLength; i++) {
+                    for(let i = 0; i < binaryLength; i++) {
 
                         uint8Array[i] = binary.charCodeAt(i);
 
