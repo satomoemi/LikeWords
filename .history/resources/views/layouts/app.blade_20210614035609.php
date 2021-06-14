@@ -11,6 +11,29 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+            OneSignal.init({
+            appId: "8f2d0d35-3d44-4f4d-ab3b-33d3a1f6f6a7",
+            });
+
+            @if(isset($loginUser))
+            //onesignalにuser_idをセット
+            OneSignal.on('subscriptionChange', function (isSubscribed) {
+                if (isSubscribed == true) {
+                    OneSignal.setExternalUserId('{{ $loginUser->id }}');
+                    OneSignal.getExternalUserId().then(function (id) {
+                    });
+                } else if (isSubscribed == false) {
+                    OneSignal.removeExternalUserId();
+                }
+            });
+            @endif
+        });
+        });
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +41,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">

@@ -11,34 +11,17 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <!--赤いベルマークの実装をしている(word.phpとの関連はなし)-->
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-    <!-- php上で別のところで定義された変数をscriptタグの中では直接使えない。だから@phpを使ってblade上で直接定義する -->
-    @php
-    $loginUser = Auth::user(); <!--Authでログインしたユーザーを取得-->
-    @endphp
     <script>
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             OneSignal.init({
             appId: "8f2d0d35-3d44-4f4d-ab3b-33d3a1f6f6a7",
             });
-
-            @if(isset($loginUser))//isset()変数の値が存在するか否か。あればtrue
-            //onesignalにuser_idをセット
-            OneSignal.on('subscriptionChange', function (isSubscribed) {
-                if (isSubscribed == true) {
-                    //OneSignalのユーザーとアプリ側のユーザーを一致する
-                    OneSignal.setExternalUserId('{{ $loginUser->id }}');
-                    //ユーザーのブラウザにローカルに保存されている値を取得
-                    OneSignal.getExternalUserId().then(function (id) {
-                    });
-                } else if (isSubscribed == false) {
-                    //通知を拒否されたら現在のユーザーの外部ユーザーIDとして設定されているものをすべて削除
-                    OneSignal.removeExternalUserId();
-                }
+            OneSignal.getUserId(function(userId) {
+            console.log("OneSignal User ID:", userId);
+            // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
             });
-            @endif
         });
     </script>
 

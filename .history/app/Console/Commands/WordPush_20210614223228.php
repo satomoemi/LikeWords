@@ -43,12 +43,13 @@ class WordPush extends Command
      * @return mixed
      */
     //処理内容を記述
-    public function handle($user_id)
+    public function handle()
     {
         //ここに書いた処理が実際に定期実行される処理！！！(app.bladeのscriptとは関連なし)
+        $user_id = A
         $fields = array(
             'app_id' => env('ONESINGAL_APP_ID'),//環境変数
-            'include_external_user_id' => [$user_id],//ログインしてるかつ通知登録してるユーザーに通知したい
+            'include_external_user_ids' => [$user_id],
             // 'included_segments' => ['All'],
             'url' => "http://localhost/",
             'headings' => array('en' => 'test'),

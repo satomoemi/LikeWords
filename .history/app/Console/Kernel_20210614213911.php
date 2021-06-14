@@ -4,7 +4,6 @@
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -29,7 +28,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         //command directryのwordpushは1分ごとの実行するとスケジュールしてる
-        $schedule->command('WordPush' 'user_id' => Auth::id() )->everyMinute();
+        $schedule->command('WordPush',)->everyMinute();
     }
 
     /**
