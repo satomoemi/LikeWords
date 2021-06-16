@@ -1,0 +1,146 @@
+[2021-06-15 00:28:01] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-15 14:03:41] local.DEBUG: {"id":"1af02a18-a6d9-42c7-bc92-be1355cccb5f","recipients":1,"external_id":null} 
+[2021-06-15 14:13:01] local.ERROR: Too many arguments, expected arguments "command". {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): Too many arguments, expected arguments \"command\". at /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/ArgvInput.php:172)
+[stacktrace]
+#0 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/ArgvInput.php(83): Symfony\\Component\\Console\\Input\\ArgvInput->parseArgument('user_id=')
+#1 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#2 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Command/Command.php(214): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#4 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(1009): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(273): Symfony\\Component\\Console\\Application->doRunCommand(Object(App\\Console\\Commands\\WordPush), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 {main}
+"} 
+[2021-06-15 14:14:00] local.ERROR: Too many arguments, expected arguments "command". {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): Too many arguments, expected arguments \"command\". at /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/ArgvInput.php:172)
+[stacktrace]
+#0 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/ArgvInput.php(83): Symfony\\Component\\Console\\Input\\ArgvInput->parseArgument('user_id=')
+#1 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#2 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Command/Command.php(214): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#4 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(1009): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(273): Symfony\\Component\\Console\\Application->doRunCommand(Object(App\\Console\\Commands\\WordPush), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 {main}
+"} 
+[2021-06-15 14:22:39] local.ERROR: Too few arguments to function App\Console\Commands\WordPush::handle(), 0 passed and exactly 1 expected {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Too few arguments to function App\\Console\\Commands\\WordPush::handle(), 0 passed and exactly 1 expected at /Applications/MAMP/htdocs/LikeWords/app/Console/Commands/WordPush.php:46)
+[stacktrace]
+#0 [internal function]: App\\Console\\Commands\\WordPush->handle()
+#1 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#2 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#4 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/Container.php(576): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#7 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#8 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(1009): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(273): Symfony\\Component\\Console\\Application->doRunCommand(Object(App\\Console\\Commands\\WordPush), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 {main}
+"} 
+[2021-06-15 14:29:55] local.DEBUG: {"id":"79c51979-9e72-4305-b539-b4e4c776c47d","recipients":1,"external_id":null}  
+[2021-06-15 14:30:17] local.DEBUG: {"id":"35585b35-cf43-4baa-a911-1484bf48f1a5","recipients":1,"external_id":null}  
+[2021-06-15 14:40:11] local.ERROR: Too few arguments to function App\Console\Commands\WordPush::handle(), 0 passed and exactly 1 expected {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Too few arguments to function App\\Console\\Commands\\WordPush::handle(), 0 passed and exactly 1 expected at /Applications/MAMP/htdocs/LikeWords/app/Console/Commands/WordPush.php:46)
+[stacktrace]
+#0 [internal function]: App\\Console\\Commands\\WordPush->handle()
+#1 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#2 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#4 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/Container.php(576): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#7 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#8 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(1009): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(273): Symfony\\Component\\Console\\Application->doRunCommand(Object(App\\Console\\Commands\\WordPush), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 {main}
+"} 
+[2021-06-15 15:41:58] local.ERROR: Too many arguments, expected arguments "command". {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): Too many arguments, expected arguments \"command\". at /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/ArgvInput.php:172)
+[stacktrace]
+#0 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/ArgvInput.php(83): Symfony\\Component\\Console\\Input\\ArgvInput->parseArgument('1')
+#1 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#2 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Command/Command.php(214): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#4 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(1009): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(273): Symfony\\Component\\Console\\Application->doRunCommand(Object(App\\Console\\Commands\\WordPush), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 {main}
+"} 
+[2021-06-15 15:42:28] local.ERROR: Too many arguments, expected arguments "command". {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): Too many arguments, expected arguments \"command\". at /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/ArgvInput.php:172)
+[stacktrace]
+#0 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/ArgvInput.php(83): Symfony\\Component\\Console\\Input\\ArgvInput->parseArgument('9')
+#1 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#2 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Command/Command.php(214): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#4 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(1009): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(273): Symfony\\Component\\Console\\Application->doRunCommand(Object(App\\Console\\Commands\\WordPush), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 {main}
+"} 
+[2021-06-15 16:12:49] local.ERROR: Cannot redeclare App\Console\Commands\WordPush::$signature {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Cannot redeclare App\\Console\\Commands\\WordPush::$signature at /Applications/MAMP/htdocs/LikeWords/app/Console/Commands/WordPush.php:20)
+[stacktrace]
+#0 {main}
+"} 
+[2021-06-15 17:14:00] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-15 17:15:01] local.DEBUG: 9  
+[2021-06-15 17:15:02] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-15 17:18:04] local.ERROR: Undefined variable: use {"exception":"[object] (ErrorException(code: 0): Undefined variable: use at /Applications/MAMP/htdocs/LikeWords/app/Console/Commands/WordPush.php:49)
+[stacktrace]
+#0 /Applications/MAMP/htdocs/LikeWords/app/Console/Commands/WordPush.php(49): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', '/Applications/M...', 49, Array)
+#1 [internal function]: App\\Console\\Commands\\WordPush->handle()
+#2 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(32): call_user_func_array(Array, Array)
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#4 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Container/Container.php(576): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#7 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#8 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#9 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(1009): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(273): Symfony\\Component\\Console\\Application->doRunCommand(Object(App\\Console\\Commands\\WordPush), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 {main}
+"} 
+[2021-06-15 17:18:23] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-15 17:18:23] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-15 19:30:58] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-15 19:30:59] local.DEBUG: {"errors":["Incorrect player_id format in include_player_ids (not a valid UUID): 9"]}  
+[2021-06-15 19:31:31] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-15 19:31:31] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-15 19:34:26] local.DEBUG: 9  
+[2021-06-15 19:34:26] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-15 19:35:07] local.ERROR: syntax error, unexpected ';', expecting ')' {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected ';', expecting ')' at /Applications/MAMP/htdocs/LikeWords/app/Console/Commands/WordPush.php:54)
+[stacktrace]
+#0 /Applications/MAMP/htdocs/LikeWords/vendor/composer/ClassLoader.php(346): Composer\\Autoload\\includeFile('/Applications/M...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Console\\\\Com...')
+#2 [internal function]: spl_autoload_call('App\\\\Console\\\\Com...')
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(241): is_subclass_of('App\\\\Console\\\\Com...', 'Illuminate\\\\Cons...')
+#4 /Applications/MAMP/htdocs/LikeWords/app/Console/Kernel.php(42): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(328): App\\Console\\Kernel->commands()
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2021-06-15 21:20:44] local.DEBUG: 9  
+[2021-06-15 21:20:44] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-15 22:04:34] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-15 22:04:35] local.DEBUG: {"id":"","recipients":0,"errors":["c]}  

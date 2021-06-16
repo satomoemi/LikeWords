@@ -9,13 +9,15 @@ use App\Word;
 
 class WordPush extends Command
 {
+    protected $signature = 'WebPush {user}';//引数を指定する時は {user} のように {} で囲む
+
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
     //コマンドの名前
-    protected $signature = 'WordPush {user}';//引数を指定する時は {user} のように {} で囲む
+    protected $signature = 'WordPush';
     
 
     /**
@@ -44,14 +46,13 @@ class WordPush extends Command
     //処理内容を記述
     public function handle()
     {
-        $user_id = $this->argument('user');//引数で落ちてくる user を取得するには
+        $user_id = $this->argument('user');//引数で落ちてくる  を取得するには
         $user = User::find($user_id);//Wordの引数を設定して、idを入力したらuserが取得するかどうか調べる
-        logger($user);
-        
-        //ここに書いた処理が実際に定期実行される処理(app.bladeのscriptとは関連なし)
+
+        //ここに書いた処理が実際に定期実行される処理！！！(app.bladeのscriptとは関連なし)
         $fields = array(
             'app_id' => env('ONESINGAL_APP_ID'),//環境変数にしないとgithubに公開されちゃう
-            'include_external_user_ids' => [$user_id],//ユーザー登録してるかつ通知登録してるユーザーに通知したい
+            'include_external_user_ids' => [$user_id],//ログインしてるかつ通知登録してるユーザーに通知したい
             // 'included_segments' => ['All'],
             'url' => "http://localhost/",
             'headings' => array('en' => 'test'),

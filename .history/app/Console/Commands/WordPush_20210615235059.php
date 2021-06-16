@@ -51,7 +51,7 @@ class WordPush extends Command
         //ここに書いた処理が実際に定期実行される処理(app.bladeのscriptとは関連なし)
         $fields = array(
             'app_id' => env('ONESINGAL_APP_ID'),//環境変数にしないとgithubに公開されちゃう
-            'include_external_user_ids' => [$user_id],//ユーザー登録してるかつ通知登録してるユーザーに通知したい
+            'include_player_ids' => [$user_id],//ユーザー登録してるかつ通知登録してるユーザーに通知したい
             // 'included_segments' => ['All'],
             'url' => "http://localhost/",
             'headings' => array('en' => 'test'),

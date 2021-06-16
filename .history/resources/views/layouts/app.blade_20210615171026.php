@@ -14,9 +14,7 @@
     <!--赤いベルマークの実装をしている(word.phpとの関連はなし)-->
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <!-- php上で別のところで定義された変数をscriptタグの中では直接使えない。だから@phpを使ってblade上で直接定義する -->
-    <?php
-        $loginUser = Auth::user(); //Authでログインしたユーザーを取得
-    ?>
+    $loginUser = Auth::user(); <!--Authでログインしたユーザーを取得-->
     <script>
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {

@@ -46,7 +46,7 @@ class WordPush extends Command
     {
         $user_id = $this->argument('user');//引数で落ちてくる user を取得するには
         $user = User::find($user_id);//Wordの引数を設定して、idを入力したらuserが取得するかどうか調べる
-        logger($user);
+        logger($use);
         
         //ここに書いた処理が実際に定期実行される処理(app.bladeのscriptとは関連なし)
         $fields = array(
