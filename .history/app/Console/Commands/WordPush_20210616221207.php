@@ -55,8 +55,8 @@ class WordPush extends Command
             'include_external_user_ids' => [(string)$user_id],//Userのid(外部キー)とOnesignalのcustom user IDsが繋がってるのかな？
             // 'included_segments' => ['All'],
             'url' => "http://localhost/",
-            'headings' => array('en' => 'Word'),
-            'contents' => array('en' => '今日のWordは'.$word_random["word"])//wordというカラムがkeyになる。keyの値を取得という意味。ないとカラム名まで出てくる
+            'headings' => array('en' => $title'),
+            'contents' => array('en' => '今日のWordは'.$word_random)
         );
         //この下からonesignalと繋がっている
         $fields = json_encode($fields);

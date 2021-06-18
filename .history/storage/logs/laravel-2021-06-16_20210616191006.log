@@ -1,0 +1,86 @@
+[2021-06-16 01:26:22] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-16 01:26:22] local.DEBUG: {"errors":["include_external_user_ids must be an array of non empty strings"]}  
+[2021-06-16 13:03:40] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-16 13:03:41] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 13:04:33] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 13:05:05] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 13:09:52] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 13:10:27] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 13:11:19] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 13:12:04] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 13:13:07] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 16:45:03] local.ERROR: Not enough arguments (missing: "user"). {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): Not enough arguments (missing: \"user\"). at /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Input/Input.php:76)
+[stacktrace]
+#0 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Command/Command.php(250): Symfony\\Component\\Console\\Input\\Input->validate()
+#1 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#2 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(1009): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(273): Symfony\\Component\\Console\\Application->doRunCommand(Object(App\\Console\\Commands\\WordPush), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /Applications/MAMP/htdocs/LikeWords/vendor/symfony/console/Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2021-06-16 16:45:08] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-16 16:45:08] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 18:14:20] local.ERROR: syntax error, unexpected ';', expecting ')' {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected ';', expecting ')' at /Applications/MAMP/htdocs/LikeWords/app/Console/Commands/WordPush.php:58)
+[stacktrace]
+#0 /Applications/MAMP/htdocs/LikeWords/vendor/composer/ClassLoader.php(346): Composer\\Autoload\\includeFile('/Applications/M...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Console\\\\Com...')
+#2 [internal function]: spl_autoload_call('App\\\\Console\\\\Com...')
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(241): is_subclass_of('App\\\\Console\\\\Com...', 'Illuminate\\\\Cons...')
+#4 /Applications/MAMP/htdocs/LikeWords/app/Console/Kernel.php(42): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(328): App\\Console\\Kernel->commands()
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2021-06-16 18:15:03] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-16 18:15:03] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 18:15:30] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-16 18:15:30] local.DEBUG: {"id":"47ea704d-b352-404e-80e4-7278c5cbf784","recipients":1,"external_id":null}  
+[2021-06-16 18:16:02] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-16 18:16:02] local.DEBUG: {"id":"00e7c99e-c51b-4b37-886a-0b55982e0565","recipients":1,"external_id":null}  
+[2021-06-16 18:16:20] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-16 18:16:21] local.DEBUG: {"id":"afa17616-af53-4baa-b1c9-c515779bd5b2","recipients":1,"external_id":null}  
+[2021-06-16 18:16:38] local.DEBUG: {"id":9,"name":"moemi","email":"meiyin6888@gmail.com","email_verified_at":null,"birthday":"2021-01-01","gender":"\u5973","created_at":"2021-05-12 23:46:35","updated_at":"2021-05-15 16:28:56"}  
+[2021-06-16 18:16:38] local.DEBUG: {"id":"81898e26-aeea-43b9-b9c5-896cd84f3b3c","recipients":1,"external_id":null}  
+[2021-06-16 18:19:03] local.DEBUG: {"id":"408edaa4-06e8-4aeb-b51d-28e637dbce6c","recipients":1,"external_id":null}  
+[2021-06-16 18:19:09] local.DEBUG: {"id":"c4fee04f-c182-4225-a331-09676b096e29","recipients":1,"external_id":null}  
+[2021-06-16 18:23:30] local.DEBUG: {"id":"73b7674c-56c0-49a3-a87a-805ae3c3f6ca","recipients":1,"external_id":null}  
+[2021-06-16 18:24:06] local.DEBUG: {"id":"21ac5e60-e559-4496-a043-2fe3276812b9","recipients":1,"external_id":null}  
+[2021-06-16 18:24:12] local.DEBUG: {"id":"bc00483f-9a87-416a-b402-e21841cfba1f","recipients":1,"external_id":null}  
+[2021-06-16 18:24:16] local.DEBUG: {"id":"9fb89088-8ea5-4c0b-96de-7431695c9bc8","recipients":1,"external_id":null}  
+[2021-06-16 18:29:35] local.ERROR: syntax error, unexpected '{' {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected '{' at /Applications/MAMP/htdocs/LikeWords/app/Console/Commands/WordPush.php:59)
+[stacktrace]
+#0 /Applications/MAMP/htdocs/LikeWords/vendor/composer/ClassLoader.php(346): Composer\\Autoload\\includeFile('/Applications/M...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Console\\\\Com...')
+#2 [internal function]: spl_autoload_call('App\\\\Console\\\\Com...')
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(241): is_subclass_of('App\\\\Console\\\\Com...', 'Illuminate\\\\Cons...')
+#4 /Applications/MAMP/htdocs/LikeWords/app/Console/Kernel.php(42): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(328): App\\Console\\Kernel->commands()
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2021-06-16 18:30:10] local.ERROR: syntax error, unexpected '{' {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected '{' at /Applications/MAMP/htdocs/LikeWords/app/Console/Commands/WordPush.php:59)
+[stacktrace]
+#0 /Applications/MAMP/htdocs/LikeWords/vendor/composer/ClassLoader.php(346): Composer\\Autoload\\includeFile('/Applications/M...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Console\\\\Com...')
+#2 [internal function]: spl_autoload_call('App\\\\Console\\\\Com...')
+#3 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(241): is_subclass_of('App\\\\Console\\\\Com...', 'Illuminate\\\\Cons...')
+#4 /Applications/MAMP/htdocs/LikeWords/app/Console/Kernel.php(42): Illuminate\\Foundation\\Console\\Kernel->load(Array)
+#5 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(328): App\\Console\\Kernel->commands()
+#6 /Applications/MAMP/htdocs/LikeWords/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(131): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 /Applications/MAMP/htdocs/LikeWords/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2021-06-16 18:30:25] local.DEBUG: {"id":"3006f4a0-069d-40f3-9469-c6ad05e5db5c","recipients":1,"external_id":null}  
+[2021-06-16 18:45:25] local.DEBUG: {"id":"195c20d7-72c5-48b5-bfc9-5cf9d944672a","recipients":1,"external_id":null}  
+[2021-06-16 18:48:58] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 18:51:39] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 18:53:45] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 18:56:27] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 19:08:27] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 19:09:46] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  
+[2021-06-16 19:10:07] local.DEBUG: {"id":"","recipients":0,"errors":["All included players are not subscribed"]}  

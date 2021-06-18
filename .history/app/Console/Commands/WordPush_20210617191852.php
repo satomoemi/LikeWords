@@ -56,7 +56,7 @@ class WordPush extends Command
             // 'included_segments' => ['All'],
             'url' => "http://localhost/",
             'headings' => array('en' => 'Word'),
-            'contents' => array('en' => '今日のWordは'.$word_random["word"])//wordというカラムがkeyになる。keyの値を取得という意味。ないとカラム名まで出てくる
+            'contents' => array('en' => '今日のWordは'.$word_random["word"])//wordとういう
         );
         //この下からonesignalと繋がっている
         $fields = json_encode($fields);

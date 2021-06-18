@@ -52,11 +52,11 @@ class WordPush extends Command
         //ここに書いた処理が実際に定期実行される処理(app.bladeのscriptとは関連なし)
         $fields = array(
             'app_id' => env('ONESINGAL_APP_ID'),//環境変数にしないとgithubに公開されちゃう
-            'include_external_user_ids' => [(string)$user_id],//Userのid(外部キー)とOnesignalのcustom user IDsが繋がってるのかな？
+            'include_external_user_ids' => [(string)$user_id],//ユーザー登録してるかつ通知登録してるユーザーに通知したい
             // 'included_segments' => ['All'],
             'url' => "http://localhost/",
-            'headings' => array('en' => 'Word'),
-            'contents' => array('en' => '今日のWordは'.$word_random["word"])//wordというカラムがkeyになる。keyの値を取得という意味。ないとカラム名まで出てくる
+            'headings' => array('en' => $title),
+            'contents' => array('en' => $.$word_random)
         );
         //この下からonesignalと繋がっている
         $fields = json_encode($fields);

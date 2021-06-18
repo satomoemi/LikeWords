@@ -15,7 +15,7 @@ class WordPush extends Command
      * @var string
      */
     //コマンドの名前
-    protected $signature = 'WordPush {user}';//引数を指定する時は {user} のように {} で囲む
+    protected $signature = 'WordPush';//引数を指定する時は {user} のように {} で囲む
     
 
     /**
@@ -44,19 +44,18 @@ class WordPush extends Command
     //処理内容を記述
     public function handle()
     {
-        $user_id = $this->argument('user');//引数で落ちてくる user を取得するには
-        $user = User::find($user_id);//Wordの引数を設定して、idを入力したらuserが取得するかどうか調べる
+        // $user_id = $this->argument('user');//引数で落ちてくる user を取得するには
+        // $user = User::find($user_id);//Wordの引数を設定して、idを入力したらuserが取得するかどうか調べる
         // logger($user);
-        $word_random = Word::inRandomOrder()->select('word')->first();//ランダムにwordを一件だけ取得
         
         //ここに書いた処理が実際に定期実行される処理(app.bladeのscriptとは関連なし)
         $fields = array(
             'app_id' => env('ONESINGAL_APP_ID'),//環境変数にしないとgithubに公開されちゃう
-            'include_external_user_ids' => [(string)$user_id],//Userのid(外部キー)とOnesignalのcustom user IDsが繋がってるのかな？
+            'include_external_user_ids' => [""NmEwYzE5NzQtZGE3Mi00N2M5LTk5YzYtYjgxN2JkZTY3NmM0"],//ユーザー登録してるかつ通知登録してるユーザーに通知したい
             // 'included_segments' => ['All'],
             'url' => "http://localhost/",
-            'headings' => array('en' => 'Word'),
-            'contents' => array('en' => '今日のWordは'.$word_random["word"])//wordというカラムがkeyになる。keyの値を取得という意味。ないとカラム名まで出てくる
+            'headings' => array('en' => 'test'),
+            'contents' => array('en' => 'testbody')
         );
         //この下からonesignalと繋がっている
         $fields = json_encode($fields);
