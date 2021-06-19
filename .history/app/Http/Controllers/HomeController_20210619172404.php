@@ -32,7 +32,7 @@ class HomeController extends Controller
     //フォルダ,Word一覧画面 検索
     public function home(Request $request)
     {
-        $folders = $request->user()->folders;
+        $folders = $request->user()->folders();
         // dd($folders);
         //検索
         $cond_word = $request->cond_word;

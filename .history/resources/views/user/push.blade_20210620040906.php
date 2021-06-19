@@ -29,20 +29,12 @@
 
             <div class="form-group row">
               <label for="push" class="col-md-4 col-form-label text-md-right">アプリ全体に対して通知</label>
-
-              <div class="col-md-6">
-                <input id="push1" type="radio" class="btn-check @error('') is-invalid @enderror" name="push" value="">ON
-                <input id="push2" type="radio" class="btn-check @error('') is-invalid @enderror" name="push" id="push2">OFF
-              </div>
+              
+                <input type="radio" class="btn-check" name="push" id="push1">ON
+                <input type="radio" class="btn-check" name="push" id="push2">OFF
             </div>
-
-            <div class="form-group row mb-0">
-              <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">更新</button>
-              </div>
-            </div>
-            
         
+        <button type="submit" class="btn btn-primary">更新</button>
           </form>
         </div>
       </div>

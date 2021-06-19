@@ -14,35 +14,24 @@
           @csrf
 
             <div class="form-group row">
-              <label for="push_time" class="col-md-4 col-form-label text-md-right">通知時間</label>
+              <label for="push" class="col-md-4 col-form-label text-md-right">通知時間</label>
 
               <div class="col-md-6">
                 <input type="time" name="push_time" class="form-control @error('push_time') is-invalid @enderror">
 
-                @error('push_time')
+                @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
               </div>
             </div>
-
-            <div class="form-group row">
-              <label for="push" class="col-md-4 col-form-label text-md-right">アプリ全体に対して通知</label>
-
-              <div class="col-md-6">
-                <input id="push1" type="radio" class="btn-check @error('') is-invalid @enderror" name="push" value="">ON
-                <input id="push2" type="radio" class="btn-check @error('') is-invalid @enderror" name="push" id="push2">OFF
-              </div>
-            </div>
-
-            <div class="form-group row mb-0">
-              <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">更新</button>
-              </div>
-            </div>
-            
-        
+            アプリ全体に対して通知
+            <input type="radio" class="btn-check" name="push" id="push1">ON
+            <input type="radio" class="btn-check" name="push" id="push2">OFF
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">更新</button>
           </form>
         </div>
       </div>

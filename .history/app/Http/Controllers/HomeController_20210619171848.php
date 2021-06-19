@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function home(Request $request)
     {
         $folders = $request->user()->folders;
-        // dd($folders);
+        dd($folders);
         //検索
         $cond_word = $request->cond_word;
         

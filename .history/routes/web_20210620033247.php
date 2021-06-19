@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/push', 'PushController@push')->name('push');
 });
 
+
 //退会
 Route::group(['middleware' => 'auth'], function() {
 Route::get('/unsubsc', 'UnsubscribeController@UnsubscForm')->name('unsubsc');

@@ -51,6 +51,15 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/push', 'PushController@push')->name('push');
 });
 
+Route::get('web_push/create', 'WebPushController@create');
+Route::post('web_push', 'WebPushController@store');
+Route::get('web_push_test', function(){
+
+    $users = \App\User::all();
+    \Notification::send($users, new \App\Notifications\LikeWordsPush());
+
+});
+
 //退会
 Route::group(['middleware' => 'auth'], function() {
 Route::get('/unsubsc', 'UnsubscribeController@UnsubscForm')->name('unsubsc');
