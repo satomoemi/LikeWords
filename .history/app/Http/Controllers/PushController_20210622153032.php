@@ -12,13 +12,13 @@ class PushController extends Controller
         return view('user.push');
     }
 
-    public function PushID(Request $request)
+    public function PushID()
     {
         $user = new User;
         $form = $request->all();
 
         unset($form['_token']);
-
+        
         
         $user->fill($form);
         $user->save();

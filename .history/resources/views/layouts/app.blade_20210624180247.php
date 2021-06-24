@@ -44,16 +44,6 @@
                         url: '/push/subsc' + id, // アクセスするURL
                         type: 'POST', // POSTかGETか
                         id: id, // わからん??
-
-                        success: function() {
-                            //通信が成功した場合の処理をここに書く
-                            logger('success');
-                        },
-
-                        error: function() {
-                            //通信が失敗した場合の処理をここに書く
-                            loggger('error');
-                        }
                         
                     // //OneSignalのユーザーとアプリ側のユーザーを一致する
                     // OneSignal.setExternalUserId('{{ $loginUser->id }}');

@@ -24,49 +24,21 @@
             appId: "8f2d0d35-3d44-4f4d-ab3b-33d3a1f6f6a7",
             });
 
-            
-
-            @if(isset($loginUser))//isset()変数の値が存在するか否か。あればtrue
-            //onesignalにuser_idをセット
-            OneSignal.on('subscriptionChange', function (isSubscribed) {
-                if (isSubscribed == true) {
-                    $.ajax({
-                        headers: {
-                            // csrf対策
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-
-                        OneSignal.getUserId(function(userId) {
-                            console.log("OneSignal User ID:", userId);
-                            // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
-                        });
-
-                        url: '/push/subsc' + id, // アクセスするURL
-                        type: 'POST', // POSTかGETか
-                        id: id, // わからん??
-
-                        success: function() {
-                            //通信が成功した場合の処理をここに書く
-                            logger('success');
-                        },
-
-                        error: function() {
-                            //通信が失敗した場合の処理をここに書く
-                            loggger('error');
-                        }
-                        
-                    // //OneSignalのユーザーとアプリ側のユーザーを一致する
-                    // OneSignal.setExternalUserId('{{ $loginUser->id }}');
-                    // //ユーザーのブラウザにローカルに保存されている値を取得
-                    // OneSignal.getExternalUserId().then(function (id) {
-                    // });
-                } else if (isSubscribed == false) {
-                    // //通知を拒否されたら現在のユーザーの外部ユーザーIDとして設定されているものをすべて削除
-                    // OneSignal.removeExternalUserId();
-                }
-                    });
-            });
-            @endif
+            // @if(isset($loginUser))//isset()変数の値が存在するか否か。あればtrue
+            // //onesignalにuser_idをセット
+            // OneSignal.on('subscriptionChange', function (isSubscribed) {
+            //     if (isSubscribed == true) {
+            //         //OneSignalのユーザーとアプリ側のユーザーを一致する
+            //         OneSignal.setExternalUserId('{{ $loginUser->id }}');
+            //         //ユーザーのブラウザにローカルに保存されている値を取得
+            //         OneSignal.getExternalUserId().then(function (id) {
+            //         });
+            //     } else if (isSubscribed == false) {
+            //         //通知を拒否されたら現在のユーザーの外部ユーザーIDとして設定されているものをすべて削除
+            //         OneSignal.removeExternalUserId();
+            //     }
+            // });
+            // @endif
         });
     </script>
 

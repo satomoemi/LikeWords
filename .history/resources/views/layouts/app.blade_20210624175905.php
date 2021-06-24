@@ -40,20 +40,9 @@
                             console.log("OneSignal User ID:", userId);
                             // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
                         });
-
-                        url: '/push/subsc' + id, // アクセスするURL
-                        type: 'POST', // POSTかGETか
-                        id: id, // わからん??
-
-                        success: function() {
-                            //通信が成功した場合の処理をここに書く
-                            logger('success');
-                        },
-
-                        error: function() {
-                            //通信が失敗した場合の処理をここに書く
-                            loggger('error');
-                        }
+                        url: '/favorite/' + id, // アクセスするURL
+                        type: 'GET', // POSTかGETか
+                        id: id, // わからん
                         
                     // //OneSignalのユーザーとアプリ側のユーザーを一致する
                     // OneSignal.setExternalUserId('{{ $loginUser->id }}');

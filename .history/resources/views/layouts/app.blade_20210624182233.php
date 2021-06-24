@@ -52,7 +52,7 @@
 
                         error: function() {
                             //通信が失敗した場合の処理をここに書く
-                            loggger('error');
+                            echo
                         }
                         
                     // //OneSignalのユーザーとアプリ側のユーザーを一致する

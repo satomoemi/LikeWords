@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -14,7 +15,7 @@ class User extends Authenticatable
      */
     //$fillableは必須項目(required的な)
     protected $fillable = [
-        'name', 'email', 'birthday', 'gender', 'password',
+        'name', 'email','birthday','gender', 'password',
     ];
 
     /**
@@ -23,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'player_id',
+        'password', 'remember_token',
     ];
 
     /**
@@ -31,7 +32,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-    //型変換する所
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

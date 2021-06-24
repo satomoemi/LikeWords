@@ -47,12 +47,12 @@
 
                         success: function() {
                             //通信が成功した場合の処理をここに書く
-                            logger('success');
+                            echo logger('success');
                         },
 
                         error: function() {
                             //通信が失敗した場合の処理をここに書く
-                            loggger('error');
+                            
                         }
                         
                     // //OneSignalのユーザーとアプリ側のユーザーを一致する

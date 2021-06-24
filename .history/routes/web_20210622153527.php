@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'], function() {
 //通知画面
 Route::group(['middleware' => 'auth'], function() {
 Route::get('/push', 'PushController@push')->name('push');
-Route::post('/push/subsc','PushController@PushID');
+Route::post('/unsubsc','UnsubscribeController@delete');
 });
 
 //退会
