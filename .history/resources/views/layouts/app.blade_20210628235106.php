@@ -16,13 +16,13 @@
     <!-- php上で別のところで定義された変数をscriptタグの中では直接使えない。だから@phpを使ってblade上で直接定義する -->
     <?php
         $loginUser = Auth::user(); //Authでログインしたユーザーを取得
-        $appId = env('ONESINGAL_APP_ID');
+        $appId = 
     ?>
     <script>
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             OneSignal.init({
-            appId: '{{ $appId }}', //phpの変数を渡したい時、'{{}}'か@json() でok
+            appId: env('ONESINGAL_APP_ID'),
             });
 
             

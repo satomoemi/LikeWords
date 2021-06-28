@@ -16,13 +16,12 @@
     <!-- php上で別のところで定義された変数をscriptタグの中では直接使えない。だから@phpを使ってblade上で直接定義する -->
     <?php
         $loginUser = Auth::user(); //Authでログインしたユーザーを取得
-        $appId = env('ONESINGAL_APP_ID');
     ?>
     <script>
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             OneSignal.init({
-            appId: '{{ $appId }}', //phpの変数を渡したい時、'{{}}'か@json() でok
+            appId: "8f2d0d35-3d44-4f4d-ab3b-33d3a1f6f6a7",
             });
 
             
@@ -55,7 +54,7 @@
     
                             error: function() {
                                 //通信が失敗した場合の処理をここに書く
-                                console.log('error');
+                                consle.log('error');
                             }
                             
                         // //OneSignalのユーザーとアプリ側のユーザーを一致する

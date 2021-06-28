@@ -22,7 +22,7 @@
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             OneSignal.init({
-            appId: '{{ $appId }}', //phpの変数を渡したい時、'{{}}'か@json() でok
+            appId = @$appId,
             });
 
             

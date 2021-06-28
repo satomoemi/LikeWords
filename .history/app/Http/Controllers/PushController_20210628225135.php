@@ -23,15 +23,7 @@ class PushController extends Controller
 
     }
 
-    public function DeletePushID(Request $request)
-    {
-        logger('ajax_delete success');
-        $user = Auth::user();
-        $user->player_id = $request->all()['player_id'];
-
-        // 削除する
-        $user->delete();
-    }
+    public function PushIDdelate(Request $request)
 
 
 

@@ -16,13 +16,12 @@
     <!-- php上で別のところで定義された変数をscriptタグの中では直接使えない。だから@phpを使ってblade上で直接定義する -->
     <?php
         $loginUser = Auth::user(); //Authでログインしたユーザーを取得
-        $appId = env('ONESINGAL_APP_ID');
     ?>
     <script>
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             OneSignal.init({
-            appId: '{{ $appId }}', //phpの変数を渡したい時、'{{}}'か@json() でok
+            appId: "8f2d0d35-3d44-4f4d-ab3b-33d3a1f6f6a7",
             });
 
             
@@ -34,7 +33,7 @@
                     OneSignal.getUserId(function(userId) {
                         console.log("OneSignal User ID:", userId);
                         // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316   
-
+                         
                         $.ajax({
                             headers: {
                                 // csrf対策
@@ -55,7 +54,7 @@
     
                             error: function() {
                                 //通信が失敗した場合の処理をここに書く
-                                console.log('error');
+                                consle.log('error');
                             }
                             
                         // //OneSignalのユーザーとアプリ側のユーザーを一致する
@@ -69,31 +68,30 @@
                         console.log("OneSignal User ID:", userId);
                         // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
 
-                        $.ajax({
-                                headers: {
-                                    // csrf対策
-                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                },
-        
-        
-                                url: '/push/delete', // アクセスするURL
-                                type: 'GET', // POSTかGETか
-                                data: { 
-                                    'player_id' : userId
-                                },
-        
-                                success: function() {
-                                    //通信が成功した場合の処理をここに書く
-                                    console.log('success_delete');
-                                },
-        
-                                error: function() {
-                                    //通信が失敗した場合の処理をここに書く
-                                    console.log('error_delete');
-                                }
-                                // //通知を拒否されたら現在のユーザーの外部ユーザーIDとして設定されているものをすべて削除
-                                // OneSignal.removeExternalUserId();
-                        });
+                    $.ajax({
+                            headers: {
+                                // csrf対策
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+    
+    
+                            url: '/push/delete', // アクセスするURL
+                            type: 'GET', // POSTかGETか
+                            data: { 
+                                'player_id' : userId
+                            },
+    
+                            success: function() {
+                                //通信が成功した場合の処理をここに書く
+                                console.log('success_delete');
+                            },
+    
+                            error: function() {
+                                //通信が失敗した場合の処理をここに書く
+                                consle.log('error_delete');
+                            }
+                            // //通知を拒否されたら現在のユーザーの外部ユーザーIDとして設定されているものをすべて削除
+                            // OneSignal.removeExternalUserId();
                     });
                 }
                    

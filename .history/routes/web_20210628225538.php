@@ -50,7 +50,7 @@ Route::group(['middleware' => 'auth'], function() {
 Route::group(['middleware' => 'auth'], function() {
 Route::get('/push', 'PushController@push')->name('push');
 Route::post('/push/subsc','PushController@PushID');
-Route::get('/push/delete', 'PushController@DeletePushID');
+Route::get('/home/word/delete', 'WordController@DeleteWord')
 });
 
 //退会

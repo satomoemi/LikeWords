@@ -30,7 +30,7 @@ class PushController extends Controller
         $user->player_id = $request->all()['player_id'];
 
         // 削除する
-        $user->delete();
+        $user->player_id->delete();
     }
 
 
