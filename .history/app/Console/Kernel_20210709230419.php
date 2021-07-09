@@ -7,7 +7,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Push;
 use App\Word;
-use App\User;
+use App\;
 
 
 class Kernel extends ConsoleKernel

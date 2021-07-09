@@ -12,7 +12,7 @@ class PushController extends Controller
     public function push(Request $request)
     {
         $push = Push::where('user_id',Auth::id());//findはidでレコードを取得する user_idでは取得できない
-        //通知登録してない(player_idが保存されてない->レコードがない)場合
+        //通知登録してない()
         if ($push->doesntExist()) {
             $pushtime = NULL;
         }else {

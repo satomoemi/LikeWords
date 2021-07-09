@@ -1,14 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
 @if($push->doesntExist())
-  <div class="container">
-    <div class="row justify-content-center">
-      <h2>通知の登録をしてから通知時間を設定してください</h2>
-      <p>左下のベルマークで登録できます</p>
-    </div>
-  </div>
+  <h2>通知の登録をしてから通知時間を設定してください</h2>
+  <p>左下のベルマークで登録できます</p>
 @else
   <div class="container">
     <div class="row justify-content-center">
@@ -26,7 +21,7 @@
                 <label for="push_time" class="col-md-4 col-form-label text-md-right">通知時間</label>
 
                 <div class="col-md-6">
-                  <input type="time" name="push_time" value={{ $pushtime = NULL ? "" : $pushtime }}  class="form-control @error('push_time') is-invalid @enderror">
+                  <input type="time" name="push_time" value={{$pushtime}} {{ $pushtime = NULL ? "" : $pushtime }}  class="form-control @error('push_time') is-invalid @enderror">
 
                   @error('push_time')
                       <span class="invalid-feedback" role="alert">
@@ -66,4 +61,7 @@
   </div>
   
 @endif
+
+
+
 @endsection

@@ -26,7 +26,7 @@
                 <label for="push_time" class="col-md-4 col-form-label text-md-right">通知時間</label>
 
                 <div class="col-md-6">
-                  <input type="time" name="push_time" value={{ $pushtime = NULL ? "" : $pushtime }}  class="form-control @error('push_time') is-invalid @enderror">
+                  <input type="time" name="push_time" value= {{ $pushtime = NULL ? "" : $pushtime }}  class="form-control @error('push_time') is-invalid @enderror">
 
                   @error('push_time')
                       <span class="invalid-feedback" role="alert">
