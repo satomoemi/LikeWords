@@ -37,7 +37,7 @@ class PushController extends Controller
 
         //DBのテーブルに対象のレコードがないかチェック あるはexists() ないはdoesntExist() '='は省略可
         //Push tableのuser_idにログインしてるユーザーのidがなかったらsave
-        if (Push::where('user_id','=',$push->user_id)->doesntExist()) {
+        if ( Push::where('user_id','=',$push->user_id)->doesntExist()) {
             $push->save();
             
         }
@@ -83,6 +83,7 @@ class PushController extends Controller
         
             $push->save();
         }
+        
 
         return redirect('/push/time')->with('status', '時間が更新されました');
     }

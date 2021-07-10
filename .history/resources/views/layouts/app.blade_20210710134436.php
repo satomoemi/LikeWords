@@ -16,7 +16,9 @@
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <!-- php上で別のところで定義された変数をscriptタグの中では直接使えない。だから@phpを使ってblade上で直接定義する -->
     <?php
-        $loginUser = Auth::check(); //ユーザーがログインしてるか否か してればtrue
+        $loginUser = Auth::check(); //Authでログインしたユーザーを取得
+        
+        logger($loginUser);
         $appId = env('ONESINGAL_APP_ID');
         $safari_web_id = env('YOUR_SAFARI_WEB_ID');
     ?>
@@ -31,76 +33,75 @@
 
             
 
-            if( {{$loginUser}} ) {//ユーザーがログインしてればベルマーク登場
-                console.log({{$loginUser}});
-                //onesignalにuser_idをセット
-                OneSignal.on('subscriptionChange', function (isSubscribed) {
-                    if (isSubscribed == true) {
-                        OneSignal.getUserId(function(userId) {
-                            console.log("OneSignal User ID:", userId);
-                            // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316   
+            @if(isset($loginUser))//isset()変数の値が存在するか否か。あればtrue
+            //onesignalにuser_idをセット
+            OneSignal.on('subscriptionChange', function (isSubscribed) {
+                if (isSubscribed == true) {
+                    OneSignal.getUserId(function(userId) {
+                        console.log("OneSignal User ID:", userId);
+                        // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316   
 
-                            $.ajax({
+                        $.ajax({
+                            headers: {
+                                // csrf対策
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+    
+    
+                            url: '/push/subsc', // アクセスするURL
+                            type: 'POST', // POSTかGETか
+                            data: { 
+                                'player_id' : userId
+                            },
+    
+                            success: function() {
+                                //通信が成功した場合の処理をここに書く
+                                console.log('success');
+                            },
+    
+                            error: function() {
+                                //通信が失敗した場合の処理をここに書く
+                                console.log('error');
+                            }
+                            
+                        
+                        });
+                    });
+                } else if (isSubscribed == false) {
+                    OneSignal.getUserId(function(userId) {
+                        console.log("OneSignal User ID:", userId);
+                        // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
+
+                        $.ajax({
                                 headers: {
                                     // csrf対策
                                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                 },
         
         
-                                url: '/push/subsc', // アクセスするURL
-                                type: 'POST', // POSTかGETか
+                                url: '/push/delete', // アクセスするURL
+                                type: 'GET', // POSTかGETか
                                 data: { 
                                     'player_id' : userId
                                 },
         
                                 success: function() {
                                     //通信が成功した場合の処理をここに書く
-                                    console.log('success');
+                                    console.log('success_delete');
                                 },
         
                                 error: function() {
                                     //通信が失敗した場合の処理をここに書く
-                                    console.log('error');
+                                    console.log('error_delete');
                                 }
-                                
-                            
-                            });
+                                // //通知を拒否されたら現在のユーザーの外部ユーザーIDとして設定されているものをすべて削除
+                                // OneSignal.removeExternalUserId();
                         });
-                    } else if (isSubscribed == false) {
-                        OneSignal.getUserId(function(userId) {
-                            console.log("OneSignal User ID:", userId);
-                            // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
-
-                            $.ajax({
-                                    headers: {
-                                        // csrf対策
-                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                    },
-            
-            
-                                    url: '/push/delete', // アクセスするURL
-                                    type: 'GET', // POSTかGETか
-                                    data: { 
-                                        'player_id' : userId
-                                    },
-            
-                                    success: function() {
-                                        //通信が成功した場合の処理をここに書く
-                                        console.log('success_delete');
-                                    },
-            
-                                    error: function() {
-                                        //通信が失敗した場合の処理をここに書く
-                                        console.log('error_delete');
-                                    }
-                                    // //通知を拒否されたら現在のユーザーの外部ユーザーIDとして設定されているものをすべて削除
-                                    // OneSignal.removeExternalUserId();
-                            });
-                        });
-                    }
-                    
-                });
-            }
+                    });
+                }
+                   
+            });
+            @endif
         });
     </script>
 

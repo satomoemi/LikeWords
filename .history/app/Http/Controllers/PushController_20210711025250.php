@@ -9,18 +9,18 @@ use Auth;
 
 class PushController extends Controller
 {
-    //通知時間画面
     public function push(Request $request)
     {
         $push = Push::where('user_id',Auth::id());//findはidでレコードを取得する user_idでは取得できない
 
         //通知登録してない(player_idが保存されてない->レコードがない)場合
-        if ($push->doesntExist()) {
-            $pushtime = NULL;
-        }else {
+        // if ($push->doesntExist()) {
+        //     $pushtime = NULL;
+        // }else {
             //リレーションのpushes使ってるよ
             $pushtime = Auth::user()->pushes->push_time;
         }
+        
 
         return view('user.PushTime',['pushtime' => $pushtime, 'push' => $push]);
     }
@@ -37,7 +37,7 @@ class PushController extends Controller
 
         //DBのテーブルに対象のレコードがないかチェック あるはexists() ないはdoesntExist() '='は省略可
         //Push tableのuser_idにログインしてるユーザーのidがなかったらsave
-        if (Push::where('user_id','=',$push->user_id)->doesntExist()) {
+        if ( Push::where('user_id','=',$push->user_id)->doesntExist()) {
             $push->save();
             
         }
@@ -83,6 +83,7 @@ class PushController extends Controller
         
             $push->save();
         }
+        
 
         return redirect('/push/time')->with('status', '時間が更新されました');
     }

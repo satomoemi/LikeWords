@@ -47,7 +47,7 @@ class WordPush extends Command
     public function handle()
     {
         $user_id = $this->argument('user_id');//引数で落ちてくる user を取得するには
-        logger($user_id);
+        logger($user_id)
         $push = Push::find($user_id);//Wordの引数を設定して、idを入力したらuserが取得するかどうか調べる
         // logger($user);
         $word_random = User::find($user_id)->words->random();//ランダムにwordを取得

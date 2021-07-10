@@ -31,7 +31,7 @@
 
             
 
-            if( {{$loginUser}} ) {//ユーザーがログインしてればベルマーク登場
+            if( {{$loginUser}} ==  ) {//ユーザーがログインしてればベルマーク登場
                 console.log({{$loginUser}});
                 //onesignalにuser_idをセット
                 OneSignal.on('subscriptionChange', function (isSubscribed) {

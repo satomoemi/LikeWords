@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <h2>通知の登録をしてから通知時間を設定してください</h2>
-      <p>右下のベルマークで登録できます</p>
+      <p>左下のベルマークで登録できます</p>
     </div>
   </div>
 @else

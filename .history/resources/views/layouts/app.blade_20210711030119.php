@@ -16,7 +16,7 @@
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <!-- php上で別のところで定義された変数をscriptタグの中では直接使えない。だから@phpを使ってblade上で直接定義する -->
     <?php
-        $loginUser = Auth::check(); //ユーザーがログインしてるか否か してればtrue
+        $loginUser = Auth::check(); //ユーザーがログインしてるか否かしてればtrue
         $appId = env('ONESINGAL_APP_ID');
         $safari_web_id = env('YOUR_SAFARI_WEB_ID');
     ?>
@@ -31,8 +31,7 @@
 
             
 
-            if( {{$loginUser}} ) {//ユーザーがログインしてればベルマーク登場
-                console.log({{$loginUser}});
+            if({{$loginUser}}){//isset変数の値が存在するか否か。あればtrue
                 //onesignalにuser_idをセット
                 OneSignal.on('subscriptionChange', function (isSubscribed) {
                     if (isSubscribed == true) {

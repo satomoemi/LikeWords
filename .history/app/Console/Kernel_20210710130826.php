@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
         $pushes = Push::all();
         foreach($pushes as $push) {
             $pushtime = date('H:i',strtotime($push->push_time));//時間を文字列にしてる
-            $schedule->command("WordPush {$push->user_id}")->dailyAt($pushtime);
+            $schedule->command('WordPush {$push->user_id}' )->dailyAt($pushtime);
         }
     }
 
