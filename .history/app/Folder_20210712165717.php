@@ -10,20 +10,18 @@ class Folder extends Model
 
     public static $rules = array(
         'title' =>  'required',
-        // 'pushes_id' =>  'required',
+        'user_id'=> 'required',
     );
 
     public function words()
     {
-        //folderテーブルに関連している
+        //folderテーブルに関連しているwordテーブルのレコードを全て取得している
         return $this->hasMany('App\Word');
     }
-    
-    
-    public function pushes()
-    {
-        //Push.phpでclass Push と定義されてるだから$this使う
-        return $this->hasMany('App\Push');
-    }
+
+    public function user()
+{
+    return $this->belongsTo('App\User');//複数のfolderに対して一つのuser
+}
 
 }

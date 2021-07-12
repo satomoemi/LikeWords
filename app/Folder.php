@@ -11,7 +11,6 @@ class Folder extends Model
     public static $rules = array(
         'title' =>  'required',
         'user_id'=> 'required',
-        // 'pushes_id' =>  'required',
     );
 
     public function words()
@@ -24,12 +23,5 @@ class Folder extends Model
 {
     return $this->belongsTo('App\User');//複数のfolderに対して一つのuser
 }
-    
-    
-    public function pushes()
-    {
-        //Push.phpでclass Push と定義されてるだから$this使う
-        return $this->hasMany('App\Push');
-    }
 
 }
