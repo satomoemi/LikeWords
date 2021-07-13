@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
+    <!--スマホやタブレットのモバイル端末で最適にWeb表示させるため-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
@@ -11,14 +12,95 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <!--赤いベルマークの実装をしている(word.phpとの関連はなし)-->
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <!-- php上で別のところで定義された変数をscriptタグの中では直接使えない。だから@phpを使ってblade上で直接定義する -->
+    <?php
+        $loginUser = Auth::check(); //ユーザーがログインしてるか否か してればtrue
+        $appId = env('ONESINGAL_APP_ID');
+        $safari_web_id = env('YOUR_SAFARI_WEB_ID');
+    ?>
+
     <script>
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             OneSignal.init({
-            appId: "8f2d0d35-3d44-4f4d-ab3b-33d3a1f6f6a7",
+                appId: '{{ $appId }}', 
+                safari_web_id: '{{ $safari_web_id }}',
             });
+
+            
+
+            if( {{$loginUser}} ) {/ /ユーザーがログインしてればベルマーク登場
+                console.log({{$loginUser}});
+                //onesignalにuser_idをセット
+                OneSignal.on('subscriptionChange', function (isSubscribed) {
+                    if (isSubscribed == true) {
+                        OneSignal.getUserId(function(userId) {
+                            console.log("OneSignal User ID:", userId);
+                            // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316   
+
+                            $.ajax({
+                                headers: {
+                                    // csrf対策
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                },
+        
+        
+                                url: '/push/subsc', // アクセスするURL
+                                type: 'POST', // POSTかGETか
+                                data: { 
+                                    'player_id' : userId
+                                },
+        
+                                success: function() {
+                                    //通信が成功した場合の処理をここに書く
+                                    console.log('success');
+                                },
+        
+                                error: function() {
+                                    //通信が失敗した場合の処理をここに書く
+                                    console.log('error');
+                                }
+                                
+                            
+                            });
+                        });
+                    } else if (isSubscribed == false) {
+                        OneSignal.getUserId(function(userId) {
+                            console.log("OneSignal User ID:", userId);
+                            // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
+
+                            $.ajax({
+                                    headers: {
+                                        // csrf対策
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    },
+            
+            
+                                    url: '/push/delete', // アクセスするURL
+                                    type: 'GET', // POSTかGETか
+                                    data: { 
+                                        'player_id' : userId
+                                    },
+            
+                                    success: function() {
+                                        //通信が成功した場合の処理をここに書く
+                                        console.log('success_delete');
+                                    },
+            
+                                    error: function() {
+                                        //通信が失敗した場合の処理をここに書く
+                                        console.log('error_delete');
+                                    }
+                                    // //通知を拒否されたら現在のユーザーの外部ユーザーIDとして設定されているものをすべて削除
+                                    // OneSignal.removeExternalUserId();
+                            });
+                        });
+                    }
+                    
+                });
+            }
         });
     </script>
 
@@ -67,7 +149,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('user') }}">ユーザー情報</a> 
-                                    <a class="dropdown-item" href="{{ route('push') }}">通知設定</a> 
+                                    <a class="dropdown-item" href="{{ route('push.time') }}">通知時間設定</a> 
                                     <a class="dropdown-item" href="{{ route('unsubsc') }}">退会</a> 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
