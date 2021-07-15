@@ -22,90 +22,89 @@
     ?>
 
     <script>
-        //ユーザーがログインしてればベルマーク登場
-        if( {{$loginUser==null ? "false":"true"}} ) {
-            console.log("login",{{$loginUser}});
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+            OneSignal.init({
+                appId: '{{ $appId }}', 
+                safari_web_id: '{{ $safari_web_id }}',
+            });
 
-            //ベルマーク表示関係
-            window.OneSignal = window.OneSignal || [];
-            OneSignal.push(function() { //if文の中まで
-                OneSignal.init({
-                    appId: '{{ $appId }}', 
-                    safari_web_id: '{{ $safari_web_id }}',
-                });
+            
 
-                //通知を登録,解除してもonesignalのplayerid発行してuserIdに入れる
-                //それを ajax非同期通信 使って指定URLに送信
+            if( {{$loginUser==null }} ) {    //ユーザーがログインしてればベルマーク登場
+                console.log({{$loginUser}});
+                //onesignalにuser_idをセット
                 OneSignal.on('subscriptionChange', function (isSubscribed) {
                     if (isSubscribed == true) {
                         OneSignal.getUserId(function(userId) {
                             console.log("OneSignal User ID:", userId);
                             // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316   
-                            
+
                             $.ajax({
                                 headers: {
                                     // csrf対策
                                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                 },
-                                
-                                
+        
+        
                                 url: '/push/subsc', // アクセスするURL
                                 type: 'POST', // POSTかGETか
                                 data: { 
-                                    'player_id' : userId //controllerに送るデータ
+                                    'player_id' : userId
                                 },
-                                
+        
                                 success: function() {
                                     //通信が成功した場合の処理をここに書く
                                     console.log('success');
-                            },
+                                },
+        
+                                error: function() {
+                                    //通信が失敗した場合の処理をここに書く
+                                    console.log('error');
+                                }
+                                
                             
-                            error: function() {
-                                //通信が失敗した場合の処理をここに書く
-                                console.log('error');
-                            }
-                            
-                            
+                            });
                         });
-                    });
-                } else if (isSubscribed == false) {
-                    OneSignal.getUserId(function(userId) {
-                        console.log("OneSignal User ID:", userId);
-                        // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
-                        
-                        $.ajax({
-                            headers: {
-                                // csrf対策
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            
-                            
-                            url: '/push/delete', // アクセスするURL
-                            type: 'GET', // POSTかGETか
-                            data: { 
-                                'player_id' : userId //controllerに送るデータ
-                            },
-                            
-                            success: function() {
-                                //通信が成功した場合の処理をここに書く
-                                console.log('success_delete');
-                            },
-                            
-                            error: function() {
-                                //通信が失敗した場合の処理をここに書く
-                                console.log('error_delete');
-                            }
+                    } else if (isSubscribed == false) {
+                        OneSignal.getUserId(function(userId) {
+                            console.log("OneSignal User ID:", userId);
+                            // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
+
+                            $.ajax({
+                                    headers: {
+                                        // csrf対策
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    },
+            
+            
+                                    url: '/push/delete', // アクセスするURL
+                                    type: 'GET', // POSTかGETか
+                                    data: { 
+                                        'player_id' : userId
+                                    },
+            
+                                    success: function() {
+                                        //通信が成功した場合の処理をここに書く
+                                        console.log('success_delete');
+                                    },
+            
+                                    error: function() {
+                                        //通信が失敗した場合の処理をここに書く
+                                        console.log('error_delete');
+                                    }
+                                    // //通知を拒否されたら現在のユーザーの外部ユーザーIDとして設定されているものをすべて削除
+                                    // OneSignal.removeExternalUserId();
+                            });
                         });
-                    });
-                }
-                
+                    }
+                    
                 });
-            });
-        }
-        
+            }
+        });
     </script>
-        
-        <!-- Fonts -->
+
+    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 

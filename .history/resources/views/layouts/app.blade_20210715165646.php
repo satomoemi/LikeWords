@@ -22,11 +22,11 @@
     ?>
 
     <script>
-        //ユーザーがログインしてればベルマーク登場
+        //ユーザーがログインしてればベルマーク登場＆通知登録したら
         if( {{$loginUser==null ? "false":"true"}} ) {
             console.log("login",{{$loginUser}});
 
-            //ベルマーク表示関係
+            //ベルマーク表示不関係
             window.OneSignal = window.OneSignal || [];
             OneSignal.push(function() { //if文の中まで
                 OneSignal.init({

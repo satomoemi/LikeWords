@@ -22,20 +22,17 @@
     ?>
 
     <script>
-        //ユーザーがログインしてればベルマーク登場
-        if( {{$loginUser==null ? "false":"true"}} ) {
+        if( {{$loginUser==null ? "false":"true"}} ) {    //ユーザーがログインしてればベルマーク登場
             console.log("login",{{$loginUser}});
 
-            //ベルマーク表示関係
             window.OneSignal = window.OneSignal || [];
-            OneSignal.push(function() { //if文の中まで
+            OneSignal.push(function() { //102行目のif文の仲間で
                 OneSignal.init({
                     appId: '{{ $appId }}', 
                     safari_web_id: '{{ $safari_web_id }}',
                 });
 
-                //通知を登録,解除してもonesignalのplayerid発行してuserIdに入れる
-                //それを ajax非同期通信 使って指定URLに送信
+                //onesignalにuser_idをセット
                 OneSignal.on('subscriptionChange', function (isSubscribed) {
                     if (isSubscribed == true) {
                         OneSignal.getUserId(function(userId) {
@@ -52,7 +49,7 @@
                                 url: '/push/subsc', // アクセスするURL
                                 type: 'POST', // POSTかGETか
                                 data: { 
-                                    'player_id' : userId //controllerに送るデータ
+                                    'player_id' : userId
                                 },
                                 
                                 success: function() {
@@ -83,7 +80,7 @@
                             url: '/push/delete', // アクセスするURL
                             type: 'GET', // POSTかGETか
                             data: { 
-                                'player_id' : userId //controllerに送るデータ
+                                'player_id' : userId
                             },
                             
                             success: function() {
@@ -95,6 +92,8 @@
                                 //通信が失敗した場合の処理をここに書く
                                 console.log('error_delete');
                             }
+                            // //通知を拒否されたら現在のユーザーの外部ユーザーIDとして設定されているものをすべて削除
+                            // OneSignal.removeExternalUserId();
                         });
                     });
                 }

@@ -22,11 +22,11 @@
     ?>
 
     <script>
-        //ユーザーがログインしてればベルマーク登場
+        //ユーザーがログインしてればベルマーク登場＆通知登録したら
         if( {{$loginUser==null ? "false":"true"}} ) {
             console.log("login",{{$loginUser}});
 
-            //ベルマーク表示関係
+            //ベルマーク表示不表示関係
             window.OneSignal = window.OneSignal || [];
             OneSignal.push(function() { //if文の中まで
                 OneSignal.init({
@@ -35,12 +35,12 @@
                 });
 
                 //通知を登録,解除してもonesignalのplayerid発行してuserIdに入れる
-                //それを ajax非同期通信 使って指定URLに送信
+                //それをajax非同期通信　使って指定URLに送信
                 OneSignal.on('subscriptionChange', function (isSubscribed) {
                     if (isSubscribed == true) {
                         OneSignal.getUserId(function(userId) {
                             console.log("OneSignal User ID:", userId);
-                            // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316   
+                            // (Output) OneSignal User ID: 27035cd-4dda-4b3f-b04e-41d7463a2316   
                             
                             $.ajax({
                                 headers: {
@@ -83,7 +83,7 @@
                             url: '/push/delete', // アクセスするURL
                             type: 'GET', // POSTかGETか
                             data: { 
-                                'player_id' : userId //controllerに送るデータ
+                                'player_id' : userId
                             },
                             
                             success: function() {

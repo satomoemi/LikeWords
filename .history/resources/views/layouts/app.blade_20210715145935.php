@@ -22,20 +22,20 @@
     ?>
 
     <script>
-        //ユーザーがログインしてればベルマーク登場
+        //ユーザーがログインしてればベルマーク登場＆通知登録したら
         if( {{$loginUser==null ? "false":"true"}} ) {
             console.log("login",{{$loginUser}});
 
-            //ベルマーク表示関係
+            //ベルマーク表示不表示関係
             window.OneSignal = window.OneSignal || [];
-            OneSignal.push(function() { //if文の中まで
+            OneSignal.push(function() { //if文の仲間で
                 OneSignal.init({
                     appId: '{{ $appId }}', 
                     safari_web_id: '{{ $safari_web_id }}',
                 });
 
-                //通知を登録,解除してもonesignalのplayerid発行してuserIdに入れる
-                //それを ajax非同期通信 使って指定URLに送信
+                //通知を登録したらonesignalのplayerid発行してuserIdに入れる
+                //通知を解除したら
                 OneSignal.on('subscriptionChange', function (isSubscribed) {
                     if (isSubscribed == true) {
                         OneSignal.getUserId(function(userId) {
@@ -83,7 +83,7 @@
                             url: '/push/delete', // アクセスするURL
                             type: 'GET', // POSTかGETか
                             data: { 
-                                'player_id' : userId //controllerに送るデータ
+                                'player_id' : userId
                             },
                             
                             success: function() {
