@@ -1,10 +1,14 @@
 <?php
-//タスクスケジュール
+//タスクスケジューラ
 //どんなタスクをどれくらいのスケジュールで実行するの？って言うのを定義
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Push;
+use App\Word;
+use App\User;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -15,7 +19,7 @@ class Kernel extends ConsoleKernel
      */
     //コマンドの登録
     protected $commands = [
-        Commands\CronTestCommand
+        Commands\WordPush::Class,
     ];
 
     /**
@@ -24,12 +28,15 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+    //タスクをスケジュールする
     protected function schedule(Schedule $schedule)
     {
-        // クロージャでタスクの登録(直接ここに処理も記述)
-        $schedule->call(function () {
-            \Log::info('毎分ログ出力テスト - closure');
-        })->everyMinute();
+        //command directryのwordpushは1分ごとの実行するとスケジュールしてる
+        // $pushes = Push::all();
+        // foreach($pushes as $push) {
+        //     $pushtime = date('H:i',strtotime($push->push_time));//時間を文字列にしてる
+        //     $schedule->command("WordPush {$push->user_id}")->dailyAt($pushtime);
+        // }
     }
 
     /**
