@@ -33,7 +33,7 @@
             OneSignal.push(function() { //if文の中まで
                 OneSignal.init({
                     appId: '{{ $appId }}', 
-                    // safari_web_id: '{{ $safari_web_id }}',
+            
                 });
 
                 //通知を登録,解除してもonesignalのplayerid発行してuserIdに入れる
