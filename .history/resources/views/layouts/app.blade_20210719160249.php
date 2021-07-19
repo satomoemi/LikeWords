@@ -157,7 +157,7 @@
                                 <a class="nav-link dropdown-toggle" href="{{ route('unsubsc') }}">退会</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="{{ route('logout') }}"
+                                <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                     {{ __('messages.Logout') }}

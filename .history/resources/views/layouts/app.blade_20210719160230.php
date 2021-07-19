@@ -143,21 +143,21 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link dropdown-toggle" href="{{ route('register') }}">{{ __('messages.Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('messages.Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="{{ route('user') }}">ユーザー情報</a>
+                                <a class="nav-link" href="{{ route('user') }}">ユーザー情報</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="{{ route('push.time') }}">通知時間設定</a>
+                                <a class="nav-link" href="{{ route('push.time') }}">通知時間設定</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="{{ route('unsubsc') }}">退会</a>
+                                <a class="nav-link" href="{{ route('unsubsc') }}">退会</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="{{ route('logout') }}"
+                                <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                     {{ __('messages.Logout') }}
