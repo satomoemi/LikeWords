@@ -133,28 +133,28 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse dropdown-menu" id="navbarNav" aria-labelledby="navbarDropdown">
                     <ul class="nav navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <!-- ログインしていなかったらログイン画面へのリンクを表示 -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a>
+                                <a class="nav-link dropdown-item" href="{{ route('login') }}">{{ __('messages.Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('messages.Register') }}</a>
+                                    <a class="nav-link dropdown-item" href="{{ route('register') }}">{{ __('messages.Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user') }}">ユーザー情報</a>
+                                <a class="nav-link dropdown-item" href="{{ route('user') }}">ユーザー情報</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('push.time') }}">通知時間設定</a>
+                                <a class="nav-link dropdown-item" href="{{ route('push.time') }}">通知時間設定</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('unsubsc') }}">退会</a>
+                                <a class="nav-link " href="{{ route('unsubsc') }}">退会</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"

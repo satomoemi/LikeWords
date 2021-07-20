@@ -133,7 +133,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse dropdown-menu" id="navbarNav" >
                     <ul class="nav navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <!-- ログインしていなかったらログイン画面へのリンクを表示 -->
