@@ -48,7 +48,7 @@ class WordPush extends Command
     {
         $user_id = $this->argument('user_id');//引数で落ちてくる user を取得するには
         logger($user_id);
-        $push = Push::where('user_id',$user_id)->first();//Wordの引数を設定して、idを入力したらuserが取得するかどうか調べる findではなくてカラムを指定する場合はwhere getだと配列に取得するからインスタンス取得するfirstを使う
+        $push = Push::where('user_id',$user_id)->first();//Wordの引数を設定して、idを入力したらuserが取得するかどうか調べる findではなくてカラムを指定する場合はwhere getだと配列に取得するからfirst
         logger("###");
         logger($push);
         logger("###");
