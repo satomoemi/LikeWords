@@ -51,7 +51,7 @@ class WordPush extends Command
         $push = Push::where('user_id',$user_id)->first();//Wordの引数を設定して、idを入力したらuserが取得するかどうか調べる
         logger("###");
         logger($push);
-        logger("###");
+        // logger("###");
         // logger($user);
         $word_random = User::find($user_id)->words->random();//ランダムにwordを取得
         logger($word_random);
