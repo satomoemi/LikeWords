@@ -5,7 +5,10 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App
+use App\Push;
+use App\Word;
+use App\User;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -28,8 +31,12 @@ class Kernel extends ConsoleKernel
     //タスクをスケジュールする
     protected function schedule(Schedule $schedule)
     {
-        //command directryのwordpushは1分ごとの実行するとスケジュールしてる
-        $schedule->command('WordPush')->everyMinute();
+        //command directryのwordpushは毎日ごとの実行するとスケジュールしてる
+        $pushes = Push::all();
+        foreach($pushes as $push) {
+            $pushtime = date('H:i',strtotime($push->push_time));//時間を文字列にしてる
+            $schedule->command("WordPush {$push->user_id}")->dailyAt($pushtime);
+        }
     }
 
     /**

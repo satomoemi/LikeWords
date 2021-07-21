@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel
     //タスクをスケジュールする
     protected function schedule(Schedule $schedule)
     {
-        //command directryのwordpushは1分ごとの実行するとスケジュールしてる
+        //command directryのwordpushは毎日設定された時間に実行するとスケジュールしてる
         $pushes = Push::all();
         foreach($pushes as $push) {
             $pushtime = date('H:i',strtotime($push->push_time));//時間を文字列にしてる
