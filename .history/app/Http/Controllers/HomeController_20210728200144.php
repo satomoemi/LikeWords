@@ -23,10 +23,10 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
-    public function top()
+    
+    public function __construct()
     {
-        return redirect('/home');
+        $this->middleware('auth');
     }
 
 

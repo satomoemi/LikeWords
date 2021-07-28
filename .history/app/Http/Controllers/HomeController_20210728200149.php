@@ -24,9 +24,9 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function top()
+    public function ()
     {
-        return redirect('/home');
+        $this->middleware('auth');
     }
 
 
