@@ -3,7 +3,6 @@
 @section('content')
 <div class="py-5 bg-light" style="">
   <div class="container">
-    <img src="..." class="img-fluid" alt="...">
     <div class="row">
         <div class="col-md-6 d-flex flex-column justify-content-center">
         <h3 class="display-4" style="">好きなWordを！<br></h3>
