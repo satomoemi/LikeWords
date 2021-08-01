@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <title>{{ config('app.name') }}</title>
-    <link rel="icon" href="{{ asset('LikeWords.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('likewords.ico') }}">
 
 
     <!-- Scripts -->
