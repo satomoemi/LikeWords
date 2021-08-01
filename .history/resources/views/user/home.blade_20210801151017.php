@@ -12,15 +12,13 @@
                         <form method = get action = "{{ route('home') }}">
                         @csrf
                             <div class="form-group row">
-                                <label class="col-md-2  col-form-label text-md-right text-white">
-                                    Word検索
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="cond_word" value="{{ $cond_word }}">
-                                </div>
-                                <div class="col-md-2">
-                                        <input type="submit" class="btn btn-outline-light" value="検索">
-                                </div>
+                                <label class="col-md-2  col-form-label text-md-right text-white">Word検索</label>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="cond_word" value="{{ $cond_word }}">
+                                    </div>
+                                    <div class="col-md-2">
+                                            <input type="submit" class="btn btn-outline-light" value="検索">
+                                    </div>
                             </div>
                         </form>
                     </div>      
@@ -31,30 +29,29 @@
 
 <div class="container">
     <div class="row">
-        <div class="col col-md-6">
-            <table class="table table-hover">
-                <thead class="bg-white">
-                    <tr class="text-dark">
-                        <th>Folder</th>
-                        <!--この空白がないとheadが欠ける-->
-                        <!--width：私からみて右から左へ移動してく-->
-                        <th width="30%"></th>
-
+        <div class="col col-md-5">
+            <table class="table table-white table-hover">
+                <thead class=bg-white>
+                    <tr>
+                        <th><h6 class=text-dark>Folder</h6></th>
                     </tr>
                 </thead>
 
                     <tbody>
                         @foreach($folders as $folder)
-                            <tr class="align-items-center">
-                                <th class="mr-auto">
+                            <tr class="d-flex justify-content-between align-items-center">
+                                <th>
+                                @if($current_folder != NULL)
                                     <a href="{{ route('home', ['id' => $folder->id]) }}">
                                         {{ $folder->title }}    
                                     </a>
                                 </th>
                                 <td>
-                                    <a class="btn btn-outline-light mr-1 btn-sm" href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
+                                    <div>
+                                    <a class="btn btn-outline-light ml-auto mr-1 btn-sm" href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
                                     
                                     <a class="btn btn-outline-danger btn-sm" href="{{ route('delete.folder',['id' => $folder->id]) }}">削除</a>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach   
@@ -62,29 +59,30 @@
             </table>
         </div>
 
-        <div class="col col-md-6">
+        <div class="col col-md-7">
             <table class="table table-white table-hover">
                 @if($current_folder != NULL)
-                <thead class="bg-white">
+                <thead class="thead thead-light">
                     <tr>
-                        <th >
+                        <th>
                             <a class="btn btn-outline-dark btn-sm" href="{{ route('create.word', ['id' => $current_folder->id]) }}">Word作成</a>
                         </th>
-                        <th width="30%"></th><!--この空白がないとheadが欠ける-->
                     </tr>
                 </thead>
                 @endif
                 
                 <tbody>
                     @foreach($words as $word)
-                        <tr class="align-items-center text-white">
-                            <th class="mr-auto">
-                                {{ $word->word }} 
+                        <tr class="d-flex justify-content-between align-items-center text-white">
+                            <th>
+                                    {{ $word->word }} 
                             </th>
                             <td>
-                                <a class="btn btn-outline-light mr-1 btn-sm" href="{{ route('edit.word',['id' => $word->id]) }}">編集</a>
-                                
-                                <a class="btn btn-outline-danger btn-sm" href="{{route('word.delete',['id' => $word->id])}}">削除</a>
+                                <div>
+                                    <a class="btn btn-outline-light ml-auto mr-1 btn-sm" href="{{ route('edit.word',['id' => $word->id]) }}">編集</a>
+                                    
+                                    <a class="btn btn-outline-danger btn-sm" href="{{route('word.delete',['id' => $word->id])}}">削除</a>
+                                </div>
                             </td>
                         </tr>
                     @endforeach 

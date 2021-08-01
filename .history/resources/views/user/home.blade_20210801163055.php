@@ -12,15 +12,13 @@
                         <form method = get action = "{{ route('home') }}">
                         @csrf
                             <div class="form-group row">
-                                <label class="col-md-2  col-form-label text-md-right text-white">
-                                    Word検索
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="cond_word" value="{{ $cond_word }}">
-                                </div>
-                                <div class="col-md-2">
-                                        <input type="submit" class="btn btn-outline-light" value="検索">
-                                </div>
+                                <label class="col-md-2  col-form-label text-md-right text-white">Word検索</label>
+                                    <div class="col-md-3">
+                                        <input type="text"  name="cond_word" value="{{ $cond_word }}">
+                                    </div>
+                                    <div class="col-md-2">
+                                            <input type="submit" class="btn btn-outline-light" value="検索">
+                                    </div>
                             </div>
                         </form>
                     </div>      
@@ -36,9 +34,7 @@
                 <thead class="bg-white">
                     <tr class="text-dark">
                         <th>Folder</th>
-                        <!--この空白がないとheadが欠ける-->
-                        <!--width：私からみて右から左へ移動してく-->
-                        <th width="30%"></th>
+                        <th width="30%"></th><!--この空白がないとheadが欠ける-->
 
                     </tr>
                 </thead>
@@ -51,7 +47,7 @@
                                         {{ $folder->title }}    
                                     </a>
                                 </th>
-                                <td>
+                                <td><!--私からみて右から左へ移動してく-->
                                     <a class="btn btn-outline-light mr-1 btn-sm" href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
                                     
                                     <a class="btn btn-outline-danger btn-sm" href="{{ route('delete.folder',['id' => $folder->id]) }}">削除</a>

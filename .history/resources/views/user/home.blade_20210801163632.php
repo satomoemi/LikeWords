@@ -36,8 +36,7 @@
                 <thead class="bg-white">
                     <tr class="text-dark">
                         <th>Folder</th>
-                        <!--この空白がないとheadが欠ける-->
-                        <!--width：私からみて右から左へ移動してく-->
+                        <!--私からみて右から左へ移動してく-->
                         <th width="30%"></th>
 
                     </tr>

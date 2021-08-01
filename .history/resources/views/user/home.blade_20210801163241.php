@@ -36,9 +36,7 @@
                 <thead class="bg-white">
                     <tr class="text-dark">
                         <th>Folder</th>
-                        <!--この空白がないとheadが欠ける-->
-                        <!--width：私からみて右から左へ移動してく-->
-                        <th width="30%"></th>
+                        <th width="30%"></th><!--この空白がないとheadが欠ける-->
 
                     </tr>
                 </thead>
@@ -51,7 +49,7 @@
                                         {{ $folder->title }}    
                                     </a>
                                 </th>
-                                <td>
+                                <td><!--私からみて右から左へ移動してく-->
                                     <a class="btn btn-outline-light mr-1 btn-sm" href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
                                     
                                     <a class="btn btn-outline-danger btn-sm" href="{{ route('delete.folder',['id' => $folder->id]) }}">削除</a>
