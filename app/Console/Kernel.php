@@ -32,11 +32,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         //command directryのwordpushは毎日設定された時間に実行するとスケジュールしてる
-        // $pushes = Push::all();
-        // foreach($pushes as $push) {
-        //     $pushtime = date('H:i',strtotime($push->push_time));//時間を文字列にしてる
-        //     $schedule->command("WordPush {$push->user_id}")->dailyAt($pushtime);
-        // }
+        $pushes = Push::all();
+        foreach($pushes as $push) {
+            $pushtime = date('H:i',strtotime($push->push_time));//時間を文字列にしてる
+            $schedule->command("WordPush {$push->user_id}")->dailyAt($pushtime);
+        }
     }
 
     /**
