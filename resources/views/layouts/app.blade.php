@@ -10,7 +10,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>{{ config('app.name') }}</title>
+    <title>{{ config('app.name', 'LikeWords') }}</title>
     <link rel="icon"  href="{{ asset('4fffb3142e02bc041550c600282ad22c_ol.ico') }}">
 
 
@@ -122,8 +122,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name') }}
+                <img src="/4fffb3142e02bc041550c600282ad22c_ol.ico" class="img-fluid pb-2" alt="">
+                <a class="navbar-brand ml-2" href="{{ url('/') }}">
+                   <h4>{{ config('app.name', 'LikeWords') }}</h4>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
