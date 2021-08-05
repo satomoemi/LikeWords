@@ -61,7 +61,7 @@ class WordPush extends Command
             'app_id' => env('ONESINGAL_APP_ID'),//環境変数にしないとgithubに公開されちゃう
             'include_player_ids' => [$push->player_id],//保存したplayer_idを入れる
             // 'included_segments' => ['All'],//全員
-            'url' => "http://like-words.com/",
+            'url' => "https://like-words.com/",
             'headings' => array('en' => '👩‍🎓今日のWord👨‍🎓'),
             //wordというカラムがkeyになる。keyの値を取得という意味。ないとカラム名まで出てくる
             'contents' => array('en' => '📝今日のWordは'." ".$word_random["word"])
