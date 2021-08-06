@@ -34,8 +34,13 @@
         <div class="col col-md-6">
             <table class="table table-hover">
                 <thead class="bg-white">
-                    <tr class="text-dark">
-                        <th>Folder</th>
+                    <tr class="text-dark mb-9">
+                        <th>
+                            <h5 class="mb-0 py-1">
+                                <i class="fas fa-folder fa-lg"></i>
+                                Folder
+                            </h5>
+                        </th>
                         <!--この空白がないとheadが欠ける-->
                         <!--width：私からみて右から左へ移動してく-->
                         <th width="30%"></th>
@@ -45,8 +50,9 @@
 
                     <tbody>
                         @foreach($folders as $folder)
-                            <tr class="align-items-center">
+                            <tr class="align-items-center text-white">
                                 <th class="mr-auto">
+                                    <i class="fas fa-folder fa-lg"></i>
                                     <a href="{{ route('home', ['id' => $folder->id]) }}">
                                         {{ $folder->title }}    
                                     </a>
@@ -67,7 +73,7 @@
                 @if($current_folder != NULL)
                 <thead class="bg-white">
                     <tr>
-                        <th >
+                        <th>
                             <a class="btn btn-outline-dark btn-sm" href="{{ route('create.word', ['id' => $current_folder->id]) }}">Word作成</a>
                         </th>
                         <th width="30%"></th><!--この空白がないとheadが欠ける-->
@@ -79,6 +85,7 @@
                     @foreach($words as $word)
                         <tr class="align-items-center text-white">
                             <th class="mr-auto">
+                            <i class="fas fa-pencil-alt fa-lg"></i>
                                 {{ $word->word }} 
                             </th>
                             <td>

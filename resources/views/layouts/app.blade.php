@@ -37,7 +37,6 @@
             OneSignal.push(function() { //if文の中まで
                 OneSignal.init({
                     appId: '{{ $appId }}', 
-                    // safari_web_id: '{{ $safari_web_id }}',
                 });
 
                 //通知を登録,解除してもonesignalのplayerid発行してuserIdに入れる
@@ -151,25 +150,36 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="{{ route('user') }}">ユーザー情報</a>
+                        <li class="nav-item">
+                                <a class="nav-link text-dark" href="{{ route('user') }}">
+                                    <i class="far fa-address-card fa-lg"></i>
+                                    ユーザー情報
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="{{ route('push.time') }}">通知時間設定</a>
+                                <a class="nav-link text-dark" href="{{ route('push.time') }}">
+                                    <i class="far fa-clock fa-lg"></i>
+                                    通知時間設定
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="{{ route('unsubsc') }}">退会</a>
+                                <a class="nav-link text-dark" href="{{ route('unsubsc') }}">
+                                    <i class="fas fa-user-slash fa-lg"></i>
+                                    退会
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt fa-lg"></i>
                                     {{ __('messages.Logout') }}
                                 </a>
                             </li>
                     </ul>
                             <span class="navbar-text ml-auto text-dark">
-                                    {{ Auth::user()->name }}さんようこそ！ 
+                                {{ Auth::user()->name }}さんようこそ
+                                <i class="far fa-grin-squint fa-lg"></i>
                             </span>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
