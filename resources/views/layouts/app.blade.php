@@ -142,17 +142,23 @@
                         <!-- ログインしていなかったらログイン画面へのリンクを表示 -->
                         @guest
                             <li class="nav-item dropdown">
-                                <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('messages.Login') }}</a>
+                                <a class="nav-link text-dark" href="{{ route('login') }}">
+                                    <i class="fas fa-sign-in-alt fa-lg"></i>
+                                    {{ __('messages.Login') }}
+                                </a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('messages.Register') }}</a>
+                                    <a class="nav-link text-dark" href="{{ route('register') }}">
+                                        <i class="far fa-address-card fa-lg"></i>
+                                        {{ __('messages.Register') }}
+                                    </a>
                                 </li>
                             @endif
                         @else
                         <li class="nav-item">
                                 <a class="nav-link text-dark" href="{{ route('user') }}">
-                                    <i class="far fa-address-card fa-lg"></i>
+                                    <i class="fas fa-address-card fa-lg"></i>
                                     ユーザー情報
                                 </a>
                             </li>
