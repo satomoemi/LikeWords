@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <a class="btn btn-outline-light" href="{{ route('create.folder')}}" method="post">
-                新規フォルダ作成
+                新規Folder作成
             </a>
                 <div class="py-2">
                     <div class="col-md-8">
@@ -94,13 +94,71 @@
                                 <a class="btn btn-outline-danger btn-sm" href="{{route('word.delete',['id' => $word->id])}}">削除</a>
                             </td>
                         </tr>
-                    @endforeach 
-                </tbody>
-            </table>
+                        @endforeach 
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
     
+<!--Modal関連-->
+<!--Folder編集Modal-->
+<!-- <div class="modal fade" id="FolderEditModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
+    <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
+    <!-- <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h4 class="modal-title text-white" id="myModalLabel">Folder編集</h4>
+            </div>
+            <div class="modal-body text-white">
+                
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                    <button  type="submit" class="btn btn-outline-light">更新</button>
+                </div>
+            
+        </div>
+    </div>
+</div> -->
+
+<!--Folder削除Modal-->
+<!-- <div class="modal fade" id="FolderDeleteModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
+    <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
+    <!-- <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h4 class="modal-title text-white" id="myModalLabel">Folder削除確認</h4>
+            </div>
+            <div class="modal-body text-white">
+                <label>本当にFolderを削除しますか？<br>Folderを削除したらWordも削除されます</label>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                <a class="btn btn-outline-danger">削除</a>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!--Word削除Modal-->
+    <!-- <div class="modal fade" id="WordDeleteModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
+        <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
+        <!-- <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h4 class="modal-title text-white" id="myModalLabel">Word削除確認</h4>
+                </div>
+                <div class="modal-body text-white">
+                    <label>本当にWordを削除しますか？</label>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                    <a class="btn btn-outline-danger">削除</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
                    
                 
 @endsection

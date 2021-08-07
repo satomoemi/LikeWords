@@ -8,7 +8,7 @@
 
           <div class="card">
             <div class="card-header bg-white">
-              フォルダ作成
+              Folder編集
             </div>
 
             <div class="card-body bg-dark">

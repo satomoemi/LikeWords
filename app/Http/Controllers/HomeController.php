@@ -39,6 +39,9 @@ class HomeController extends Controller
     //フォルダ,Word一覧画面 検索
     public function home(Request $request)
     {
+        $user = Auth::id();
+
+        //ユーザーごとにフォルダー表示
         $folders = $request->user()->folders;
     
         //検索
@@ -62,10 +65,7 @@ class HomeController extends Controller
             $words = collect();
         }
 
-        
-    
-            
-        return view('user.home',['folders' => $folders, 'current_folder' => $current_folder, 'words' => $words, 'cond_word' => $cond_word]);
+        return view('user.home',['folders' => $folders, 'current_folder' => $current_folder, 'words' => $words, 'cond_word' => $cond_word,'user' => $user]);
         
     }
 
