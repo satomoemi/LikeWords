@@ -27,7 +27,17 @@
                 </div>
         </div>
     </div>
+ <!--通知時間表示（読み取りのみ）-->   
+    <div class="row">
+        <div class="col-md-6"> 
+        </div>
+        <div class="col-md-6 mb-2"> 
+            <label class="text-white">設定した通知時間</label>
+            <input type="time" name="push_time" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  readonly>
+        </div>
+    </div>
 </div>
+
 
 <div class="container">
     <div class="row">
@@ -100,7 +110,7 @@
             </div>
         </div>
     </div>
-    
+</div>
 <!--Modal関連-->
 <!--Folder編集Modal-->
 <!-- <div class="modal fade" id="FolderEditModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->

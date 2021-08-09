@@ -39,7 +39,15 @@ class HomeController extends Controller
     //フォルダ,Word一覧画面 検索
     public function home(Request $request)
     {
+        //通知時間表示のため
         $user = Auth::id();
+        $push = Push::where('user_id',$user)->first();
+        //doesntExist()やexists()がnullだとあるないか判断できない
+        if (Push::where('user_id',$user)->doesntExist()) {
+            $pushtime = NULL;
+        }else {
+            $pushtime = $push->push_time;
+        }
 
         //ユーザーごとにフォルダー表示
         $folders = $request->user()->folders;
@@ -65,7 +73,7 @@ class HomeController extends Controller
             $words = collect();
         }
 
-        return view('user.home',['folders' => $folders, 'current_folder' => $current_folder, 'words' => $words, 'cond_word' => $cond_word,'user' => $user]);
+        return view('user.home',['folders' => $folders, 'current_folder' => $current_folder, 'words' => $words, 'cond_word' => $cond_word, 'pushtime' => $pushtime]);
         
     }
 

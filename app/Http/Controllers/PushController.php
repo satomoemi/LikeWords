@@ -84,7 +84,7 @@ class PushController extends Controller
             $push->save();
         }
 
-        return redirect('/push/time')->with('status', '時間が更新されました');
+        return redirect('/home');
     }
 
 

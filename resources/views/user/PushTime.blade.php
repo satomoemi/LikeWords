@@ -25,18 +25,27 @@
             @csrf
 
               <div class="form-group row">
-                <label for="push_time" class="col-md-4 col-form-label text-md-right text-white">通知時間</label>
+                <label for="push_time" class="col-md-4 col-form-label text-md-right text-white">
+                  通知時間
+                </label>
 
                 <div class="col-md-6">
                   <input type="time" name="push_time" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  class="form-control @error('push_time') is-invalid @enderror">
-
+                  
                   @error('push_time')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
                   @enderror
                 </div>
               </div>
+              
+              <!-- <div class="form-group row justify-content-center"> -->
+                <!-- <div class="col-md-6">
+                  <input type="radio" name="NoPushtime" class="mr-2" value=NULL>
+                  <label class="text-white">通知時間を設定しない（つまり通知OFF）</label>
+                </div> -->
+              <!-- </div> -->
 
               <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
@@ -48,11 +57,6 @@
           
             </form>
           </div>
-              @if (session('status'))
-                  <div class="alert alert-success">
-                      {{ session('status') }}
-                  </div>
-              @endif
         </div>
       </div>
     </div>

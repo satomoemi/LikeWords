@@ -86,7 +86,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <p class="mb-0">© 2021 Sato Moemi</p>
+                        <p class="mb-0">© LikeWords 2021</p>
                     </div> 
                 </div>
             </div>

@@ -35,10 +35,10 @@
             //ベルマーク表示関係
             window.OneSignal = window.OneSignal || [];
             OneSignal.push(function() { //if文の中まで
-                OneSignal.init({
-                    appId: '{{ $appId }}', 
-                });
-
+                    OneSignal.init({
+                        appId: '{{ $appId }}', 
+                    });
+                    
                 //通知を登録,解除してもonesignalのplayerid発行してuserIdに入れる
                 //それを ajax非同期通信 使って指定URLに送信
                 OneSignal.on('subscriptionChange', function (isSubscribed) {
@@ -73,44 +73,46 @@
                             
                         });
                     });
+        
+        
                 } else if (isSubscribed == false) {
                     OneSignal.getUserId(function(userId) {
                         console.log("OneSignal User ID:", userId);
                         // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
                         
                         $.ajax({
-                            headers: {
-                                // csrf対策
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
+                                headers: {
+                                        // csrf対策
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    },
+                        
+                        
+                                    url: '/push/delete', // アクセスするURL
+                                    type: 'GET', // POSTかGETか
+                                    data: { 
+                                            'player_id' : userId //controllerに送るデータ
+                                        },
                             
-                            
-                            url: '/push/delete', // アクセスするURL
-                            type: 'GET', // POSTかGETか
-                            data: { 
-                                'player_id' : userId //controllerに送るデータ
-                            },
-                            
-                            success: function() {
-                                //通信が成功した場合の処理をここに書く
-                                console.log('success_delete');
-                            },
-                            
-                            error: function() {
-                                //通信が失敗した場合の処理をここに書く
-                                console.log('error_delete');
-                            }
-                        });
-                    });
-                }
-                
-                });
-            });
-        }
-        
+                                        success: function() {
+                                                //通信が成功した場合の処理をここに書く
+                                                console.log('success_delete');
+                                            },
+                                
+                                            error: function() {
+                                                    //通信が失敗した場合の処理をここに書く
+                                                    console.log('error_delete');
+                                                }
+                                            });
+                                        });
+                                    
+                                    }
+                                });
+                            });
+                        }   
+                        
     </script>
-        
-        <!-- Fonts -->
+                        
+                        <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -156,24 +158,34 @@
                                 </li>
                             @endif
                         @else
-                        <li class="nav-item">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="{{ route('home') }}">
+                                    <i class="fas fa-home fa-lg"></i>
+                                    ホーム（Folder/Word）
+                               </a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" href="{{ route('user') }}">
                                     <i class="fas fa-address-card fa-lg"></i>
                                     ユーザー情報
                                 </a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="{{ route('push.time') }}">
                                     <i class="far fa-clock fa-lg"></i>
                                     通知時間設定
                                 </a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="{{ route('unsubsc') }}">
                                     <i class="fas fa-user-slash fa-lg"></i>
                                     退会
                                 </a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -208,7 +220,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <p class="mb-0">© 2021 Sato Moemi</p>
+                        <p class="mb-0">© LikeWords 2021</p>
                     </div> 
                 </div>
             </div>

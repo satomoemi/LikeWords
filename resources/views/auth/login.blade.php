@@ -108,7 +108,7 @@
                     <i class="far fa-bell fa-8x"></i>
                 </span>
                 <label class="col-md-7 col-form-label text-md-right text-white">
-                    <h3>初めてログインすると通知許可表示が出ます<br>右下のベルマークで通知ON/OFFの設定ができます</h3>
+                    <h3>右下のベルマークで通知ON/OFFの設定ができます<br>初めてベルマーク押すとブラウザから通知許可表示が出ます</h3>
                 </label>
             </div>
             
