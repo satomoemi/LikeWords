@@ -33,7 +33,7 @@
         </div>
         <div class="col-md-6 mb-2"> 
             <label class="text-white">設定した通知時間</label>
-            <input type="time" name="push_time" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  readonly>
+            <input type="time" name="push_time" style="font-family:monospace;" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  readonly>
         </div>
     </div>
 </div>
@@ -111,64 +111,6 @@
         </div>
     </div>
 </div>
-<!--Modal関連-->
-<!--Folder編集Modal-->
-<!-- <div class="modal fade" id="FolderEditModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
-    <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
-    <!-- <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="modal-header">
-                <h4 class="modal-title text-white" id="myModalLabel">Folder編集</h4>
-            </div>
-            <div class="modal-body text-white">
-                
-                </div>
-                <div class="modal-footer">
-                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
-                    <button  type="submit" class="btn btn-outline-light">更新</button>
-                </div>
-            
-        </div>
-    </div>
-</div> -->
-
-<!--Folder削除Modal-->
-<!-- <div class="modal fade" id="FolderDeleteModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
-    <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
-    <!-- <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="modal-header">
-                <h4 class="modal-title text-white" id="myModalLabel">Folder削除確認</h4>
-            </div>
-            <div class="modal-body text-white">
-                <label>本当にFolderを削除しますか？<br>Folderを削除したらWordも削除されます</label>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
-                <a class="btn btn-outline-danger">削除</a>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<!--Word削除Modal-->
-    <!-- <div class="modal fade" id="WordDeleteModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
-        <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
-        <!-- <div class="modal-dialog">
-            <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h4 class="modal-title text-white" id="myModalLabel">Word削除確認</h4>
-                </div>
-                <div class="modal-body text-white">
-                    <label>本当にWordを削除しますか？</label>
-                </div>
-                <div class="modal-footer">
-                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
-                    <a class="btn btn-outline-danger">削除</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
                    
                 
 @endsection

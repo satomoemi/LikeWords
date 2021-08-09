@@ -94,28 +94,23 @@
             <h1 class="display-4 text-white border-white border-bottom">使い方</h1>
 
             <div class="row col-md-12 py-5 justify-content-center">
-                <!--spanタグ：デザイン微調整によく利用される-->
-                <span style="color: white;">
-                    <i class="far fa-address-card fa-8x"></i>
-                </span>
+                <!--style=：デザイン微調整によく利用される-->
+                <i class="far fa-address-card fa-8x" style="color: white;"></i>
                 <label class="col-md-7 col-form-label text-md-right text-white">
                     <h3>あなたのオリジナルのWord帳にするため<br>「新規会員登録」から登録します<br>登録が終わったらログインへ！</h3>
                 </label>
             </div>
 
             <div class="row col-md-12 py-5 justify-content-center">
-                <span style="color: white;">
-                    <i class="far fa-bell fa-8x"></i>
-                </span>
+                <i class="far fa-bell fa-8x" style="color: white;"></i>
                 <label class="col-md-7 col-form-label text-md-right text-white">
                     <h3>右下のベルマークで通知ON/OFFの設定ができます<br>初めてベルマーク押すとブラウザから通知許可表示が出ます</h3>
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#PushDetailModal">通知について詳しくこちら</button>
                 </label>
             </div>
             
             <div class="row col-md-12 py-5 justify-content-center">
-                <span style="color: white;">
-                    <i class="fas fa-folder fa-8x"></i>
-                </span>
+                <i class="fas fa-folder fa-8x" style="color: white;"></i>
                 <label class="col-md-7 col-form-label text-md-right text-white">
                     <h3>「新規フォルダ作成」からフォルダを作成します<br>例：「英語」「中国語」</h3>
                 </label>
@@ -123,27 +118,21 @@
             
 
             <div class="row col-md-12 py-5 justify-content-center">
-                <span style="color: white;">
-                    <i class="fas fa-language fa-8x"></i>
-                </span>
+                <i class="fas fa-language fa-8x" style="color: white;"></i>
                 <label class="col-md-7 col-form-label text-md-right text-white">
                     <h3>フォルダ名をクリックするとWord一覧がみれます<br>「Word作成」から単語or文・メモが登録できます</h3>
                 </label>
             </div>
 
             <div class="row col-md-12 py-5 justify-content-center">
-                <span style="color: white;">
-                    <i class="fas fa-search fa-8x"></i>
-                </span>
+                <i class="fas fa-search fa-8x" style="color: white;"></i>
                 <label class="col-md-7 col-form-label text-md-right text-white">
                     <h3>登録したWordの部分検索ができます</h3>
                 </label>
             </div>
 
             <div class="row col-md-12 py-5 justify-content-center">
-                <span style="color: white;">
-                <i class="far fa-clock fa-8x"></i>
-                </span>
+                <i class="far fa-clock fa-8x" style="color: white;"></i>
                 <label class="col-md-7 col-form-label text-md-right text-white">
                     <h3>通知時間の設定ができます</br>「毎日・ランダム」は設定済で、変更はできません<br>通知OFFの場合は時間の設定ができません</h3>
                 </label>
@@ -152,4 +141,27 @@
         </div>
     </div>
 </div>
+
+<!--通知についてのModal-->
+<div class="modal fade" id="PushDetailModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <!-- modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h4 class="modal-title text-white" id="myModalLabel">WebPush通知について</h4>
+                </div>
+                <div class="modal-body text-white">
+                    <ul>
+                        <li>LikeWords以外のWebサイトを表示していても通知が届きます。</li>
+                        <li>現時点（2021/8/10）ブラウザ「GoogleChrome」のみ対応しています。</li>
+                        <li>受信設定はアカウントではなくブラウザに保存されます。</li>
+                        <li class="text-danger">複数のユーザーを作成し、全てに通知しようとするとベルマーク表示の不具合が生じてしまいます。そのため、一人につき一人のユーザーに対して通知するようにお願い致します。</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

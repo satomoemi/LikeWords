@@ -38,7 +38,7 @@
                     OneSignal.init({
                         appId: '{{ $appId }}', 
                     });
-                    
+
                 //通知を登録,解除してもonesignalのplayerid発行してuserIdに入れる
                 //それを ajax非同期通信 使って指定URLに送信
                 OneSignal.on('subscriptionChange', function (isSubscribed) {
@@ -220,7 +220,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <p class="mb-0">© LikeWords 2021</p>
+                        <p>© LikeWords 2021</p>
                     </div> 
                 </div>
             </div>
