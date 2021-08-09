@@ -39,13 +39,6 @@
                   @enderror
                 </div>
               </div>
-              
-              <!-- <div class="form-group row justify-content-center"> -->
-                <!-- <div class="col-md-6">
-                  <input type="radio" name="NoPushtime" class="mr-2" value=NULL>
-                  <label class="text-white">通知時間を設定しない（つまり通知OFF）</label>
-                </div> -->
-              <!-- </div> -->
 
               <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
