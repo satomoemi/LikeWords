@@ -1,55 +1,51 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <a class="btn btn-outline-light" href="{{ route('create.folder')}}" method="post">
-                新規Folder作成
-            </a>
-                <div class="py-2">
-                    <div class="col-md-8">
-                        <form method = get action = "{{ route('home') }}">
-                        @csrf
-                            <div class="form-group row">
-                                <label class="col-md-2  col-form-label text-md-right text-white">
-                                    Word検索
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="cond_word" value="{{ $cond_word }}">
-                                </div>
-                                <div class="col-md-2">
-                                        <input type="submit" class="btn btn-outline-light" value="検索">
-                                </div>
-                            </div>
-                        </form>
-                    </div>      
-                </div>
-        </div>
-    </div>
- <!--通知時間表示（読み取りのみ）-->   
+<div class="container pt-2">
     <div class="row">
-        <div class="col-md-6"> 
+        <div class="col-md-7">
+            <form method = get action = "{{ route('home') }}">
+            @csrf
+                <div class="form-group row">
+                    <label class="col-md-2  col-form-label text-md-right text-white">
+                        Word検索
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="cond_word" value="{{ $cond_word }}">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-outline-light"> 
+                        <i class="fas fa-search" style="color: white;"></i>
+                        検索 
+                    </buttton>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="col-md-6 mb-2"> 
-            <label class="text-white">設定した通知時間</label>
-            <input type="time" name="push_time" style="font-family:monospace;" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  readonly>
+
+        <!--通知時間表示（入力の無効化）-->   
+        <div class="form-group row ml-auto mr-1">
+            <div class="col-md-12"> <!--rowのrowの中の12かも-->
+                <label class="text-white" >設定した通知時間</label>
+                <input type="time" name="push_time" style="font-family:monospace;" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  disabled>
+            </div>
         </div>
+
     </div>
 </div>
 
 
-<div class="container">
+<div class="container py-5">
     <div class="row">
         <div class="col col-md-6">
             <table class="table table-hover">
                 <thead class="bg-white">
                     <tr class="text-dark mb-9">
                         <th>
-                            <h5 class="mb-0 py-1">
+                            <a class="btn btn-outline-dark btn-sm" href="{{ route('create.folder')}}" method="post">
                                 <i class="fas fa-folder fa-lg"></i>
-                                Folder
-                            </h5>
+                                新規Folder作成
+                            </a>
                         </th>
                         <!--この空白がないとheadが欠ける-->
                         <!--width：私からみて右から左へ移動してく-->
@@ -62,9 +58,9 @@
                         @foreach($folders as $folder)
                             <tr class="align-items-center text-white">
                                 <th class="mr-auto">
-                                    <i class="fas fa-folder fa-lg"></i>
                                     <a href="{{ route('home', ['id' => $folder->id]) }}">
-                                        {{ $folder->title }}    
+                                        <i class="fas fa-folder fa-lg"></i>
+                                        {{ $folder->title }}
                                     </a>
                                 </th>
                                 <td>
@@ -84,7 +80,10 @@
                 <thead class="bg-white">
                     <tr>
                         <th>
-                            <a class="btn btn-outline-dark btn-sm" href="{{ route('create.word', ['id' => $current_folder->id]) }}">Word作成</a>
+                            <a class="btn btn-outline-dark btn-sm" href="{{ route('create.word', ['id' => $current_folder->id]) }}">
+                                <i class="fas fa-pencil-alt fa-lg"></i>
+                                Word作成
+                            </a>
                         </th>
                         <th width="30%"></th><!--この空白がないとheadが欠ける-->
                     </tr>

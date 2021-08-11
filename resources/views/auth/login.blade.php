@@ -101,13 +101,6 @@
                 </label>
             </div>
 
-            <div class="row col-md-12 py-5 justify-content-center">
-                <i class="far fa-bell fa-8x" style="color: white;"></i>
-                <label class="col-md-7 col-form-label text-md-right text-white">
-                    <h3>右下のベルマークで通知ON/OFFの設定ができます<br>初めてベルマーク押すとブラウザから通知許可表示が出ます</h3>
-                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#PushDetailModal">通知について詳しくこちら</button>
-                </label>
-            </div>
             
             <div class="row col-md-12 py-5 justify-content-center">
                 <i class="fas fa-folder fa-8x" style="color: white;"></i>
@@ -116,21 +109,29 @@
                 </label>
             </div>
             
-
+            
             <div class="row col-md-12 py-5 justify-content-center">
-                <i class="fas fa-language fa-8x" style="color: white;"></i>
+                <i class="fas fa-pencil-alt fa-8x" style="color: white;"></i>
                 <label class="col-md-7 col-form-label text-md-right text-white">
                     <h3>フォルダ名をクリックするとWord一覧がみれます<br>「Word作成」から単語or文・メモが登録できます</h3>
                 </label>
             </div>
-
+            
             <div class="row col-md-12 py-5 justify-content-center">
                 <i class="fas fa-search fa-8x" style="color: white;"></i>
                 <label class="col-md-7 col-form-label text-md-right text-white">
                     <h3>登録したWordの部分検索ができます</h3>
                 </label>
             </div>
-
+            
+            <div class="row col-md-12 py-5 justify-content-center">
+                <i class="far fa-bell fa-8x" style="color: white;"></i>
+                <label class="col-md-7 col-form-label text-md-right text-white">
+                    <h3>右下のベルマークで通知ON/OFFの設定ができます<br>初めてベルマーク押すとブラウザから通知許可表示が出ます</h3>
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#PushDetailModal">通知について詳しくこちら</button>
+                </label>
+            </div>
+            
             <div class="row col-md-12 py-5 justify-content-center">
                 <i class="far fa-clock fa-8x" style="color: white;"></i>
                 <label class="col-md-7 col-form-label text-md-right text-white">
