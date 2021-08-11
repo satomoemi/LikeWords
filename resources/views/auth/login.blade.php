@@ -73,7 +73,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <label class="col-md-7 col-form-label text-md-right text-white">アカウント登録がまだの方は</label>
+                                <label class="col-md-7 col-7  pl-0 col-form-label text-md-right text-white">アカウント登録がまだの方は</label>
                                 <a class="btn btn-outline-light" href="{{ route('register') }}">
                                     {{ __('messages.Register') }}
                                 </a>
