@@ -13,7 +13,7 @@
                     <div class="col-md-4">
                         <input type="text" class="form-control" name="cond_word" value="{{ $cond_word }}">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <button type="submit" class="btn btn-outline-light"> 
                         <i class="fas fa-search" style="color: white;"></i>
                         検索 
