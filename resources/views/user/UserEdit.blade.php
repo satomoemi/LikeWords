@@ -20,7 +20,7 @@
                         @csrf  
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right text-white">ユーザー名変更</label>
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-9">
                                     <input id="name" name="name" value="{{$auth["name"]}}" class="form-control @error('name') is-invalid @enderror">
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
                         @csrf  
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right text-white">メール変更</label>
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-9">
                                     <input id="email" name="email" value="{{$auth["email"]}}" class="form-control @error('email') is-invalid @enderror">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                         @csrf  
                             <div class="form-group row">
                                 <label for="birthday" class="col-md-4 col-form-label text-md-right text-white">生年月日変更</label>
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-9">
                                     <input id="birthday" type="date" name="birthday" value="{{$auth["birthday"]}}" class="form-control @error('birthday') is-invalid @enderror">
                                     @error('birthday')
                                         <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
                         @csrf  
                             <div class="form-group row">
                                 <label for="gender" class="col-md-4 col-form-label text-md-right text-white">性別変更</label>
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-9">
                                     <input  id="gender" type="radio" name="gender" class="btn-check @error('gender') is-invalid @enderror"  value="男" {{ $auth["gender"] =='男'? "checked" : "" }} > 
                                     <label class="text-white">男</label>
 
@@ -98,7 +98,7 @@
                         @csrf
                             <div class="form-group row">
                                 <label for="password"  class="col-md-4 col-form-label text-md-right text-white">現在のパスワードを入力</label>
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-9">
                                     <input  type="password" id="password"  name="CurrentPassword" class="form-control @error('CurrentPassword') is-invalid @enderror">
                                     @error('CurrentPassword')
                                         <span class="invalid-feedback" role="alert">
@@ -110,7 +110,7 @@
 
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right text-white">新規パスワードを入力</label>
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-9">
                                     <input　 type="password" id="password" name="newPassword" class="form-control @error('password') is-invalid @enderror" name="newPassword">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -122,7 +122,7 @@
 
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right text-white">新規パスワードを再入力</label>
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-9">
                                     <input  type="password" id="password" name="newPassword_confirmation" class="form-control @error('newPassword') is-invalid @enderror" name="newPassword">
                                     @error('newPassword')
                                         <span class="invalid-feedback" role="alert">

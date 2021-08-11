@@ -3,17 +3,17 @@
 @section('content')
 <div class="container pt-2">
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-7 col-12">
             <form method = get action = "{{ route('home') }}">
             @csrf
                 <div class="form-group row">
-                    <label class="col-md-2  col-form-label text-md-right text-white">
+                    <label class="col-md-2 col-form-label text-md-right text-white">
                         Word検索
                     </label>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-8">
                         <input type="text" class="form-control" name="cond_word" value="{{ $cond_word }}">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-4">
                         <button type="submit" class="btn btn-outline-light"> 
                         <i class="fas fa-search" style="color: white;"></i>
                         検索 
@@ -37,7 +37,7 @@
 
 <div class="container py-5">
     <div class="row">
-        <div class="col col-md-6">
+        <div class="col-12 col-md-6">
             <table class="table table-hover">
                 <thead class="bg-white">
                     <tr class="text-dark mb-9">
@@ -49,7 +49,7 @@
                         </th>
                         <!--この空白がないとheadが欠ける-->
                         <!--width：私からみて右から左へ移動してく-->
-                        <th width="30%"></th>
+                        <th class="col-md-3 col-5"></th>
 
                     </tr>
                 </thead>
@@ -64,7 +64,7 @@
                                     </a>
                                 </th>
                                 <td>
-                                    <a class="btn btn-outline-light mr-1 btn-sm" href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
+                                    <a class="btn btn-outline-light mr-1 btn-sm " href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
                                     
                                     <a class="btn btn-outline-danger btn-sm" href="{{ route('delete.folder',['id' => $folder->id]) }}">削除</a>
                                 </td>
@@ -74,7 +74,7 @@
             </table>
         </div>
 
-        <div class="col col-md-6">
+        <div class="col-12 col-md-6">
             <table class="table table-white table-hover">
                 @if($current_folder != NULL)
                 <thead class="bg-white">
@@ -85,7 +85,7 @@
                                 Word作成
                             </a>
                         </th>
-                        <th width="30%"></th><!--この空白がないとheadが欠ける-->
+                        <th class="col-md-3 col-5"></th><!--この空白がないとheadが欠ける-->
                     </tr>
                 </thead>
                 @endif

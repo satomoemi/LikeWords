@@ -15,18 +15,20 @@ class BasicAuthMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
-    {
-        $email = $request->getUser();
-        $password = $request->getPassword();
+    // public function handle(Request $request, Closure $next)
+    // {
+    //     //
+    //     $username = $request->getUser();
+    //     $password = $request->getPassword();
+        
+    //     if ($username == User::where('name',$request->email)->first() && $password == User::where('password',$request->password)->first()) {
+            
+    //         return $next($request);
+    //     }
 
-        if ($email == User::where('email',$request->email)->first() && $password == User::where('password',$request->password)->first()) {
-            return $next($request);
-        }
-
-        abort(401, "Enter email and password.", [
-            header('WWW-Authenticate: Basic realm="Sample Private Page"'),
-            header('Content-Type: text/plain; charset=utf-8')
-        ]);
-    }
+    //     abort(401, "Enter email and password.", [
+    //         header('WWW-Authenticate: Basic realm="Sample Private Page"'),
+    //         header('Content-Type: text/plain; charset=utf-8')
+    //     ]);
+    // }
 }

@@ -6,7 +6,7 @@
       <form method="post" action="/unsubsc">
       <div class="form-group row">
         <div class="mx-auto col-md-8">
-            <h3 contenteditable="true" class="text-white">退会理由のご入力お願いします</h3>
+            <h3 class="text-white">退会理由のご入力お願いします</h3>
             <textarea name="reason" class="form-control @error('reason') is-invalid @enderror" >{{old('reason')}}</textarea>
 
 

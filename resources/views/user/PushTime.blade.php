@@ -29,8 +29,8 @@
                   通知時間
                 </label>
 
-                <div class="col-md-6">
-                  <input type="time" name="push_time" style="font-family:monospace ;" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  class="form-control @error('push_time') is-invalid @enderror">
+                <div class="col-md-6 ">
+                  <input type="time" name="push_time" style="font-family:monospace ;" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  class="form-control text-center @error('push_time') is-invalid @enderror">
                   
                   @error('push_time')
                   <span class="invalid-feedback" role="alert">
@@ -41,7 +41,7 @@
               </div>
 
               <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
+                <div class="col-md-12 col-11 text-center">
                   <button type="submit" class="btn btn-outline-light">更新</button>
                 </div>
               </div>

@@ -121,7 +121,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
                 <img src="/4fffb3142e02bc041550c600282ad22c_ol.ico" class="img-fluid pb-2" alt="">
                 <a class="navbar-brand ml-2" href="{{ url('/') }}">
@@ -157,11 +157,17 @@
                                     </a>
                                 </li>
                             @endif
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="https://github.com/satomoemi/LikeWords#readme">
+                                <i class="fas fa-book-open fa-lg"></i>
+                                使い方詳しく
+                               </a>
+                            </li>
                         @else
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="{{ route('home') }}">
                                     <i class="fas fa-home fa-lg"></i>
-                                    ホーム（Folder/Word）
+                                    ホーム
                                </a>
                             </li>
 
@@ -176,6 +182,14 @@
                                 <a class="nav-link text-dark" href="{{ route('push.time') }}">
                                     <i class="far fa-clock fa-lg"></i>
                                     通知時間設定
+                                </a>
+                            </li>
+
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="https://github.com/satomoemi/LikeWords#readme">
+                                    <i class="fas fa-book-open fa-lg"></i>
+                                    使い方詳しく
                                 </a>
                             </li>
 
@@ -194,16 +208,15 @@
                                     {{ __('messages.Logout') }}
                                 </a>
                             </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>        
                     </ul>
                             <span class="navbar-text ml-auto text-dark">
                                 {{ Auth::user()->name }}さんようこそ
                                 <i class="far fa-grin-squint fa-lg"></i>
                             </span>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                                
                         @endguest
                     </div>
                 </div>
@@ -218,17 +231,14 @@
     <footer>
         <div class="py-3" >
             <div class="container">
-                <div class="row mr-auto">
-                    <div class="col-md-6">
+                <div class="row text-center">
+                    <div class="col-md-12">
                         <p>© LikeWords 2021</p>
                     </div> 
-                <div class="row ml-auto">
                     <div class="col-md-12">
-                        <a href="https://github.com/satomoemi/LikeWords#readme" class="btn btn-link">使い方詳しく</a>
                         <button type="button" class="btn btn-link" data-toggle="modal" data-target="#Rule">利用規約</button>
                         <button type="button" class="btn btn-link" data-toggle="modal" data-target="#Privacy">プライバシー</button>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
