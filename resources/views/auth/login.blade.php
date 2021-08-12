@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
         <div class="col-md-6 d-flex flex-column justify-content-center">
-            <h4 class="display-4 text-white border-white border-bottom">好きなWordを!<br></h4>
+            <h1 class="display-4 text-white border-white border-bottom" >好きなWordを!</h1>
             <p class="py-4 lead text-white">記録したい「単語」「定型文」「メモ」を登録でき、毎日ランダムに好きな時間に通知してくれる語学学習アプリです。<br>あなただけのWord帳になるようにご登録よろしくお願いします！<br></p>
             <h3 class="text-white">毎日の継続で語学力をUP!を目指しましょう</h3>
         </div>
@@ -73,7 +73,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <label class="col-md-7 col-7  pl-0 col-form-label text-md-right text-white">アカウント登録がまだの方は</label>
+                                <label class="col-md-7 col-7  pl-0 col-form-label text-md-right text-white">アカウント登録まだの方</label>
                                 <a class="btn btn-outline-light" href="{{ route('register') }}">
                                     {{ __('messages.Register') }}
                                 </a>

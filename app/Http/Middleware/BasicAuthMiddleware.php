@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Closure;
 use App\User;
+use Auth;
 
 class BasicAuthMiddleware
 {
@@ -17,7 +18,7 @@ class BasicAuthMiddleware
      */
     // public function handle(Request $request, Closure $next)
     // {
-    //     //
+    //     
     //     $username = $request->getUser();
     //     $password = $request->getPassword();
         

@@ -73,7 +73,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 //Basic認証
 // Route::group(['middleware' => 'basicauth'], function() {
-    // ここに対象のページを記述
+    //ここに対象のページを記述
 //     Route::get('/home', 'HomeController@home')->name('home');
 // });
 
