@@ -37,8 +37,8 @@
 
 <div class="container py-5">
     <div class="row">
-        <div class="col-12 col-md-6">
-            <table class="table table-hover">
+        <div class=" col-md-6">
+            <table class="table table-hover table-responsive">
                 <thead class="bg-white">
                     <tr class="text-dark mb-9">
                         <th>
@@ -74,7 +74,7 @@
         </div>
 
         <div class="col-12 col-md-6">
-            <table class="table table-white table-hover">
+            <table class="table table-white table-hover table-responsive">
                 @if($current_folder != NULL)
                 <thead class="bg-white">
                     <tr>
