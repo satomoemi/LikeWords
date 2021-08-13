@@ -30,7 +30,7 @@
                 </label>
 
                 <div class="col-md-6 ">
-                  <input type="time" name="push_time" style="font-family:monospace ;" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  class="form-control text-center @error('push_time') is-invalid @enderror">
+                  <input type="time" name="push_time" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  class="form-control text-center @error('push_time') is-invalid @enderror">
                   
                   @error('push_time')
                   <span class="invalid-feedback" role="alert">

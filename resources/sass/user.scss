@@ -1,3 +1,17 @@
-@mixin display-4 {
-  @include font-size(3.1rem);
+@media (max-width: 575.98px) {
+  .display-4 {
+    font-size:3.1rem;
+  }
+  h3, .h3 {
+    font-size: 1.060rem;
+  }
+
+  .lead {
+    font-size: 1.000rem;
+  }
 }
+
+input, button, select, optgroup, textarea {
+  font-family:monospace;
+}
+

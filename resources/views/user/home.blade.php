@@ -27,7 +27,7 @@
         <div class="form-group row ml-auto mr-1">
             <div class="col-md-12"> <!--rowのrowの中の12かも-->
                 <label class="text-white" >設定した通知時間</label>
-                <input type="time" name="push_time" style="font-family:monospace;" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  disabled>
+                <input type="time" name="push_time" class=" pl-4 text-center text-dark" {{ $pushtime != NULL ? "value={$pushtime}" : "" }}  disabled>
             </div>
         </div>
 
