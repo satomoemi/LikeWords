@@ -41,14 +41,15 @@
             <table class="table table-hover">
                 <thead class="bg-white">
                     <tr class="text-dark mb-9">
-                        <th>
+                        <th width="50%">
                             <a class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#CreateFolderModal">
                                 <i class="fas fa-folder fa-lg">新規Folder作成</i>
                                 
                             </a>
                         </th>
+                        <th width="10%"></th>
                         <!--この空白がないとtheadが欠ける-->
-                        <th class="col-md-3 col-5"></th>
+                        <th width="40%" class="col-md-3 col-5"></th>
 
                     </tr>
                 </thead>
@@ -56,13 +57,14 @@
                     <tbody>
                         @foreach($folders as $folder)
                             <tr class="align-items-center text-white">
-                                <th class="mr-auto">
+                                <th  class="mr-auto">
                                     <a href="{{ route('home', ['id' => $folder->id]) }}">
                                         <i class="fas fa-folder fa-lg">{{ $folder->title }}</i>
                                        
                                     </a>
                                 </th>
-                                <td>
+                                <td></td>
+                                <td width="40%">
                                     <a class="btn btn-outline-light mr-1 btn-sm " href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
                                     
                                     <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#FolderDeleteModal">削除</a>
