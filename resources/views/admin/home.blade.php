@@ -8,7 +8,7 @@
                 <div class="card-header bg-white"><h4>ユーザー一覧</h4></div>
 
                 <div class="card-body bg-dark">
-                    <table class="table table-responsive">
+                    <table class="table table-responsive text-nowrap">
                         <thead>
                             <tr class="text-white">
                                 <th width="5%">ID</th>
