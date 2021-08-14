@@ -37,7 +37,7 @@
 
 <div class="container py-5">
     <div class="row">
-        <div class=" col-md-6">
+        <div class="col-12 col-md-6">
             <table class="table table-hover text-nowrap">
                 <thead class="bg-white">
                     <tr class="text-dark mb-9">
@@ -48,7 +48,7 @@
                             </a>
                         </th>
                         <!--この空白がないとtheadが欠ける-->
-                        <th class="col-md-3 col-5"></th>
+                        <th class="col-md-3 col-4"></th>
 
                     </tr>
                 </thead>
@@ -84,7 +84,7 @@
                                 Word作成
                             </a>
                         </th>
-                        <th class="col-md-3 col-5"></th><!--この空白がないとheadが欠ける-->
+                        <th class="col-md-3 col-4"></th><!--この空白がないとheadが欠ける-->
                     </tr>
                 </thead>
                 @endif
