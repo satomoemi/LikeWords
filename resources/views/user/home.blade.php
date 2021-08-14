@@ -144,6 +144,7 @@
 </div>
 
 <!--Folder削除Modal-->
+<!--これがないと$folderの値がない時ERが出る。つまり上のforeachの$folderがなくなるからここにもforeach書く-->
 @foreach($folders as $folder)
     <div class="modal fade" id="FolderDeleteModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
@@ -167,7 +168,9 @@
 
 
 <!--Word削除Modal-->
+<!--これがないと/homeの時（?id=1がない時）ER出る。idの値ないけど？って-->
 @if($current_folder != NULL)
+<!--これがないと$wordの値がない時ERが出る。つまり上のforeachの$wordがなくなるからここにもforeach書く-->
     @foreach($words as $word)
         <div class="modal fade" id="WordDeleteModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
             <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
