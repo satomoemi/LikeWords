@@ -38,17 +38,17 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-12 col-md-6">
-            <table class="table table-hover text-nowrap">
+            <table class="table table-hover">
                 <thead class="bg-white">
                     <tr class="text-dark mb-9">
                         <th>
-                            <a class="btn btn-outline-dark btn-sm" href="{{ route('create.folder')}}" method="post">
+                            <a class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#CreateFolderModal">
                                 <i class="fas fa-folder fa-lg"></i>
                                 新規Folder作成
                             </a>
                         </th>
                         <!--この空白がないとtheadが欠ける-->
-                        <th class="col-md-3 col-4"></th>
+                        <th class="col-md-3 col-5"></th>
 
                     </tr>
                 </thead>
@@ -65,7 +65,7 @@
                                 <td>
                                     <a class="btn btn-outline-light mr-1 btn-sm " href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
                                     
-                                    <a class="btn btn-outline-danger btn-sm" href="{{ route('delete.folder',['id' => $folder->id]) }}">削除</a>
+                                    <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#FolderDeleteModal">削除</a>
                                 </td>
                             </tr>
                         @endforeach   
@@ -74,7 +74,7 @@
         </div>
 
         <div class="col-12 col-md-6">
-            <table class="table table-white table-hover text-nowrap">
+            <table class="table table-white table-hover">
                 @if($current_folder != NULL)
                 <thead class="bg-white">
                     <tr>
@@ -84,7 +84,7 @@
                                 Word作成
                             </a>
                         </th>
-                        <th class="col-md-3 col-4"></th><!--この空白がないとheadが欠ける-->
+                        <th class="col-md-3 col-5"></th><!--この空白がないとheadが欠ける-->
                     </tr>
                 </thead>
                 @endif
@@ -99,7 +99,7 @@
                             <td>
                                 <a class="btn btn-outline-light mr-1 btn-sm" href="{{ route('edit.word',['id' => $word->id]) }}">編集</a>
                                 
-                                <a class="btn btn-outline-danger btn-sm" href="{{route('word.delete',['id' => $word->id])}}">削除</a>
+                                <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#WordDeleteModal">削除</a>
                             </td>
                         </tr>
                         @endforeach 
@@ -109,6 +109,83 @@
         </div>
     </div>
 </div>
+
+<!--Folder編集Modal-->
+<div class="modal fade" id="CreateFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h4 class="modal-title text-white" id="myModalLabel">新規Folder作成</h4>
+            </div>
+            <div class="modal-body text-white">
+            <form method="post" action="{{ route('create.folder',['user_id' => $user]) }}" >
+              @csrf
+                <label for="title" class="text-white">フォルダ名</label>
+                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}}">
+
+                  @error('title')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+            </div>
+                <div class="modal-footer">
+                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                    <button  type="submit" class="btn btn-outline-light">作成</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Folder削除Modal-->
+@foreach($folders as $folder)
+    <div class="modal fade" id="FolderDeleteModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h4 class="modal-title text-white" id="myModalLabel">Folder削除確認</h4>
+                </div>
+                <div class="modal-body text-white">
+                    <label>本当にFolderを削除しますか？<br>Folderを削除したらWordも削除されます</label>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                    <a class="btn btn-outline-danger" href="{{ route('delete.folder',['id' => $folder->id]) }}">削除</a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach   
+
+
+
+<!--Word削除Modal-->
+@if($current_folder != NULL)
+    @foreach($words as $word)
+        <div class="modal fade" id="WordDeleteModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-white" id="myModalLabel">Word削除確認</h4>
+                    </div>
+                    <div class="modal-body text-white">
+                        <label>本当にWordを削除しますか？</label>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                        <a class="btn btn-outline-danger" href="{{route('word.delete',['id' => $word->id])}}">削除</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach 
+@endif
+
+
                    
                 
 @endsection

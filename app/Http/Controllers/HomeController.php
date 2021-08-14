@@ -73,7 +73,7 @@ class HomeController extends Controller
             $words = collect();
         }
 
-        return view('user.home',['folders' => $folders, 'current_folder' => $current_folder, 'words' => $words, 'cond_word' => $cond_word, 'pushtime' => $pushtime]);
+        return view('user.home',['folders' => $folders, 'current_folder' => $current_folder, 'words' => $words, 'cond_word' => $cond_word, 'pushtime' => $pushtime,'user' => $user]);
         
     }
 

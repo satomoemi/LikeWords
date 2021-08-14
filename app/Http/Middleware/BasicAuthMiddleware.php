@@ -16,20 +16,20 @@ class BasicAuthMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    // public function handle(Request $request, Closure $next)
-    // {
-    //     
-    //     $username = $request->getUser();
-    //     $password = $request->getPassword();
+    public function handle(Request $request, Closure $next)
+    {
         
-    //     if ($username == User::where('name',$request->email)->first() && $password == User::where('password',$request->password)->first()) {
-            
-    //         return $next($request);
-    //     }
+        switch (true) {
+        case !isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']):
+            case $_SERVER['PHP_AUTH_USER'] !== User::where('email',$request->email)->get():
+            case $_SERVER['PHP_AUTH_PW']   !== User::where('password',$request->password)->get():
+                header('WWW-Authenticate: Basic realm="Enter username and password."');
+                header('Content-Type: text/plain; charset=utf-8');
+                die('このページを見るにはログインが必要です');
+        }
 
-    //     abort(401, "Enter email and password.", [
-    //         header('WWW-Authenticate: Basic realm="Sample Private Page"'),
-    //         header('Content-Type: text/plain; charset=utf-8')
-    //     ]);
-    // }
+        header('Content-Type: text/html; charset=utf-8');
+
+        return $next($request);
+    }
 }
