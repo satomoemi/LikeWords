@@ -9,14 +9,37 @@
   .lead {
     font-size: 1.000rem;
   }
+
+  #CreateFolderButton {
+    width: 45%;
+  }
+
+  #FolderSpace1 {
+    width: 20%;
+  }
+
+  #FolderSpace2 {
+    width: 35%;
+  }
+
+  #CreateWordButton {
+    width: 45%;
+  }
+
+  #WordSpace1 {
+    width: 20%;
+  }
+
+  #WordSpace2  {
+    width: 35%;
+  }
+
+
 }
 
 input, button, select, optgroup, textarea {
   font-family:monospace;
 }
 
-html {
-  -webkit-appearance: none;
-  -webkit-text-size-adjust: 100%;
-}
+
 

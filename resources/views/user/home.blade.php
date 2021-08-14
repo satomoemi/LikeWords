@@ -41,16 +41,15 @@
             <table class="table table-hover">
                 <thead class="bg-white">
                     <tr class="text-dark mb-9">
-                        <th width="50%">
+                        <th width="45%" id="CreateFolderButton">
                             <a class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#CreateFolderModal">
-                                <i class="fas fa-folder fa-lg">新規Folder作成</i>
-                                
+                                <i class="fas fa-folder fa-lg"></i>
+                                新規Folder作成
                             </a>
                         </th>
-                        <th width="10%"></th>
+                        <th width="30%" id="FolderSpace1"></th>
                         <!--この空白がないとtheadが欠ける-->
-                        <th width="40%" class="col-md-3 col-5"></th>
-
+                        <th width="25%" id="FolderSpace2"></th>
                     </tr>
                 </thead>
 
@@ -59,12 +58,12 @@
                             <tr class="align-items-center text-white">
                                 <th  class="mr-auto">
                                     <a href="{{ route('home', ['id' => $folder->id]) }}">
-                                        <i class="fas fa-folder fa-lg">{{ $folder->title }}</i>
-                                       
+                                        <i class="fas fa-folder fa-lg"></i>
+                                        {{ $folder->title }}
                                     </a>
                                 </th>
                                 <td></td>
-                                <td width="40%">
+                                <td>
                                     <a class="btn btn-outline-light mr-1 btn-sm " href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
                                     
                                     <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#FolderDeleteModal">削除</a>
@@ -80,13 +79,15 @@
                 @if($current_folder != NULL)
                 <thead class="bg-white">
                     <tr>
-                        <th>
+                        <th width="45%" id="CreateWordButton">
                             <a class="btn btn-outline-dark btn-sm" href="{{ route('create.word', ['id' => $current_folder->id]) }}">
                                 <i class="fas fa-pencil-alt fa-lg"></i>
                                 Word作成
                             </a>
                         </th>
-                        <th class="col-md-3 col-5"></th><!--この空白がないとheadが欠ける-->
+                        <!--この空白がないとheadが欠ける-->
+                        <th width="30%" id="WordSpace1"></th>
+                        <th width="25%" id="WordSpace2"></th>
                     </tr>
                 </thead>
                 @endif
@@ -98,6 +99,7 @@
                             <i class="fas fa-pencil-alt fa-lg"></i>
                                 {{ $word->word }} 
                             </th>
+                            <td></td>
                             <td>
                                 <a class="btn btn-outline-light mr-1 btn-sm" href="{{ route('edit.word',['id' => $word->id]) }}">編集</a>
                                 
