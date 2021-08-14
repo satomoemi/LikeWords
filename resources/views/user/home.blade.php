@@ -43,8 +43,8 @@
                     <tr class="text-dark mb-9">
                         <th>
                             <a class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#CreateFolderModal">
-                                <i class="fas fa-folder fa-lg"></i>
-                                新規Folder作成
+                                <i class="fas fa-folder fa-lg">新規Folder作成</i>
+                                
                             </a>
                         </th>
                         <!--この空白がないとtheadが欠ける-->
@@ -58,8 +58,8 @@
                             <tr class="align-items-center text-white">
                                 <th class="mr-auto">
                                     <a href="{{ route('home', ['id' => $folder->id]) }}">
-                                        <i class="fas fa-folder fa-lg"></i>
-                                        {{ $folder->title }}
+                                        <i class="fas fa-folder fa-lg">{{ $folder->title }}</i>
+                                       
                                     </a>
                                 </th>
                                 <td>
