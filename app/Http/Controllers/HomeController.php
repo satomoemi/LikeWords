@@ -39,6 +39,13 @@ class HomeController extends Controller
     //フォルダ,Word一覧画面 検索
     public function home(Request $request)
     {
+        //ユーザーごとにフォルダー表示
+        $folders = $request->user()->folders;
+
+        //Word作成のため、userが指定したidを表示したいから
+        //そのまま$foldersを使用した場合、最後に取得したfolderのidが送られてしまう
+        $word_folder = Folder::find($request->id);
+
         //通知時間表示のため
         $user = Auth::id();
         $push = Push::where('user_id',$user)->first();
@@ -49,12 +56,8 @@ class HomeController extends Controller
             $pushtime = $push->push_time;
         }
 
-        //ユーザーごとにフォルダー表示
-        $folders = $request->user()->folders;
-    
         //検索
         $cond_word = $request->cond_word;
-        
         
         $current_folder = NULL;
         if($request->id != ''){
@@ -73,19 +76,19 @@ class HomeController extends Controller
             $words = collect();
         }
 
-        return view('user.home',['folders' => $folders, 'current_folder' => $current_folder, 'words' => $words, 'cond_word' => $cond_word, 'pushtime' => $pushtime,'user' => $user]);
+        return view('user.home',['folders' => $folders, 'current_folder' => $current_folder, 'words' => $words, 'cond_word' => $cond_word, 'pushtime' => $pushtime,'user' => $user,'word_folder' => $word_folder]);
         
     }
 
 
 
-    //フォルダ作成画面
-    public function CreateFolderForm()
-    {
-        $user = Auth::id();
+    //フォルダ作成画面 Modalに変更したから不要
+    // public function CreateFolderForm()
+    // {
+    //     $user = Auth::id();
 
-        return view('user.CreateFolder',['user' => $user]);
-    }
+    //     return view('user.CreateFolder',['user' => $user]);
+    // }
 
     //フォルダ作成post
     public function CreateFolder( Request $request)

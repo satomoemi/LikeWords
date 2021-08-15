@@ -10,12 +10,12 @@ use Auth;
 class WordController extends Controller
 {
     //Word作成画面
-    public function CreateWordForm(Request $request)
-    {
-        $folder = Folder::find($request->id);//userが指定したidを表示したいから
+    // public function CreateWordForm(Request $request)
+    // {
+    //     $folder = Folder::find($request->id);//userが指定したidを表示したいから
         
-        return view('user.CreateWord',['folder' => $folder ]);
-    }
+    //     return view('user.CreateWord',['folder' => $folder ]);
+    // }
 
     //Word作成post
     public function CreateWord(Request $request)

@@ -80,7 +80,7 @@
                 <thead class="bg-white">
                     <tr>
                         <th width="45%" id="CreateWordButton">
-                            <a class="btn btn-outline-dark btn-sm" href="{{ route('create.word', ['id' => $current_folder->id]) }}">
+                            <a class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#CreateWordModal">
                                 <i class="fas fa-pencil-alt fa-lg"></i>
                                 Word作成
                             </a>
@@ -114,7 +114,42 @@
     </div>
 </div>
 
-<!--Folder編集Modal-->
+<!--これがないと/homeの時（?id=1がない時）ER出る。idの値ないけど？って-->
+@if($current_folder != NULL)
+<!--word作成Modal-->
+<div class="modal fade" id="CreateWordModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h4 class="modal-title text-white" id="myModalLabel">Word作成</h4>
+            </div>
+            <div class="modal-body text-white">
+                <form method="post" action="{{ route('create.word',['folder_id' => $word_folder->id]) }}" >
+                @csrf
+                    <label for="word" class="text-white">Word</label>
+                    <input type="text" class="form-control @error('word') is-invalid @enderror" name="word" value="{{ old('word') }}">
+
+                    @error('word')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+
+                    <label for="memo" class="text-white py-1">メモ</label>
+                    <textarea name="memo" class="form-control" >{{ old('memo') }}</textarea>
+            </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                        <button  type="submit" class="btn btn-outline-light">作成</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+@endif
+
+<!--Folder作成Modal-->
 <div class="modal fade" id="CreateFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
     <div class="modal-dialog">
@@ -123,22 +158,22 @@
                 <h4 class="modal-title text-white" id="myModalLabel">新規Folder作成</h4>
             </div>
             <div class="modal-body text-white">
-            <form method="post" action="{{ route('create.folder',['user_id' => $user]) }}" >
-              @csrf
-                <label for="title" class="text-white">フォルダ名</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}}">
+                <form method="post" action="{{ route('create.folder',['user_id' => $user]) }}" >
+                @csrf
+                    <label for="title" class="text-white">フォルダ名</label>
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}}">
 
-                  @error('title')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
+                    @error('title')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
             </div>
-                <div class="modal-footer">
-                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
-                    <button  type="submit" class="btn btn-outline-light">作成</button>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                        <button  type="submit" class="btn btn-outline-light">作成</button>
+                    </div>
+                </form>
         </div>
     </div>
 </div>

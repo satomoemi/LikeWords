@@ -13,7 +13,7 @@
 
             <div class="card-body bg-dark">
               <!--folder_idはwordテーブルのやつ--> 
-              <!--folder_idにはvalidateをかけてるからNULLじゃ保存ができないから、folder_idに入れたい$folder->idという値を渡して保存する--> 
+              <!--folder_idにはvalidateをかけてるからNULLじゃ保存ができない、folder_idに値を入れたいなら$folder->idという値を渡して保存する--> 
               <form method="post" action="{{ route('create.word',['folder_id' => $folder->id]) }}" >
               @csrf
 
