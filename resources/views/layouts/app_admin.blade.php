@@ -20,7 +20,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- <style>body{background-color: black;}</style> -->
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
@@ -56,6 +57,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('admin.home') }}">ユーザー一覧</a> 
+                                    <a class="dropdown-item" href="{{ route('admin.PlayerID')}}">PlayerID一覧</a> 
                                     <a class="dropdown-item" href="{{ route('admin.unsubsc.reason')}}">退会理由一覧</a>
                                     <a class="dropdown-item" href="{{ route('admin.logout') }}"
                                        onclick="event.preventDefault();

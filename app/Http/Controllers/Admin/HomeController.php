@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
 use App\Unsubscribe;
+use App\Push;
 
 class HomeController extends Controller
 {
@@ -40,5 +41,12 @@ class HomeController extends Controller
         $unsubsc_reasons = Unsubscribe::all();
 
         return view('admin.unsubsc_reason', ['unsubsc_reason_indexes' => $unsubsc_reasons]);
+    }
+
+    public function PlayerID_index(Request $request)
+    {
+        $push_playerid = Push::all();
+
+        return view('admin.PlayerID', ['push_playerids' => $push_playerid]);
     }
 }

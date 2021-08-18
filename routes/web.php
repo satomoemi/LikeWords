@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function() {
     //フォルダ系
     Route::get('/home', 'HomeController@home')->name('home');
     Route::get('/home/createfolder', 'HomeController@CreateFolderForm')->name('create.folder');
-    Route::post('/home/createfolder', 'HomeController@CreateFolder');
+    Route::post('/home/createfolder', 'HomeController@CreateFolder')->name('create.folder');
     Route::get('/home/folder/delete', 'HomeController@DeleteFolder')->name('delete.folder');
     Route::get('/home/folder/edit', 'HomeController@EditFolder')->name('edit.folder');
     Route::post('/home/folder/edit', 'HomeController@UpdateFolder');
@@ -93,4 +93,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('home',      'Admin\HomeController@user_index')->name('admin.home');
     //退会理由一覧
     Route::get('unsubsc/reason',      'Admin\HomeController@unsubsc_reason_index')->name('admin.unsubsc.reason');
+    //PlayerID一覧
+    Route::get('playerid',      'Admin\HomeController@PlayerID_index')->name('admin.PlayerID');
+
 });
