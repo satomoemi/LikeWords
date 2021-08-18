@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'LikeWords') }}</title>
-    <img src="/4fffb3142e02bc041550c600282ad22c_ol.ico" class="img-fluid pb-2" alt="">
+    <link rel="icon"  href="{{ asset('4fffb3142e02bc041550c600282ad22c_ol.ico') }}">
 
 
     <!-- Scripts -->
