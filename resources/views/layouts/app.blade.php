@@ -24,7 +24,6 @@
     <?php
         $loginUser = Auth::check(); //ユーザーがログインしてるか否か してればtrue
         $appId = env('ONESINGAL_APP_ID');
-        $safari_web_id = env('YOUR_SAFARI_WEB_ID');
     ?>
 
     <script>

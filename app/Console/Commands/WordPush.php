@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Notifications\LikeWordsPush;
 use App\User;
 use App\Word;
 use App\Push;
