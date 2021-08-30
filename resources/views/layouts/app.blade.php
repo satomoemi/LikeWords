@@ -144,6 +144,7 @@
                         <!-- ログインしていなかったらログイン画面へのリンクを表示 -->
                         @guest
                             <li class="nav-item dropdown">
+                                <!--nav-link：liタグの黒点消したい時使う-->
                                 <a class="nav-link text-dark" href="{{ route('login') }}">
                                     <i class="fas fa-sign-in-alt fa-lg"></i>
                                     {{ __('messages.Login') }}

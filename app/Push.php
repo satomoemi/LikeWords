@@ -12,8 +12,6 @@ class Push extends Model
         'user_id' => 'required',
         'player_id' => 'required',
         'push_time' => 'required',
-        
-        
     );
 
     public function user()
