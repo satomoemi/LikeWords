@@ -12,12 +12,14 @@ use UserEdit_Operation_DB;
 
 class UnsubscribeController extends Controller
 {
+    //退会画面
     public function UnsubscForm(Request $request)
     {
         $auth = auth::user();
         return view('user.unsubsc',['auth'=>$auth]);
     }
 
+    //退会post
     public function delete(Request $request)
     {
         $this->validate($request, Unsubscribe::$rules);

@@ -214,6 +214,7 @@
                 <h4 class="modal-title text-white" id="myModalLabel">Word作成</h4>
             </div>
             <div class="modal-body text-white">
+                <!--WordModelのfolder_idにはvalidateをかけてるからNULLでは保存ができない、folder_idに値を入れたいなら$word_folder->idという値を渡して保存する--> 
                 <form method="post" action="{{ route('create.word',['folder_id' => $word_folder->id]) }}" >
                 @csrf
                     <label for="word" class="text-white">Word</label>

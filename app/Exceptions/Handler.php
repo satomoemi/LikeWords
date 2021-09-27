@@ -57,6 +57,7 @@ class Handler extends ExceptionHandler
      * @param AuthenticationException $exception
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
+    //ダブル認証のファイルかな
     public function unauthenticated($request, AuthenticationException $exception)
     {
         if($request->expectsJson()){

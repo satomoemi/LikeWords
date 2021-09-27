@@ -17,7 +17,7 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header bg-white"><h3>通知時間設定</h3>
-              <p class=""> Wordを毎日・ランダムに通知します </p> <!--leadは文字を大きくする-->
+              <p class="lead"> Wordを毎日・ランダムに通知します </p> <!--leadは文字を大きくする-->
           </div>
 
           <div class="card-body bg-dark">

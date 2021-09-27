@@ -9,16 +9,18 @@ use Auth;
 
 class PushController extends Controller
 {
-    //通知時間画面
+    //通知時間画面（通知をOFFにしてるのに時間を設定できてしまってたから、通知ONしてる人つまりplayer_id保存された人が時間を設定できるようにした）
     public function push(Request $request)
     {
-        $push = Push::where('user_id',Auth::id());//findはidでレコードを取得する user_idでは取得できない
+        //findではなく、whereね
+        //findはidカラムでレコードを取得する user_idカラムではできない
+        $push = Push::where('user_id',Auth::id());
 
         //通知登録してない(player_idが保存されてない->レコードがない)場合
         if ($push->doesntExist()) {
             $pushtime = NULL;
         }else {
-            //リレーションのpushes使ってるよ
+            //UserModelのリレーションのpushes使用
             $pushtime = Auth::user()->pushes->push_time;
         }
 
@@ -28,14 +30,18 @@ class PushController extends Controller
     //通知ON player_id保存
     public function PushID(Request $request)
     {
+        //app.blade.phpからajaxでplayer_idが送信されてくる
         logger('ajax success');
         $user = Auth::user();
         $push = new Push;
         $push->user_id = $user->id;
+        //$form=$request->all()は連想配列としてくるから$push->player_id = $form['player_id']keyを指定する
+        //それを一行にしたのが
         $push->player_id = $request->all()['player_id'];
-        //$form=$request->all()連想配列としてくる $push->player_id = $form['player_id']
+        
 
-        //DBのテーブルに対象のレコードがないかチェック あるはexists() ないはdoesntExist() '='は省略可
+        //PushModelに対象のレコードがないかチェック あったら同じレコードが保存されてしまうからなかったら保存実装
+        //あるはexists() ないはdoesntExist() '='は省略可
         //Push tableのuser_idにログインしてるユーザーのidがなかったらsave
         if (Push::where('user_id','=',$push->user_id)->doesntExist()) {
             $push->save();
@@ -48,6 +54,7 @@ class PushController extends Controller
     //通知OFF player id削除
     public function DeletePushID(Request $request)
     {
+        //app.blade.phpからajaxでplayer_idが送信されてくる
         logger('ajax_delete success');
 
         //first()の返り値はインスタンス（変数）一番目のものを取得したい時 なければnullを返す
@@ -55,16 +62,10 @@ class PushController extends Controller
         $push = Push::where('user_id',Auth::id())->first();
         logger($push);
         
-
+        //もしNULLだったら削除する必要がないため
         if ($push != NULL) {
             $push->delete();
         }
-
-        // $user = Auth::user();
-        // if ($user->player_id != NULL) {
-        //     $user->player_id = NULL;
-        //     $user->save();
-        // }
     }
 
     //通知時間保存
@@ -74,7 +75,7 @@ class PushController extends Controller
         $this->validate($request,['push_time' => 'required',]);
         $user = Auth::id();
 
-        //もしすでに通知登録していたら（ログインしてるIDが存在したら）必要？
+        //もし通知登録していたら（ログインしてるIDが存在したら）
         if (Push::where('user_id',$user)->exists()){
 
             $push = Push::where('user_id',$user)->first();

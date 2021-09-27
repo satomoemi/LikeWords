@@ -16,6 +16,8 @@ class WordPush extends Command
      * @var string
      */
     //コマンドの名前
+    //特定のユーザーごとに通知したいため、引数を設定する事にした
+    //参考 https://qiita.com/shosho/items/af15ef1d94a0a7f34e8e
     protected $signature = 'WordPush {user_id}';//引数を指定する時は {user} のように {} で囲む
     
 
@@ -45,27 +47,36 @@ class WordPush extends Command
     //処理内容を記述
     public function handle()
     {
-        $user_id = $this->argument('user_id');//引数で落ちてくる user を取得するには
+        //引数で落ちてくる user_id を$user_idとする。1や2を入力するようにする
+        $user_id = $this->argument('user_id');
         logger($user_id);
-        $push = Push::where('user_id',$user_id)->first();//Wordの引数を設定して、idを入力したらuserが取得するかどうか調べる findではなくてカラムを指定する場合はwhere getだと配列に取得するからインスタンス取得するfirstを使う
+
+        //user_idを入力されたら通知登録してる該当user_idレコードを取得する 
+        //findではなくてカラムを指定する場合はwhere 
+        //getだと配列を取得するからインスタンス取得するfirstを使う
+        $push = Push::where('user_id',$user_id)->first();
         logger("###");
         logger($push);
         logger("###");
-        // logger($user);
-        $word_random = User::find($user_id)->words->random();//ランダムにwordを取得
+    
+        //ランダムにwordを取得
+        //入力されてきた引数の$user_idで該当のUserレコード取得
+        //User Model内でリレーションしてるwords使用し、該当のWordレコード取得。さらにそれをランダムに取得
+        $word_random = User::find($user_id)->words->random();
         logger($word_random);
         
         //ここに書いた処理が実際に定期実行される処理(app.bladeのscriptとは関連なし)
         $fields = array(
             'app_id' => env('ONESINGAL_APP_ID'),//環境変数にしないとgithubに公開されちゃう
-            'include_player_ids' => [$push->player_id],//保存したplayer_idを入れる
-            // 'included_segments' => ['All'],//全員
-            'url' => "https://like-words.com/",
-            'headings' => array('en' => '👩‍🎓今日のWord👨‍🎓'),
-            //wordというカラムがkeyになる。keyの値を取得という意味。ないとカラム名まで出てくる
+            'include_player_ids' => [$push->player_id],//Push Modelに保存したplayer_idを入れる
+            'url' => "https://like-words.com/",//通知を押した時に表示されるURLサイト
+            'headings' => array('en' => '👩‍🎓今日のWord👨‍🎓'),//タイトル
+            //$word_random連想配列になっているから、wordというカラムがkeyになる。keyを指定したらの値が取得される。ないとカラム名（key）まで出てくる
             'contents' => array('en' => '📝今日のWordは'." ".$word_random["word"])
         );
+
         //この下からonesignalと繋がっている
+        //https://qiita.com/iritec/items/47c69c61c3731f63688c 参考
         $fields = json_encode($fields);
 
         $ch = curl_init();
