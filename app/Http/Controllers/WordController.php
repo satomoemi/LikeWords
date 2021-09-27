@@ -33,8 +33,8 @@ class WordController extends Controller
         $word->save();
         
         
-        //redirectではid渡せない
-        //$word->folder_idはmodelのwordからfolder_idを取得
+        //home画面に戻って欲しいのだけど（wordを表示した状態で）、redirectではid渡せないからroute使用
+        //$word->folder_idはWordModelからfolder_idを取得
         return redirect(route('home',['id' => $word->folder_id]));
     }
 
@@ -42,7 +42,6 @@ class WordController extends Controller
     public function EditWord(Request $request)
     {
         $word = Word::find($request->id);
-        // dd($word);
         return view("user.EditWord",['word' => $word]);
     }
 
@@ -59,6 +58,7 @@ class WordController extends Controller
 
         $word->fill($word_form)->save();
 
+        //home画面に戻って欲しいのだけど（wordを表示した状態で）、redirectではid渡せないからroute使用
         return redirect(route('home',['id' => $word->folder_id])); 
     }
 
@@ -73,6 +73,7 @@ class WordController extends Controller
         // 削除する
         $word->delete();
 
+        //home画面に戻って欲しいのだけど（wordを表示した状態で）、redirectではid渡せないからroute使用
         return redirect(route('home',['id' => $word->folder_id]));
   }  
 

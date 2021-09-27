@@ -15,7 +15,7 @@ class UnsubscribeController extends Controller
     //退会画面
     public function UnsubscForm(Request $request)
     {
-        $auth = auth::user();
+        $auth = Auth::user();
         return view('user.unsubsc',['auth'=>$auth]);
     }
 

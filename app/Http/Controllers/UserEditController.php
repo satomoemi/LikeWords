@@ -62,17 +62,4 @@ class UserEditController extends Controller
         $UserEdit_Operation_DB = new UserEdit_Operation_DB();
         return $UserEdit_Operation_DB->PasswordChange($request,$user);
     }
-
-    // public function WithdrawalForm(){
-    //     //退会フォームを表示させるメソッド
-    //     $auth = auth::user();
-    //     return view('auth.WithdrawalForm',['auth'=>$auth]);
-    // }
-
-    // public function Withdrawal(WithdrawalRequest $request){
-    //     //退会処理を追加するメソッド
-    //     $id = auth::id();
-    //     $UserEdit_Operation_DB = new UserEdit_Operation_DB();
-    //     return $UserEdit_Operation_DB->Withdrawal($request,$id);
-    // }
 }
