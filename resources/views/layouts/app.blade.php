@@ -20,7 +20,7 @@
 
     <!--赤いベルマークの実装をしている(word.phpとの関連はなし)-->
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-    <!-- php上で別のところで定義された変数をscriptタグの中では直接使えない。だから@phpを使ってblade上で直接定義する -->
+    <!-- php上で別のところで定義された変数をscriptタグの中では直接使えない。だから?php?を使ってblade上で直接定義する -->
     <?php
         $loginUser = Auth::check(); //ユーザーがログインしてるか否か してればtrue
         $appId = env('ONESINGAL_APP_ID');
@@ -39,7 +39,7 @@
                     });
 
                 //通知を登録,解除してもonesignalのplayerid発行してuserIdに入れる
-                //それを ajax非同期通信 使って指定URLに送信
+                //それを ajax非同期通信 使って指定URLに送信（今回はコントローラーに）
                 OneSignal.on('subscriptionChange', function (isSubscribed) {
                     if (isSubscribed == true) {
                         OneSignal.getUserId(function(userId) {

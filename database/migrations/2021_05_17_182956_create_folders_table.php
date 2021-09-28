@@ -28,7 +28,8 @@ class CreateFoldersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('words');//wordsとfoldersが外部制約キーかけてるからfoldersをrefreshするときはまず子テーブルであるwordsを削除し、親であるfoldersを削除する
+        //wordsとfoldersが外部制約キーかけてるからfoldersをrefreshするときはまず子テーブルであるwordsを削除し、親であるfoldersを削除する
+        Schema::dropIfExists('words');
         Schema::dropIfExists('folders');
     }
 }

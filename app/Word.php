@@ -19,6 +19,7 @@ class Word extends Model
         return $this->belongsTo('App\Folder');//複数のwordに対し一つのフォルダーを渡すため
     }
 
+    //特定のユーザーが作成したwordを通知したいからリレーションした
     public function user()
     {
         return $this->belongsTo('App\User');//複数のwordに対し一つのuserを渡すため

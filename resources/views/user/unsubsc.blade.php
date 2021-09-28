@@ -32,13 +32,7 @@
                 @enderror
             </div>
         </div>
-            
             <button class="btn btn-outline-danger">退会</button>
-          
-            <!-- <input type="hidden" name="UserId" value={{$auth["id"]}}> controllerでidを受け取ってるから入力しなくて大丈夫 -->
-            
-            
-          
         </div>
       </form>
 

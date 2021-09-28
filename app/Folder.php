@@ -16,7 +16,7 @@ class Folder extends Model
     public function words()
     {
         //folderテーブルに関連しているwordテーブルのレコードを全て取得している
-        return $this->hasMany('App\Word');
+        return $this->hasMany('App\Word');//1つのfolderに対して複数のword
     }
 
     public function user()

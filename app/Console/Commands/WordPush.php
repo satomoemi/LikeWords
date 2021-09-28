@@ -75,22 +75,32 @@ class WordPush extends Command
             'contents' => array('en' => '📝今日のWordは'." ".$word_random["word"])
         );
 
-        //この下からonesignalと繋がっている
+        //$fieldsの情報をonesignalに送信したいため、この下からonesignalと繋がっている
         //https://qiita.com/iritec/items/47c69c61c3731f63688c 参考
-        $fields = json_encode($fields);
 
+        $fields = json_encode($fields);//json_encodeは連想配列をa=>bをa:bというJSON形式にして返す
+
+        //cURLとは、HTTPリクエストをすることにより、外部サイトの情報を取得することができる関数
+        //cURL自体がクライアントになる
+
+        //curl_ini:cURLのセッションを初期化
         $ch = curl_init();
+
+        //curl_setopt:cURLの転送用オプションを設定,返り値にはboolean型の値を返す
         curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
         curl_setopt($ch, CURLOPT_HTTPHEADER,
                     array('Content-Type: application/json; charset=utf-8', 'Authorization: Basic '.env('ONESINGAL_REST_API_KEY')));//環境変数
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);//curl_exec()を実行時、返り値を文字列で返す
+        curl_setopt($ch, CURLOPT_HEADER, false);// ヘッダは出力したくない場合
+        curl_setopt($ch, CURLOPT_POST, true);//POSTが有効
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);//CURLOPT_POST=true を付与する場合は CURLOPT_POSTFIELDS は必須 CURLOPT_POSTFIELDSにパラメータ（引数）設定するとPOST送信になる
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);//falseを設定するとサーバー証明書の検証を行わない.これを設定することでcurl_exec()を実行時、エラーを回避できる
 
+        //curl_exec:cURLのセッションの実行時に使用
         $response = curl_exec($ch);
         logger($response);
+        
+        //curl_close:cURLのセッションを閉じるときに使用
         curl_close($ch);
 
         
