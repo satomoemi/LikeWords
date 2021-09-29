@@ -29,7 +29,7 @@ class UnsubscribeController extends Controller
             function($attribute, $value, $fail){
                     //現在のパスワードと新しいパスワードが合わなければエラーを出力
                     if(!Hash::check($value, Auth::user()->password)){
-                        $fail('Password does not match');
+                        $fail('パスワードが間違っています');
                     }
                 }
             ],

@@ -14,5 +14,6 @@ return [
     'Forgot Your Password?' => 'パスワード忘れた場合',
     'Reset Password'=> 'パスワードリセット',
     'Send Password Reset Link' => 'パスワード変更メール送信'
+    
 
 ];
