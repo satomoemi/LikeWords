@@ -1,13 +1,42 @@
-
-
-<!--Modal関連-->
 <!--Folder編集Modal-->
-<!-- <div class="modal fade" id="FolderEditModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
+<!-- @foreach($folders as $folder)
+    <div class="modal fade" id="EditFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
+        <!-- modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ -->
+        <!-- <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h4 class="modal-title text-white" id="myModalLabel">Folder編集</h4>
+                </div>
+                <div class="modal-body text-white">
+                    <form method="post" action="{{ route('edit.folder',['id' => $folder->id, 'user_id' => $user]) }}" >
+                    @csrf
+                        <div class="form-group row">
+                            <label for="title" class="text-white">フォルダ名</label>
+                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}} {{ $folder->title }}">
+                            @error('title')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                    <button  type="submit" class="btn btn-outline-light">更新</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+<!-- @endforeach  --> 
+
+<!--Word編集Modal-->
+<!-- <div class="modal fade" id="WordEditModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
     <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
     <!-- <div class="modal-dialog">
         <div class="modal-content bg-dark">
             <div class="modal-header">
-                <h4 class="modal-title text-white" id="myModalLabel">Folder編集</h4>
+                <h4 class="modal-title text-white" id="myModalLabel">Word編集</h4>
             </div>
             <div class="modal-body text-white">
                 

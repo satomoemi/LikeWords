@@ -68,7 +68,28 @@
                                 <td>
                                     <a class="btn btn-outline-light mr-1 btn-sm " href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
                                     
-                                    <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#DeleteFolderModal">削除</a>
+                                    <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#DeleteFolderModal" data-title="{{ $folder->id }}" data-url="{{ route('delete.folder') }}">削除</a>
+
+                                    <!--Folder削除Modal-->
+                                    <!--これがないと$folderの値がない時ERが出る。つまり上のforeachの$folderがなくなるからここにもforeach書く-->
+                                    <div class="modal fade" id="DeleteFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                        <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
+                                        <div class="modal-dialog">
+                                            <div class="modal-content bg-dark">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title text-white" id="myModalLabel">Folder削除確認</h4>
+                                                </div>
+                                                <div class="modal-body text-white">
+                                                    <label>本当にFolderを削除しますか？<br>Folderを削除したらWordも削除されます</label>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                                                    <a class="btn btn-outline-danger" href="{{ route('delete.folder',['id' => $folder->id]) }}">削除</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </td>
                             </tr>
                         @endforeach   
@@ -134,9 +155,9 @@
                     <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}}">
                     
                     @error('title')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                     @enderror
                 </div>
                 <div class="modal-footer">
@@ -148,60 +169,8 @@
     </div>
 </div>
 
-<!--Folder編集Modal-->
-<!-- @foreach($folders as $folder)
-    <div class="modal fade" id="EditFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
-        <!-- modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ -->
-        <!-- <div class="modal-dialog">
-            <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h4 class="modal-title text-white" id="myModalLabel">Folder編集</h4>
-                </div>
-                <div class="modal-body text-white">
-                    <form method="post" action="{{ route('edit.folder',['id' => $folder->id, 'user_id' => $user]) }}" >
-                    @csrf
-                        <div class="form-group row">
-                            <label for="title" class="text-white">フォルダ名</label>
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}} {{ $folder->title }}">
-                            @error('title')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
-                    <button  type="submit" class="btn btn-outline-light">更新</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div> -->
-<!-- @endforeach  --> 
 
 
-<!--Folder削除Modal-->
-<!--これがないと$folderの値がない時ERが出る。つまり上のforeachの$folderがなくなるからここにもforeach書く-->
-@foreach($folders as $folder)
-<div class="modal fade" id="DeleteFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-    <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="modal-header">
-                <h4 class="modal-title text-white" id="myModalLabel">Folder削除確認</h4>
-            </div>
-            <div class="modal-body text-white">
-                <label>本当にFolderを削除しますか？<br>Folderを削除したらWordも削除されます</label>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
-                <a class="btn btn-outline-danger" href="{{ route('delete.folder',['id' => $folder->id]) }}">削除</a>
-            </div>
-        </div>
-    </div>
-</div>
-@endforeach   
 
 <!--これがないと/homeの時（?id=1がない時）ER出る。idの値ないけど？って-->
 @if($current_folder != NULL)
@@ -238,26 +207,6 @@
     </div>
 </div>
 @endif
-
-<!--Word編集Modal-->
-<!-- <div class="modal fade" id="WordEditModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"> -->
-    <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
-    <!-- <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-            <div class="modal-header">
-                <h4 class="modal-title text-white" id="myModalLabel">Word編集</h4>
-            </div>
-            <div class="modal-body text-white">
-                
-                </div>
-                <div class="modal-footer">
-                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
-                    <button  type="submit" class="btn btn-outline-light">更新</button>
-                </div>
-            
-        </div>
-    </div>
-</div> -->
 
 <!--Word削除Modal-->
 <!--これがないと/homeの時（?id=1がない時）ER出る。idの値ないけど？って-->
