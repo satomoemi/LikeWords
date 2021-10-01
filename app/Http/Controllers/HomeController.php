@@ -151,6 +151,7 @@ class HomeController extends Controller
   {
       // ユーザーからきたリクエストから該当するFolderModelを取得
       $folder = Folder::find($request->id);
+    //   dd($folder);
 
       // そのレコードを削除
       $folder->delete();

@@ -67,28 +67,50 @@
                                 <td></td>
                                 <td>
                                     <a class="btn btn-outline-light mr-1 btn-sm " href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
-                                    
-                                    <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#DeleteFolderModal" data-title="{{ $folder->id }}" data-url="{{ route('delete.folder') }}">削除</a>
+
+                                    <!--「data-*」でmodalやscriptにデータを渡せる-->
+                                    <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#DeleteFolderModal" data-title="{{ $folder->title }}" data-url="{{ route('delete.folder',['id' => $folder->id]) }}" >削除</a>
 
                                     <!--Folder削除Modal-->
                                     <!--これがないと$folderの値がない時ERが出る。つまり上のforeachの$folderがなくなるからここにもforeach書く-->
                                     <div class="modal fade" id="DeleteFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                        <!--削除のメソッドをgetからpostに変えるにはformを使用する必要あり-->
+                                        <!--form-inline:文字の量に合わせてモーダルの大きさが変化する-->
+                                        <form role="form" class="form-inline" method="post" action="">
+                                        @csrf
                                         <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
-                                        <div class="modal-dialog">
-                                            <div class="modal-content bg-dark">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title text-white" id="myModalLabel">Folder削除確認</h4>
-                                                </div>
-                                                <div class="modal-body text-white">
-                                                    <label>本当にFolderを削除しますか？<br>Folderを削除したらWordも削除されます</label>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
-                                                    <a class="btn btn-outline-danger" href="{{ route('delete.folder',['id' => $folder->id]) }}">削除</a>
+                                            <div class="modal-dialog">
+                                                <div class="modal-content bg-dark">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title text-white" id="myModalLabel">Folder削除確認</h4>
+                                                    </div>
+                                                    <div class="modal-body text-white">
+                                                        <p></p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                                                        <!--formタグ使用してるならaタグではなくてbuttonタグね-->
+                                                        <button type="submit" class="btn btn-outline-danger">削除</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
+
+                                    <!--modalにtitleとURLのデータを渡すにはscriptが必要-->
+                                    <script>
+                                        window.onload = function() {
+                                            $('#DeleteFolderModal').on('shown.bs.modal', function (event) {
+                                                var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
+                                                var title = button.data('title');//data-titleの値を取得
+                                                var url = button.data('url');//data-urlの値を取得
+                                                var modal = $(this);//モーダルを取得
+                                                //Ajaxの処理はここに
+                                                modal.find('.modal-body p').eq(0).text("本当に"+title+"を削除しますか?");
+                                                modal.find('form').attr('action',url);
+                                            });
+                                        }
+                                    </script>
 
                                 </td>
                             </tr>

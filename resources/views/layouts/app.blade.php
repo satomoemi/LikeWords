@@ -28,7 +28,7 @@
 
     <script>
         //ユーザーがログインしてればベルマーク登場
-        if( {{$loginUser==null ? "false":"true"}} ) {
+        if( {{$loginUser==null ? "false":"true"}} ) {//最後まで
             console.log("login",{{$loginUser}});
 
             //ベルマーク表示関係
@@ -62,16 +62,16 @@
                                 success: function() {
                                     //通信が成功した場合の処理をここに書く
                                     console.log('success');
-                            },
+                                },
                             
-                            error: function() {
-                                //通信が失敗した場合の処理をここに書く
-                                console.log('error');
-                            }
+                                error: function() {
+                                    //通信が失敗した場合の処理をここに書く
+                                    console.log('error');
+                                }
                             
                             
+                            });
                         });
-                    });
         
         
                 } else if (isSubscribed == false) {
@@ -80,34 +80,34 @@
                         // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316    
                         
                         $.ajax({
-                                headers: {
-                                        // csrf対策
-                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                    },
+                            headers: {
+                                    // csrf対策
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
                         
                         
-                                    url: '/push/delete', // アクセスするURL
-                                    type: 'GET', // POSTかGETか
-                                    data: { 
-                                            'player_id' : userId //controllerに送るデータ
-                                        },
+                            url: '/push/delete', // アクセスするURL
+                            type: 'GET', // POSTかGETか
+                            data: { 
+                                    'player_id' : userId //controllerに送るデータ
+                            },
                             
-                                        success: function() {
-                                                //通信が成功した場合の処理をここに書く
-                                                console.log('success_delete');
-                                            },
-                                
-                                            error: function() {
-                                                    //通信が失敗した場合の処理をここに書く
-                                                    console.log('error_delete');
-                                                }
-                                            });
-                                        });
+                            success: function() {
+                                    //通信が成功した場合の処理をここに書く
+                                    console.log('success_delete');
+                            },
+                    
+                            error: function() {
+                                    //通信が失敗した場合の処理をここに書く
+                                    console.log('error_delete');
+                            }
+                        });
+                    });
                                     
-                                    }
-                                });
-                            });
-                        }   
+                }
+            });
+        });
+    }   
                         
     </script>
                         

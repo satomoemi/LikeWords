@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/home', 'HomeController@home')->name('home');
     Route::get('/home/createfolder', 'HomeController@CreateFolderForm')->name('create.folder');
     Route::post('/home/createfolder', 'HomeController@CreateFolder')->name('create.folder');
-    Route::get('/home/folder/delete', 'HomeController@DeleteFolder')->name('delete.folder');
+    Route::post('/home/folder/delete', 'HomeController@DeleteFolder')->name('delete.folder');
     Route::get('/home/folder/edit', 'HomeController@EditFolder')->name('edit.folder');
     Route::post('/home/folder/edit', 'HomeController@UpdateFolder');
 
