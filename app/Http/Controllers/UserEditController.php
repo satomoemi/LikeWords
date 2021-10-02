@@ -34,7 +34,6 @@ class UserEditController extends Controller
     
     //登録ユーザー名を更新
     public function NameUpdate(Request $request){
-        $this->validate($request, User::$rules);
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
         //newはModelからインスタンス（レコード）を生成するメソッド

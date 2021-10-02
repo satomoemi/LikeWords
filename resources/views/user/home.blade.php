@@ -76,6 +76,7 @@
                                     <div class="modal fade" id="DeleteFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                                         <!--削除のリクエストメソッドをgetからpostに変えるにはformを使用する必要あり-->
                                         <!--form-inline:文字の量に合わせてモーダルの大きさが変化する-->
+                                        <!--role属性は要素の「役割」を明示的に示すもの-->
                                         <form role="form" class="form-inline" method="post" action="">
                                         @csrf
                                         <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
@@ -107,6 +108,7 @@
                                                 var url = button.data('url');//data-urlの値を取得
                                                 var modal = $(this);//モーダルを取得
                                                 //Ajaxの処理はここに
+                                                //eq（0）：インデックス番号を利用して要素を取得
                                                 modal.find('.modal-body p').eq(0).text("本当に"+title+"を削除しますか?");
                                                 modal.find('form').attr('action',url);
                                             });
