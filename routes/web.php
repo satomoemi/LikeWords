@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function() {
     //ワード系
     Route::get('/home/createword', 'WordController@CreateWordForm')->name('create.word');
     Route::post('/home/createword', 'WordController@CreateWord');
-    Route::get('/home/word/delete', 'WordController@DeleteWord')->name('word.delete');
+    Route::post('/home/word/delete', 'WordController@DeleteWord')->name('delete.word');
     Route::get('/home/word/edit', 'WordController@EditWord')->name('edit.word');
     Route::post('/home/word/edit', 'WordController@UpdateWord');
 

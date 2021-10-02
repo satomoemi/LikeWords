@@ -72,9 +72,9 @@
                                     <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#DeleteFolderModal" data-title="{{ $folder->title }}" data-url="{{ route('delete.folder',['id' => $folder->id]) }}" >削除</a>
 
                                     <!--Folder削除Modal-->
-                                    <!--これがないと$folderの値がない時ERが出る。つまり上のforeachの$folderがなくなるからここにもforeach書く-->
+                                    <!--必ずforeach内に実装する。foreach外だと$folderの値がない時ERが出る-->
                                     <div class="modal fade" id="DeleteFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                        <!--削除のメソッドをgetからpostに変えるにはformを使用する必要あり-->
+                                        <!--削除のリクエストメソッドをgetからpostに変えるにはformを使用する必要あり-->
                                         <!--form-inline:文字の量に合わせてモーダルの大きさが変化する-->
                                         <form role="form" class="form-inline" method="post" action="">
                                         @csrf
@@ -98,8 +98,9 @@
                                     </div>
 
                                     <!--modalにtitleとURLのデータを渡すにはscriptが必要-->
+                                    <!--必ずmodalのdivの後に実装-->
                                     <script>
-                                        window.onload = function() {
+                                        window.addEventListener('load', function() {
                                             $('#DeleteFolderModal').on('shown.bs.modal', function (event) {
                                                 var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
                                                 var title = button.data('title');//data-titleの値を取得
@@ -109,7 +110,7 @@
                                                 modal.find('.modal-body p').eq(0).text("本当に"+title+"を削除しますか?");
                                                 modal.find('form').attr('action',url);
                                             });
-                                        }
+                                        });
                                     </script>
 
                                 </td>
@@ -150,7 +151,44 @@
                             <td>
                                 <a class="btn btn-outline-light mr-1 btn-sm" href="{{ route('edit.word',['id' => $word->id]) }}">編集</a>
                                 
-                                <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#DeleteWordModal">削除</a>
+                                <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#DeleteWordModal" data-title="{{ $word->word }}" data-url="{{ route('delete.word',['id' => $word->id]) }}">削除</a>
+                                
+                                <!--Word削除Modal-->
+                                <div class="modal fade" id="DeleteWordModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                    <form role="form" class="form-inline" method="post" action="">
+                                    @csrf
+                                <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
+                                        <div class="modal-dialog">
+                                            <div class="modal-content bg-dark">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title text-white" id="myModalLabel">Word削除確認</h4>
+                                                </div>
+                                                <div class="modal-body text-white">
+                                                    <p></p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                                                    <button type="submit" class="btn btn-outline-danger">削除</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <script>
+                                    window.addEventListener('load', function() {
+                                        $('#DeleteWordModal').on('shown.bs.modal', function (event) {
+                                            var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
+                                            var title = button.data('title');//data-titleの値を取得
+                                            var url = button.data('url');//data-urlの値を取得
+                                            var modal = $(this);//モーダルを取得
+                                            //Ajaxの処理はここに
+                                            modal.find('.modal-body p').eq(0).text("本当に"+title+"を削除しますか?");
+                                            modal.find('form').attr('action',url);
+                                        });
+                                    });
+                                </script>
+
                             </td>
                         </tr>
                         @endforeach 
@@ -228,31 +266,6 @@
         </div>
     </div>
 </div>
-@endif
-
-<!--Word削除Modal-->
-<!--これがないと/homeの時（?id=1がない時）ER出る。idの値ないけど？って-->
-@if($current_folder != NULL)
-<!--これがないと$wordの値がない時ERが出る。つまり上のforeachの$wordがなくなるからここにもforeach書く-->
-    @foreach($words as $word)
-        <div class="modal fade" id="DeleteWordModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-            <!--modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ-->
-            <div class="modal-dialog">
-                <div class="modal-content bg-dark">
-                    <div class="modal-header">
-                        <h4 class="modal-title text-white" id="myModalLabel">Word削除確認</h4>
-                    </div>
-                    <div class="modal-body text-white">
-                        <label>本当にWordを削除しますか？</label>
-                    </div>
-                    <div class="modal-footer">
-                        <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
-                        <a class="btn btn-outline-danger" href="{{route('word.delete',['id' => $word->id])}}">削除</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach 
 @endif
 
 
