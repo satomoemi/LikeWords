@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-         // 「ログアウト→戻る→ログアウト」の419Tokenエラーの時、ログイン画面にリダイレクトする。
+        // 「ログアウト→戻る→ログアウト」の419Tokenエラーの時、ログイン画面にリダイレクトする。
         if ($exception instanceof TokenMismatchException) {
             return redirect('/login');
         }

@@ -23,6 +23,20 @@ class UserEditController extends Controller
         }        
     }
 
+    
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'birthday' => ['required'],
+            'gender' => ['required'],
+            //validateがかかった時['required', 'string', 'min:8', 'confirmed']がエラーメッセージに繋がる
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
+
     //ユーザー編集画面を表示
     public function UserEditForm(Request $request){
         $auth = Auth::user();
