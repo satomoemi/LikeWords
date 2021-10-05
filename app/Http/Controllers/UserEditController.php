@@ -50,9 +50,15 @@ class UserEditController extends Controller
     public function NameUpdate(Request $request){
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
-        //newはModelからインスタンス（レコード）を生成するメソッド
-        $UserEdit_Operation_DB = new UserEdit_Operation_DB(); 
-        return $UserEdit_Operation_DB->NameUpdate($request);
+        $user = User::find($request->id);
+        dd($user);
+        $user_form = $request->name;
+
+        
+        //一行でもできちゃう
+        $user->fill($user_form)->save();
+         
+        return redirect('user')->with('status', __('ユーザー名の変更に成功しました'));
     }   
 
     //登録メールアドレスを更新

@@ -28,7 +28,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                                <input type="hidden" name="UserId" value={{$auth["id"]}}><!--画面には表示しなくていいけど送りたい値があるとき-->
+                                <input type="hidden" name="UserId" value="{{ $auth->id }}"><!--画面には表示しなくていいけど送りたい値があるとき-->
                                 <button dusk="view-button" class="btn btn-outline-light">更新</button>
                             </div>
                         </form>
