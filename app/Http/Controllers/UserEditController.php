@@ -54,7 +54,7 @@ class UserEditController extends Controller
     public function EmailUpdate(Request $request){
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
-         //ユーザー側からリクエストされた、nameというカラムにrequiredというvalidateかける
+         //ユーザー側からリクエストされた、emailというカラムにrequiredというvalidateかける
         //ずっとModelでvalidateかけてるからvalidateされると思ってた。違くて、ここで指定してる
         $this->validate($request,['email' => 'required',]);
         $user = User::find(Auth::id());
@@ -69,7 +69,7 @@ class UserEditController extends Controller
     public function BirthdayUpdate(Request $request){
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
-         //ユーザー側からリクエストされた、nameというカラムにrequiredというvalidateかける
+         //ユーザー側からリクエストされた、birthdayというカラムにrequiredというvalidateかける
         //ずっとModelでvalidateかけてるからvalidateされると思ってた。違くて、ここで指定してる
         $this->validate($request,['birthday' => 'required',]);
         $user = User::find(Auth::id());
@@ -84,8 +84,15 @@ class UserEditController extends Controller
     public function GenderUpdate(Request $request){
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
-        $UserEdit_Operation_DB = new UserEdit_Operation_DB();
-        return $UserEdit_Operation_DB->GenderUpdate($request);
+         //ユーザー側からリクエストされた、genderというカラムにrequiredというvalidateかける
+        //ずっとModelでvalidateかけてるからvalidateされると思ってた。違くて、ここで指定してる
+        $this->validate($request,['gender' => 'required',]);
+        $user = User::find(Auth::id());
+
+        $user->gender = $request->all()['gender'];
+
+        $user->save();
+        return redirect('user')->with('flash_message','性別の変更に成功しました');
     }    
     
     //パスワードを変更するメソッド
