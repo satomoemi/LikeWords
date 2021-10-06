@@ -23,40 +23,29 @@ class UserEditController extends Controller
         }        
     }
 
-    
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'birthday' => ['required'],
-            'gender' => ['required'],
-            //validateがかかった時['required', 'string', 'min:8', 'confirmed']がエラーメッセージに繋がる
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
 
     //ユーザー編集画面を表示
     public function UserEditForm(Request $request){
-        $auth = Auth::user();
+        $user_edit = Auth::user();
         //同じクラス内のメンバ変数を使用する時$thisを使用
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
-        return view('user.UserEdit',['auth'=>$auth]);
+        return view('user.UserEdit',['user_edit'=>$user_edit]);
     }
     
     //登録ユーザー名を更新
     public function NameUpdate(Request $request){
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
-        $user = User::find($request->id);
-        dd($user);
-        $user_form = $request->name;
-
+        //ユーザー側からリクエストされた、nameというカラムにrequiredというvalidateかける
+        //ずっとModelでvalidateかけてるからvalidateされると思ってた。違くて、ここで指定してる
+        $this->validate($request,['name' => 'required',]);
+        $user = User::find(Auth::id());
+        // dd($user);
+        $user->name = $request->all()['name'];
         
         //一行でもできちゃう
-        $user->fill($user_form)->save();
+        $user->save();
          
         return redirect('user')->with('status', __('ユーザー名の変更に成功しました'));
     }   
