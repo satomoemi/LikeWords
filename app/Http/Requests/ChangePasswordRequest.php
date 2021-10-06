@@ -35,10 +35,10 @@ class ChangePasswordRequest extends FormRequest
 
     public function withValidator(Validator $validator) {
         $validator->after(function ($validator) {
-            $auth = Auth::user();
+            $user_edit = Auth::user();
             //現在のパスワードと新しいパスワードが合わなければエラー
-            if (!(Hash::check($this->input('CurrentPassword'), $auth->password))) {
-                $validator->errors()->add('CurrentPassword', __('Password does not match'));
+            if (!(Hash::check($this->input('CurrentPassword'), $user_edit->password))) {
+                $validator->errors()->add('CurrentPassword', __('現在のパスワードが間違っています'));
             }
             if(!$this->input('newPassword') === $this->input('newPassword_confirmation') ){
                 $validator->errors()->add('newPassword', __());

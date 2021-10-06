@@ -47,9 +47,9 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    
+
                                 </div>
-                                <input type="hidden" name="UserId" value={{$user_edit["id"]}}>
+                                <input type="hidden" name="UserId" value={{ $user_edit["id"] }}>
                                 <button dusk="view-button" class="btn btn-outline-light">更新</button>
                             </div>
                         </form>
@@ -143,7 +143,7 @@
 
                                 </div>
 
-                                <input type="hidden" name="UserId" value={{$user_edit["id"]}}>
+                                <input type="hidden" name="UserId" value="{{ $user_edit->id }}">
                                 <button dusk="view-button" class="btn btn-outline-light">更新</button>
 
 
