@@ -69,8 +69,15 @@ class UserEditController extends Controller
     public function BirthdayUpdate(Request $request){
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
-        $UserEdit_Operation_DB = new UserEdit_Operation_DB();
-        return $UserEdit_Operation_DB->BirthdayUpdate($request);
+         //ユーザー側からリクエストされた、nameというカラムにrequiredというvalidateかける
+        //ずっとModelでvalidateかけてるからvalidateされると思ってた。違くて、ここで指定してる
+        $this->validate($request,['birthday' => 'required',]);
+        $user = User::find(Auth::id());
+
+        $user->birthday = $request->all()['birthday'];
+
+        $user->save();
+        return redirect('user')->with('flash_message','生年月日の変更に成功しました');
     }    
 
     //登録性別を更新するメソッド
