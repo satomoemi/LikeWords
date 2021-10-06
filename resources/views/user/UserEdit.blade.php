@@ -22,11 +22,13 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right text-white">ユーザー名変更</label>
                                 <div class="col-md-6 col-9">
                                     <input id="name" name="name" value="{{ $user_edit->name }}" class="form-control @error('name') is-invalid @enderror">
+
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+
                                 </div>
                                 <input type="hidden" name="UserId" value="{{ $user_edit->id }}"><!--画面には表示しなくていいけど送りたい値があるとき-->
                                 <button dusk="view-button" class="btn btn-outline-light">更新</button>
@@ -39,11 +41,13 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right text-white">メール変更</label>
                                 <div class="col-md-6 col-9">
                                     <input id="email" name="email" value="{{ $user_edit->email }}" class="form-control @error('email') is-invalid @enderror">
+
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    
                                 </div>
                                 <input type="hidden" name="UserId" value={{$user_edit["id"]}}>
                                 <button dusk="view-button" class="btn btn-outline-light">更新</button>

@@ -37,25 +37,32 @@ class UserEditController extends Controller
     public function NameUpdate(Request $request){
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
+        
         //ユーザー側からリクエストされた、nameというカラムにrequiredというvalidateかける
         //ずっとModelでvalidateかけてるからvalidateされると思ってた。違くて、ここで指定してる
         $this->validate($request,['name' => 'required',]);
         $user = User::find(Auth::id());
-        // dd($user);
+
         $user->name = $request->all()['name'];
-        
-        //一行でもできちゃう
+
         $user->save();
          
-        return redirect('user')->with('status', __('ユーザー名の変更に成功しました'));
+        return redirect('user')->with('flash_message','ユーザー名の変更に成功しました');
     }   
 
     //登録メールアドレスを更新
     public function EmailUpdate(Request $request){
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
-        $UserEdit_Operation_DB = new UserEdit_Operation_DB();
-        return $UserEdit_Operation_DB->EmailUpdate($request);
+         //ユーザー側からリクエストされた、nameというカラムにrequiredというvalidateかける
+        //ずっとModelでvalidateかけてるからvalidateされると思ってた。違くて、ここで指定してる
+        $this->validate($request,['email' => 'required',]);
+        $user = User::find(Auth::id());
+
+        $user->email = $request->all()['email'];
+
+        $user->save();
+        return redirect('user')->with('flash_message', 'メールアドレスの変更に成功しました');
     }    
 
     //登録生年月日を更新

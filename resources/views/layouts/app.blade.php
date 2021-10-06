@@ -224,6 +224,27 @@
             </div>
         </nav>
 
+         
+        <!-- フラッシュメッセージ -->
+        @if (session('flash_message'))
+            <div class="flash_message bg-success text-center py-3 my-0">
+                {{ session('flash_message') }}
+            </div>
+        @endif
+
+        <script>
+            (function() {
+                'use strict';
+
+                // フラッシュメッセージのfadeout
+                $(function(){
+                    $('.flash_message').fadeOut(3000);
+                });
+
+            })();
+        </script>
+
+
         <main class="py-4 bg-dark">
             @yield('content')
         </main>
