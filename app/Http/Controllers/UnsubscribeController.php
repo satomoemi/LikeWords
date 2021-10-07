@@ -25,7 +25,7 @@ class UnsubscribeController extends Controller
         $this->validate($request, Unsubscribe::$rules);
 
         $validate = $request->validate([
-            'CurrentPassword'    => ['required',
+            'CurrentPassword' => ['required',
             function($attribute, $value, $fail){
                     //現在のパスワードと新しいパスワードが合わなければエラーを出力
                     if(!Hash::check($value, Auth::user()->password)){

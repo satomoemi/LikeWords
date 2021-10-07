@@ -107,6 +107,7 @@ class UserEditController extends Controller
                 //なんで$valueに現在のパスワードの値が入ってくるの？
                 //なんで$failがvalidateのメッセージになるの？
                 function ($attribute, $value, $fail) {
+                    //$value(現在のパスワード)とログインしてるパスワードが一致しなかったら
                     if(!(Hash::check($value, Auth::user()->password))) {
                         return $fail('現在のパスワードを正しく入力してください');
                     }
@@ -118,16 +119,25 @@ class UserEditController extends Controller
             //新規パスワードと合っていればいいからvalidateいらない
             // 'reNewPassword' => ['string', 'min:8', 'confirmed',]
         ]);
+        
         $user = User::find(Auth::id());
         
         $user->password = Hash::make($request->NewPassword);
         
+        //NewPasswordとreNewPasswordが一致したら
         if ($request->NewPassword === $request->reNewPassword) {
             $user->save();
+            return redirect('user')->with('flash_message','パスワードの変更に成功しました');
         }else {
-            return redirect('user')->with('flash_message','新規パスワードと合っていません');
+            //reNewPasswordにrequiredと関数使って新規パスワードと合っていませんというvalidateかける
+            $validate = $request->validate([
+                'reNewPassword' => ['required',
+                    function($attribute, $value, $fail){
+                       return $fail('新規パスワードと合っていません');
+                    }
+                ],
+            ]);
         }
 
-        return redirect('user')->with('flash_message','パスワードの変更に成功しました');
     }
 }
