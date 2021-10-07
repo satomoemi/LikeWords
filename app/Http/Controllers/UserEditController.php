@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\UpdateEmailRequest;
@@ -96,11 +96,38 @@ class UserEditController extends Controller
     }    
     
     //パスワードを変更するメソッド
-    public function PasswordChange(ChangePasswordRequest $request){
+    public function PasswordChange(Request $request){
         //private function checkLogin()を擬似変数使って呼び出してる
         $this->checkLogin();
-        $user = Auth::user();
-        $UserEdit_Operation_DB = new UserEdit_Operation_DB();
-        return $UserEdit_Operation_DB->PasswordChange($request,$user);
+
+        //ユーザー側からリクエストされた、passwordというカラムにrequiredというvalidateかける
+        //ずっとModelでvalidateかけてるからvalidateされると思ってた。違くて、ここで指定してる
+        $this->validate($request,[
+            'CurrentPassword' => ['required', 'string', 'min:8',
+                //なんで$valueに現在のパスワードの値が入ってくるの？
+                //なんで$failがvalidateのメッセージになるの？
+                function ($attribute, $value, $fail) {
+                    if(!(Hash::check($value, Auth::user()->password))) {
+                        return $fail('現在のパスワードを正しく入力してください');
+                    }
+                },
+            ],
+
+            'NewPassword' => ['required', 'string', 'min:8',],
+
+            //新規パスワードと合っていればいいからvalidateいらない
+            // 'reNewPassword' => ['string', 'min:8', 'confirmed',]
+        ]);
+        $user = User::find(Auth::id());
+        
+        $user->password = Hash::make($request->NewPassword);
+        
+        if ($request->NewPassword === $request->reNewPassword) {
+            $user->save();
+        }else {
+            return redirect('user')->with('flash_message','新規パスワードと合っていません');
+        }
+
+        return redirect('user')->with('flash_message','パスワードの変更に成功しました');
     }
 }

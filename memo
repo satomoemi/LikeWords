@@ -72,3 +72,12 @@
         $UserEdit_Operation_DB = new UserEdit_Operation_DB(); 
         return $UserEdit_Operation_DB->NameUpdate($request);
     }   
+
+    //パスワードを変更するメソッド
+    public function PasswordChange(ChangePasswordRequest $request){
+        //private function checkLogin()を擬似変数使って呼び出してる
+        $this->checkLogin();
+        $user = Auth::user();
+        $UserEdit_Operation_DB = new UserEdit_Operation_DB();
+        return $UserEdit_Operation_DB->PasswordChange($request,$user);
+    }

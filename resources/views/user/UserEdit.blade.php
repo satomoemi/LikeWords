@@ -105,7 +105,8 @@
                             <div class="form-group row">
                                 <label for="password"  class="col-md-4 col-form-label text-md-right text-white">現在のパスワードを入力</label>
                                 <div class="col-md-6 col-9">
-                                    <input  type="password" id="password"  name="CurrentPassword" class="form-control @error('CurrentPassword') is-invalid @enderror">
+                                    <!--name="CurrentPassword"として入力された値を渡してる-->
+                                    <input type="password" id="password"  name="CurrentPassword" class="form-control @error('CurrentPassword') is-invalid @enderror">
 
                                     @error('CurrentPassword')
                                         <span class="invalid-feedback" role="alert">
@@ -119,9 +120,10 @@
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right text-white">新規パスワードを入力</label>
                                 <div class="col-md-6 col-9">
-                                    <input type="password" id="password" name="NewPassword" class="form-control @error('NewPassword') is-invalid @enderror" name="newPassword">
+                                    <!--name="NewPassword"として入力された値を渡してる-->
+                                    <input type="password" id="password" name="NewPassword" class="form-control @error('NewPassword') is-invalid @enderror">
 
-                                    @error('password')
+                                    @error('NewPassword')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -129,20 +131,21 @@
 
                                 </div>
                             </div>
-
+                            
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right text-white">新規パスワードを再入力</label>
                                 <div class="col-md-6 col-9">
-                                    <input  type="password" id="password" name="NewPassword_confirmation" class="form-control @error('re-NewPassword') is-invalid @enderror" name="newPassword">
-
-                                    @error('newPassword')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                    <!--name="reNewPassword"として入力された値を渡してる-->
+                                    <input  type="password" id="password" name="reNewPassword" class="form-control @error('reNewPassword') is-invalid @enderror">
+                                    
+                                    @error('reNewPassword')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
-
+                                    
                                 </div>
-
+                                
                                 <input type="hidden" name="UserId" value="{{ $user_edit->id }}">
                                 <button dusk="view-button" class="btn btn-outline-light">更新</button>
 
