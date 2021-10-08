@@ -237,6 +237,7 @@
                 'use strict';
 
                 // フラッシュメッセージのfadeout
+                //効いてない？
                 $(function(){
                     $('.flash_message').fadeOut(3000);
                 });

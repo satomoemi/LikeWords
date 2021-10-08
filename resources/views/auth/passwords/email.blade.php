@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-white"><h3>{{ __('messages.Reset Password') }}</h3></div>
+                <div class="card-header bg-white">
+                    <h3>{{ __('messages.Reset Password') }}</h3>
+                    <p>新しいパスワードを設定するためにメールアドレスを入力してください</p>
+                </div>
 
                 <div class="card-body bg-dark">
                     @if (session('status'))

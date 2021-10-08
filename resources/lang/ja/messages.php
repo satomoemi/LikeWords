@@ -12,7 +12,7 @@ return [
     'Confirm Password' => 'パスワード再確認',
     'Remember Me' => 'ログインし続けたままにする',
     'Forgot Your Password?' => 'パスワード忘れた場合',
-    'Reset Password'=> 'パスワードリセット',
+    'Reset Password'=> 'パスワード変更',
     'Send Password Reset Link' => 'パスワード変更メール送信'
     
 

@@ -46,17 +46,17 @@ Route::group(['middleware' => 'auth'], function() {
 
 //通知時間更新、pushid登録削除
 Route::group(['middleware' => 'auth'], function() {
-Route::get('/push/time', 'PushController@push')->name('push.time');
-Route::post('/push/time','PushController@PushTime');
-Route::post('/push/subsc','PushController@PushID');
-Route::get('/push/delete', 'PushController@DeletePushID');
+    Route::get('/push/time', 'PushController@push')->name('push.time');
+    Route::post('/push/time','PushController@PushTime');
+    Route::post('/push/subsc','PushController@PushID');
+    Route::get('/push/delete', 'PushController@DeletePushID');
 
 });
 
 //退会
 Route::group(['middleware' => 'auth'], function() {
-Route::get('/unsubsc', 'UnsubscribeController@UnsubscForm')->name('unsubsc');
-Route::post('/unsubsc','UnsubscribeController@delete');
+    Route::get('/unsubsc', 'UnsubscribeController@UnsubscForm')->name('unsubsc');
+    Route::post('/unsubsc','UnsubscribeController@delete');
 });
 
 //ユーザー編集
