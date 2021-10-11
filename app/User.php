@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+//実際に通知を送る処理を書くときには、実装した Notification class をインスタンス化して利用
 use App\Notifications\CustomResetPassword;
 
 class User extends Authenticatable

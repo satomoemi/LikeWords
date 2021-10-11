@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header bg-white">
                     <h3>{{ __('messages.Reset Password') }}</h3>
-                    <p>新しいパスワードを設定するためにメールアドレスを入力してください</p>
+                    <p>新しいパスワードを設定するリンクを送るため、登録しているメールアドレスを入力してください</p>
                 </div>
 
                 <div class="card-body bg-dark">

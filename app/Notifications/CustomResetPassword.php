@@ -17,6 +17,7 @@ class CustomResetPassword extends Notification
      *
      * @return void
      */
+    // コンストラクタで通知内容を生成する情報源を受け取る
     public function __construct($token)
     {
         $this->token = $token;
@@ -28,6 +29,7 @@ class CustomResetPassword extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
+    // via() メソッドで通知方法を選択
     public function via($notifiable)
     {
         return ['mail'];
@@ -39,6 +41,7 @@ class CustomResetPassword extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
+    // 通知方法に応じた通知内容を返すメソッドを実装する.slackならtoSlack()
     public function toMail($notifiable)
     {
         return (new MailMessage)
