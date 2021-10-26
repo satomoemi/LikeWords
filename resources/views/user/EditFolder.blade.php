@@ -13,7 +13,7 @@
 
             <div class="card-body bg-dark">
               <!--'id' => $folder->id これがないと更新する内容を送れずnullになってしまうidを送ってcontrollでmodelとfindしてレコードを出してる-->
-              <form method="post" action="{{ route('edit.folder',['id' => $folder->id, 'user_id' => $user]) }}" >
+              <form method="post" action="{{ route('update.folder',['id' => $folder->id, 'user_id' => $user]) }}" >
               @csrf
 
                   <div class="form-group row">

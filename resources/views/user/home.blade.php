@@ -66,7 +66,57 @@
                                 </th>
                                 <td></td>
                                 <td>
-                                    <a class="btn btn-outline-light mr-1 btn-sm " href="{{ route('edit.folder',['id' => $folder->id])}}">編集</a>
+                                    <!-- <a class="btn btn-outline-light mr-1 btn-sm " href="{{ route('edit.folder',['id' => $folder->id, 'user_id' => $user]) }}">編集</a> -->
+                                    <a class="btn btn-outline-light mr-1 btn-sm" data-toggle="modal" data-target="#EditFolderModal" data-title="{{ $folder->title }}" data-url="{{ route('update.folder',['id' => $folder->id, 'user_id' => $user]) }}" >編集</a>
+
+
+                                    <!--Folder編集Modal-->
+                                    <div class="modal fade" id="EditFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                        <form role="form" method="post"  class="form-inline" action="">
+                                        @csrf
+                                        <!-- modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ --> 
+                                            <div class="modal-dialog">
+                                                <div class="modal-content bg-dark">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title text-white" id="myModalLabel">Folder編集</h4>
+                                                    </div>
+                                                    <div class="modal-body text-white">
+                                                            <div class="form-group row">
+                                                                <label for="title" class="text-white">フォルダ名</label>
+                                                                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="">
+                                                                @error('title')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                                @enderror
+                                                            </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                                                        <button type="submit" class="btn btn-outline-light">更新</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!--modalにtitleとURLのデータを渡すにはscriptが必要-->
+                                    <!--必ずmodalのdivの後に実装-->
+                                    <script>
+                                        window.addEventListener('load', function() {
+                                            $('#EditFolderModal').on('shown.bs.modal', function (event) {
+                                                var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
+                                                var title = button.data('title');//data-titleの値を取得
+                                                var url = button.data('url');//data-urlの値を取得
+                                                var modal = $(this);//モーダルを取得
+                                                //Ajaxの処理はここに
+                                                modal.find('input').attr('value',title);
+                                                modal.find('form').attr('action',url);
+                                            });
+                                        });
+                                    </script>
+                                
+                                
 
                                     <!--「data-*」でmodalやscriptにデータを渡せる-->
                                     <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#DeleteFolderModal" data-title="{{ $folder->title }}" data-url="{{ route('delete.folder',['id' => $folder->id]) }}" >削除</a>

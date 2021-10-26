@@ -137,6 +137,7 @@ class HomeController extends Controller
     {
         $this->validate($request, Folder::$rules);
         $folder = Folder::find($request->id);
+        // dd($folder);
         $folder_form = $request->all();
 
         unset($folder_form['_token']);
@@ -151,7 +152,6 @@ class HomeController extends Controller
   {
       // ユーザーからきたリクエストから該当するFolderModelを取得
       $folder = Folder::find($request->id);
-    //   dd($folder);
 
       // そのレコードを削除
       $folder->delete();

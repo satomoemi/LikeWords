@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/home/createfolder', 'HomeController@CreateFolder')->name('create.folder');
     Route::post('/home/folder/delete', 'HomeController@DeleteFolder')->name('delete.folder');
     Route::get('/home/folder/edit', 'HomeController@EditFolder')->name('edit.folder');
-    Route::post('/home/folder/edit', 'HomeController@UpdateFolder');
+    Route::post('/home/folder/edit', 'HomeController@UpdateFolder')->name('update.folder');
 
     //ワード系
     Route::get('/home/createword', 'WordController@CreateWordForm')->name('create.word');

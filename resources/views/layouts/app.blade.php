@@ -232,19 +232,6 @@
             </div>
         @endif
 
-        <script>
-            (function() {
-                'use strict';
-
-                // フラッシュメッセージのfadeout
-                //効いてない？
-                $(function(){
-                    $('.flash_message').fadeOut(3000);
-                });
-
-            })();
-        </script>
-
 
         <main class="py-4 bg-dark">
             @yield('content')
