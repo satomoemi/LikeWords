@@ -225,7 +225,7 @@
         </nav>
 
          
-        <!-- フラッシュメッセージ -->
+        <!-- ユーザー編集で使われるフラッシュメッセージ -->
         @if (session('flash_message'))
             <div class="flash_message alert-success text-center py-3 my-0">
                 {{ session('flash_message') }}

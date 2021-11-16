@@ -29,18 +29,18 @@ Route::get('/', 'HomeController@top');
 Route::group(['middleware' => 'auth'], function() {
     //フォルダ系
     Route::get('/home', 'HomeController@home')->name('home');
-    Route::get('/home/createfolder', 'HomeController@CreateFolderForm')->name('create.folder');
+    // Route::get('/home/createfolder', 'HomeController@CreateFolderForm')->name('create.folder');
     Route::post('/home/createfolder', 'HomeController@CreateFolder')->name('create.folder');
     Route::post('/home/folder/delete', 'HomeController@DeleteFolder')->name('delete.folder');
     Route::get('/home/folder/edit', 'HomeController@EditFolder')->name('edit.folder');
-    Route::post('/home/folder/edit', 'HomeController@UpdateFolder')->name('update.folder');
+    Route::post('/home/folder/update', 'HomeController@UpdateFolder')->name('update.folder');
 
     //ワード系
     Route::get('/home/createword', 'WordController@CreateWordForm')->name('create.word');
     Route::post('/home/createword', 'WordController@CreateWord');
     Route::post('/home/word/delete', 'WordController@DeleteWord')->name('delete.word');
     Route::get('/home/word/edit', 'WordController@EditWord')->name('edit.word');
-    Route::post('/home/word/edit', 'WordController@UpdateWord');
+    Route::post('/home/word/update', 'WordController@UpdateWord')->name('update.word');
 
 });
 

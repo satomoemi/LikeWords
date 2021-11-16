@@ -135,9 +135,9 @@ class HomeController extends Controller
     //フォルダ編集post
     public function UpdateFolder(Request $request)
     {
+        // dd($request);
         $this->validate($request, Folder::$rules);
         $folder = Folder::find($request->id);
-        // dd($folder);
         $folder_form = $request->all();
 
         unset($folder_form['_token']);

@@ -66,13 +66,12 @@
                                 </th>
                                 <td></td>
                                 <td>
-                                    <!-- <a class="btn btn-outline-light mr-1 btn-sm " href="{{ route('edit.folder',['id' => $folder->id, 'user_id' => $user]) }}">編集</a> -->
-                                    <a class="btn btn-outline-light mr-1 btn-sm" data-toggle="modal" data-target="#EditFolderModal" data-title="{{ $folder->title }}" data-url="{{ route('update.folder',['id' => $folder->id, 'user_id' => $user]) }}" >編集</a>
-
+                                    
+                                    <a class="btn btn-outline-light mr-1 btn-sm" data-toggle="modal" data-target="#EditFolderModal"  data-url="{{ route('update.folder',['id' => $folder->id, 'user_id' => $user]) }}" >編集</a>
 
                                     <!--Folder編集Modal-->
                                     <div class="modal fade" id="EditFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                                        <form role="form" method="post"  class="form-inline" action="">
+                                        <form role="form" method="post" action="">
                                         @csrf
                                         <!-- modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ --> 
                                             <div class="modal-dialog">
@@ -81,15 +80,15 @@
                                                         <h4 class="modal-title text-white" id="myModalLabel">Folder編集</h4>
                                                     </div>
                                                     <div class="modal-body text-white">
-                                                            <div class="form-group row">
-                                                                <label for="title" class="text-white">フォルダ名</label>
-                                                                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="">
-                                                                @error('title')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                                @enderror
-                                                            </div>
+                                                        <label for="title" class="text-white">フォルダ名</label>
+                                                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}} {{ $folder->title }} ">
+
+                                                        @error('title')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                        @enderror
+
                                                     </div>
                                                     <div class="modal-footer">
                                                         <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
@@ -102,15 +101,17 @@
 
                                     <!--modalにtitleとURLのデータを渡すにはscriptが必要-->
                                     <!--必ずmodalのdivの後に実装-->
-                                    <script>
+                                    <script type="application/javascript">
                                         window.addEventListener('load', function() {
                                             $('#EditFolderModal').on('shown.bs.modal', function (event) {
                                                 var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
-                                                var title = button.data('title');//data-titleの値を取得
                                                 var url = button.data('url');//data-urlの値を取得
                                                 var modal = $(this);//モーダルを取得
+
                                                 //Ajaxの処理はここに
-                                                modal.find('input').attr('value',title);
+                                                //valueは入力ボックスの場合は現在の値（変更後の値）を取得するから、変更前の値（もともとのvalue属性・初期値）を取得するには、defaultValueプロパティを使うらしい
+                                                //でもdefaultValueを使っても編集はできるが、値が表示されないからvalueに直接title記載した
+                                                // modal.find('input').attr('defaultValue',title);
                                                 modal.find('form').attr('action',url);
                                             });
                                         });
@@ -150,7 +151,7 @@
 
                                     <!--modalにtitleとURLのデータを渡すにはscriptが必要-->
                                     <!--必ずmodalのdivの後に実装-->
-                                    <script>
+                                    <script type="application/javascript">
                                         window.addEventListener('load', function() {
                                             $('#DeleteFolderModal').on('shown.bs.modal', function (event) {
                                                 var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
@@ -201,7 +202,55 @@
                             </th>
                             <td></td>
                             <td>
-                                <a class="btn btn-outline-light mr-1 btn-sm" href="{{ route('edit.word',['id' => $word->id]) }}">編集</a>
+                                <a class="btn btn-outline-light mr-1 btn-sm" data-toggle="modal" data-target="#EditWordModal"  data-url="{{ route('update.word',['folder_id' => $word->folder_id, 'id' => $word->id]) }}">編集</a>
+
+                                <!--Word編集Modal-->
+                                <div class="modal fade" id="EditWordModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                        <form role="form" method="post" action="">
+                                        @csrf
+                                        <!-- modal-dialog：閉じるまで親ウィンドウの操作ができなくなるダイアログ --> 
+                                            <div class="modal-dialog">
+                                                <div class="modal-content bg-dark">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title text-white" id="myModalLabel">Word編集</h4>
+                                                    </div>
+                                                    <div class="modal-body text-white">
+                                                        <label for="title" class="text-white">フォルダ名</label>
+                                                        <input type="text" class="form-control @error('word') is-invalid @enderror" name="word" value="{{old('word')}} {{ $word->word }} ">
+
+                                                        @error('word')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                        @enderror
+
+                                                        <label for="memo" class="text-white">メモ（入力は必須ではありません）</label>
+                                                        <textarea name="memo" class="form-control" value="{{ old('memo') }}">{{ $word->memo }}</textarea>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
+                                                        <button type="submit" class="btn btn-outline-light">更新</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!--modalにtitleとURLのデータを渡すにはscriptが必要-->
+                                    <!--必ずmodalのdivの後に実装-->
+                                    <script type="application/javascript">
+                                        window.addEventListener('load', function() {
+                                            $('#EditWordModal').on('shown.bs.modal', function (event) {
+                                                var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
+                                                var url = button.data('url');//data-urlの値を取得
+                                                var modal = $(this);//モーダルを取得
+
+                                                //Ajaxの処理はここに
+                                                modal.find('form').attr('action',url);
+                                            });
+                                        });
+                                    </script>
+
                                 
                                 <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#DeleteWordModal" data-title="{{ $word->word }}" data-url="{{ route('delete.word',['id' => $word->id]) }}">削除</a>
                                 
@@ -227,7 +276,7 @@
                                     </form>
                                 </div>
                                 
-                                <script>
+                                <script type="application/javascript">
                                     window.addEventListener('load', function() {
                                         $('#DeleteWordModal').on('shown.bs.modal', function (event) {
                                             var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
@@ -307,7 +356,7 @@
                     </span>
                     @enderror
 
-                    <label for="memo" class="text-white py-1">メモ</label>
+                    <label for="memo" class="text-white py-1">メモ （入力は必須ではありません）</label>
                     <textarea name="memo" class="form-control" >{{ old('memo') }}</textarea>
             </div>
                     <div class="modal-footer">
