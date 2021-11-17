@@ -44,15 +44,15 @@ class CustomResetPassword extends Notification
     // 通知方法に応じた通知内容を返すメソッドを実装する.slackならtoSlack()
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    // ->line('The introduction to the notification.')
-                    // ->action('Notification Action', url('/'))
-                    // ->line('Thank you for using our application!');
-                    ->from('LikeWords@example.com', config('app.name'))
-                    ->subject('パスワード再設定')
-                    ->line('下のボタンをクリックしてパスワードを再設定してください。')
-                    ->action('パスワード再設定', url(config('app.url').route('password.reset', $this->token, false)))
-                    ->line('もし心当たりがない場合は、本メッセージは破棄してください。');
+    return (new MailMessage)
+            // ->line('The introduction to the notification.')
+            // ->action('Notification Action', url('/'))
+            // ->line('Thank you for using our application!');
+            ->from('LikeWords@example.com', config('app.name'))
+            ->subject('パスワード再設定')
+            ->line('下のボタンをクリックしてパスワードを再設定してください。')
+            ->action('パスワード再設定', url(config('app.url').route('password.reset', $this->token, false)))
+            ->line('もし心当たりがない場合は、本メッセージは破棄してください。');
     }
 
     /**

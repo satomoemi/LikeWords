@@ -67,7 +67,7 @@
                                 <td></td>
                                 <td>
                                     
-                                    <a class="btn btn-outline-light mr-1 btn-sm" data-toggle="modal" data-target="#EditFolderModal"  data-url="{{ route('update.folder',['id' => $folder->id, 'user_id' => $user]) }}" >編集</a>
+                                    <a class="btn btn-outline-light mr-1 btn-sm" data-toggle="modal" data-target="#EditFolderModal" data-title="{{ $folder->title }}"  data-url="{{ route('update.folder',['id' => $folder->id, 'user_id' => $user]) }}" >編集</a>
 
                                     <!--Folder編集Modal-->
                                     <div class="modal fade" id="EditFolderModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -81,7 +81,7 @@
                                                     </div>
                                                     <div class="modal-body text-white">
                                                         <label for="title" class="text-white">フォルダ名</label>
-                                                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}} {{ $folder->title }} ">
+                                                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="" >
 
                                                         @error('title')
                                                         <span class="invalid-feedback" role="alert">
@@ -105,13 +105,15 @@
                                         window.addEventListener('load', function() {
                                             $('#EditFolderModal').on('shown.bs.modal', function (event) {
                                                 var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
+                                                var title = button.data('title');
                                                 var url = button.data('url');//data-urlの値を取得
                                                 var modal = $(this);//モーダルを取得
 
                                                 //Ajaxの処理はここに
                                                 //valueは入力ボックスの場合は現在の値（変更後の値）を取得するから、変更前の値（もともとのvalue属性・初期値）を取得するには、defaultValueプロパティを使うらしい
                                                 //でもdefaultValueを使っても編集はできるが、値が表示されないからvalueに直接title記載した
-                                                // modal.find('input').attr('defaultValue',title);
+                                                modal.find('input').attr('defaultValue',title);
+                                                // modal.find('input').val(title);
                                                 modal.find('form').attr('action',url);
                                             });
                                         });
@@ -202,7 +204,7 @@
                             </th>
                             <td></td>
                             <td>
-                                <a class="btn btn-outline-light mr-1 btn-sm" data-toggle="modal" data-target="#EditWordModal"  data-url="{{ route('update.word',['folder_id' => $word->folder_id, 'id' => $word->id]) }}">編集</a>
+                                <a class="btn btn-outline-light mr-1 btn-sm" data-toggle="modal" data-target="#EditWordModal" data-word="{{ $word->word }}" data-memo="{{ $word->memo }}"data-url="{{ route('update.word',['folder_id' => $word->folder_id, 'id' => $word->id]) }}">編集</a>
 
                                 <!--Word編集Modal-->
                                 <div class="modal fade" id="EditWordModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -216,7 +218,7 @@
                                                     </div>
                                                     <div class="modal-body text-white">
                                                         <label for="title" class="text-white">フォルダ名</label>
-                                                        <input type="text" class="form-control @error('word') is-invalid @enderror" name="word" value="{{old('word')}} {{ $word->word }} ">
+                                                        <input type="text" class="form-control @error('word') is-invalid @enderror" name="word" value="">
 
                                                         @error('word')
                                                         <span class="invalid-feedback" role="alert">
@@ -225,7 +227,7 @@
                                                         @enderror
 
                                                         <label for="memo" class="text-white">メモ（入力は必須ではありません）</label>
-                                                        <textarea name="memo" class="form-control" value="{{ old('memo') }}">{{ $word->memo }}</textarea>
+                                                        <textarea name="memo" class="form-control" value="{{ old('memo') }}"></textarea>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <a class="btn btn-outline-light" data-dismiss="modal">閉じる</a>
@@ -242,10 +244,14 @@
                                         window.addEventListener('load', function() {
                                             $('#EditWordModal').on('shown.bs.modal', function (event) {
                                                 var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
+                                                var word = button.data('word');
+                                                var memo = button.data('memo');
                                                 var url = button.data('url');//data-urlの値を取得
                                                 var modal = $(this);//モーダルを取得
 
                                                 //Ajaxの処理はここに
+                                                modal.find('input').attr('defaultValue',word);
+                                                modal.find('.modal-body textarea').text(memo);
                                                 modal.find('form').attr('action',url);
                                             });
                                         });
