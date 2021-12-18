@@ -17,7 +17,7 @@
                         <button type="submit" class="btn btn-outline-light"> 
                         <i class="fas fa-search" style="color: white;"></i>
                         検索 
-                    </buttton>
+                        </buttton>
                     </div>
                 </div>
             </form>
@@ -101,6 +101,7 @@
 
                                     <!--modalにtitleとURLのデータを渡すにはscriptが必要-->
                                     <!--必ずmodalのdivの後に実装-->
+                                    <!--type="application/javascript"がないと検証上でエラーが起きる-->
                                     <script type="application/javascript">
                                         window.addEventListener('load', function() {
                                             $('#EditFolderModal').on('shown.bs.modal', function (event) {
